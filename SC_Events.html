@@ -1,0 +1,3078 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KJZY Sonoma County Community Calendar</title>
+<style>
+:root {
+  /* Inspired by the current KJZY / Jazzy 93.7 website and banner */
+  --kjzy-purple: #5b2a86;
+  --kjzy-purple-dark: #3f175f;
+  --kjzy-purple-light: #7a45a5;
+  --kjzy-yellow: #ffd21a;
+  --kjzy-gold: #f4b900;
+  --kjzy-black: #111111;
+  --kjzy-charcoal: #292929;
+  --kjzy-white: #ffffff;
+  --kjzy-offwhite: #f6f4f8;
+  --kjzy-line: #d9d0df;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--kjzy-charcoal);
+  background:
+    linear-gradient(180deg, var(--kjzy-purple-dark) 0, var(--kjzy-purple) 190px, var(--kjzy-offwhite) 190px);
+  line-height: 1.5;
+}
+
+main {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 34px;
+  padding: 28px 22px 30px;
+  background: var(--kjzy-black);
+  color: var(--kjzy-white);
+  border: 4px solid var(--kjzy-yellow);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.22);
+}
+
+.kjzy-brand {
+  color: var(--kjzy-yellow);
+  font-size: .95rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+h1 {
+  color: var(--kjzy-white);
+  margin: 0 0 7px;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  text-shadow: 0 2px 0 rgba(0,0,0,.4);
+}
+
+.subtitle {
+  color: #ece6f2;
+  font-size: 1.02rem;
+}
+
+.tip {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 7px 13px;
+  border-radius: 999px;
+  background: var(--kjzy-yellow);
+  color: var(--kjzy-black);
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.year {
+  margin: 42px 0 13px;
+  color: var(--kjzy-purple-dark);
+  border-bottom: 4px solid var(--kjzy-yellow);
+  padding-bottom: 7px;
+  font-size: 1.8rem;
+}
+
+.month {
+  margin: 27px 0 0;
+  padding: 11px 15px;
+  color: var(--kjzy-white);
+  background: linear-gradient(90deg, var(--kjzy-purple-dark), var(--kjzy-purple-light));
+  border-left: 7px solid var(--kjzy-yellow);
+  border-radius: 7px 7px 0 0;
+  letter-spacing: .02em;
+}
+
+.event {
+  display: grid;
+  grid-template-columns: 95px minmax(0,1fr);
+  gap: 17px;
+  padding: 15px;
+  background: var(--kjzy-white);
+  border-bottom: 1px solid var(--kjzy-line);
+  border-left: 1px solid var(--kjzy-line);
+  border-right: 1px solid var(--kjzy-line);
+}
+
+.event:nth-of-type(even) {
+  background: #fbf9fd;
+}
+
+.date {
+  font-weight: 800;
+  color: var(--kjzy-purple-dark);
+  font-size: 1rem;
+}
+
+.event-name a {
+  color: var(--kjzy-purple);
+  font-weight: 800;
+  font-size: 1.06rem;
+  text-decoration: none;
+}
+
+.event-name a:hover,
+.event-name a:focus {
+  color: var(--kjzy-black);
+  text-decoration: underline;
+  text-decoration-color: var(--kjzy-yellow);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+
+.location {
+  margin-top: 3px;
+  color: #66616a;
+}
+
+.notice {
+  margin-top: 38px;
+  padding: 17px 18px;
+  border-left: 7px solid var(--kjzy-yellow);
+  background: var(--kjzy-black);
+  color: var(--kjzy-white);
+  border-radius: 5px;
+}
+
+.notice strong {
+  color: var(--kjzy-yellow);
+}
+
+footer {
+  text-align: center;
+  margin-top: 28px;
+  color: #6e6673;
+  font-size: .85rem;
+}
+
+@media (max-width: 600px) {
+  main { padding-left: 12px; padding-right: 12px; }
+  header { padding: 22px 14px 24px; }
+  .event {
+    grid-template-columns: 70px minmax(0,1fr);
+    gap: 10px;
+    padding: 13px 10px;
+  }
+}
+
+.source-key{
+  margin: -15px auto 26px;
+  text-align:center;
+  color:#625b67;
+  font-size:.88rem;
+}
+.calendar-count{
+  margin-top:8px;
+  color:#ece6f2;
+  font-size:.92rem;
+}
+
+.source-links {
+  margin: 12px auto 26px;
+  text-align: center;
+  font-size: .9rem;
+  color: #625b67;
+}
+.source-links a {
+  color: var(--kjzy-purple);
+  font-weight: 700;
+  text-decoration: none;
+}
+.source-links a:hover { text-decoration: underline; }
+
+.sources-panel {
+  margin-top: 34px;
+  padding: 20px;
+  background: #fff;
+  border: 2px solid var(--kjzy-purple);
+  border-radius: 9px;
+}
+.sources-panel h2 {
+  margin: 0 0 12px;
+  color: var(--kjzy-purple-dark);
+}
+.sources-panel ul {
+  margin: 0;
+  padding-left: 22px;
+}
+.sources-panel li { margin: 5px 0; }
+.sources-panel a {
+  color: var(--kjzy-purple);
+  font-weight: 700;
+  text-decoration: none;
+}
+.sources-panel a:hover { text-decoration: underline; }
+
+.search-panel {
+  margin: 0 auto 26px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 2px solid var(--kjzy-purple);
+  border-radius: 9px;
+  box-shadow: 0 5px 16px rgba(0,0,0,.08);
+}
+.search-panel h2 {
+  margin: 0 0 10px;
+  color: var(--kjzy-purple-dark);
+  text-align: center;
+}
+.search-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.search-row input {
+  flex: 1 1 420px;
+  max-width: 650px;
+  min-width: 220px;
+  padding: 11px 12px;
+  border: 2px solid #bcaec8;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.search-row button {
+  padding: 11px 18px;
+  border-radius: 6px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.search-btn {
+  background: var(--kjzy-yellow);
+  color: var(--kjzy-black);
+  border: 2px solid var(--kjzy-black);
+}
+.clear-btn {
+  background: var(--kjzy-purple);
+  color: #fff;
+  border: 2px solid var(--kjzy-purple-dark);
+}
+.search-status {
+  margin-top: 10px;
+  text-align: center;
+  color: #625b67;
+  font-size: .92rem;
+}
+.no-results {
+  display: none;
+  margin: 20px 0;
+  padding: 18px;
+  text-align: center;
+  background: #fff3cd;
+  border: 1px solid #e2c66b;
+  border-radius: 7px;
+  font-weight: 700;
+}
+
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="kjzy-brand">Jazzy 93.7 • The Greatest Songs of All Time</div>
+<h1>Sonoma County Events</h1>
+<div class="subtitle">KJZY Community Calendar • Sonoma County, California</div>
+<div class="calendar-count">377 upcoming unique event listings • Updated September 25, 2026</div>
+<div class="tip">Click any event name to open its event or organizer page.</div>
+</header>
+
+<section aria-label="Search calendar" class="search-panel">
+<h2>Search Events</h2>
+<div class="search-row">
+<input aria-label="Search events by keyword" id="eventSearch" placeholder="Search by event, artist, venue, city, or keyword" type="search"/>
+<button class="search-btn" id="searchButton" type="button">Search</button>
+<button class="clear-btn" id="clearButton" type="button">Clear</button>
+</div>
+<div class="search-status" id="searchStatus">Showing all events.</div>
+</section>
+<div class="no-results" id="noResults">No events matched your search.</div>
+<h2 class="year">2026</h2>
+<h3 class="month">September</h3>
+<div class="event">
+<div class="date">1–Dec 31</div>
+<div>
+<div class="event-name"><a href="https://www.townofwindsor.ca.gov/319/Windsor-Senior-Recreation-Center" rel="noopener noreferrer" target="_blank">Windsor Senior Recreation Center</a></div>
+<div class="location">9231 Foxwood Drive — Windsor</div>
+</div>
+</div>
+<div class="event">
+<div class="date">11–25</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/activeagingwellness" rel="noopener noreferrer" target="_blank">Active Aging: Wellness</a></div>
+<div class="location">Vintage House — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">23–25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomafamilymeal.org" rel="noopener noreferrer" target="_blank">Culinary Student Lunch Pop-Up</a></div>
+<div class="location">Sonoma Family Meal Community Kitchen — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24–27</div>
+<div>
+<div class="event-name"><a href="https://valleyofthemoonvintagefestival.org/" rel="noopener noreferrer" target="_blank">Valley of the Moon Vintage Festival</a></div>
+<div class="location">Historic Sonoma Plaza — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Anthony Presti</a></div>
+<div class="location">HopMonk Tavern — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/bilingual-fall-birding-at-colgan-creek/" rel="noopener noreferrer" target="_blank">Bilingual Fall Birding at Colgan Creek</a></div>
+<div class="location">Colgan Creek Restoration Area — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/brian-francis-baudoin-at-moonlight-brewing-company-3/" rel="noopener noreferrer" target="_blank">Brian Francis Baudoin at Moonlight Brewing Company</a></div>
+<div class="location">Moonlight Brewing Company — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/bye-bye-birdie-by-cinnabar-theater-at-ssu-6/" rel="noopener noreferrer" target="_blank">Bye Bye Birdie by Cinnabar Theater at SSU</a></div>
+<div class="location">Warren Theater, Sonoma State University — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Candlelight: Coldplay vs. Imagine Dragons</a></div>
+<div class="location">Sebastiani Theatre — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Candlelight: Queen vs. ABBA</a></div>
+<div class="location">Sebastiani Theatre — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/forest-jam-at-brewsters/" rel="noopener noreferrer" target="_blank">Forest Jam at Brewsters</a></div>
+<div class="location">Brewsters Beer Garden — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Friday Market Music</a></div>
+<div class="location">Arnold Field Parking Lot — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Friday Music/Poetry Open Mic Happy Hour</a></div>
+<div class="location">Barrel Proof Lounge — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomamediagroup.com/event/full-moon-hike-4/" rel="noopener noreferrer" target="_blank">Full Moon Hike</a></div>
+<div class="location">Sugarloaf Ridge State Park — Kenwood</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/calendar/" rel="noopener noreferrer" target="_blank">FUNstruction at The Children’s Museum</a></div>
+<div class="location">Children’s Museum of Sonoma County — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/haunted-wine-tour-tasting/2026-09-25/" rel="noopener noreferrer" target="_blank">Haunted Wine Tour &amp; Tasting</a></div>
+<div class="location">Buena Vista Winery — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25–27</div>
+<div>
+<div class="event-name"><a href="https://healdsburgfilm.com/2026-schedule-tickets/" rel="noopener noreferrer" target="_blank">Healdsburg International Short Film Festival</a></div>
+<div class="location">Raven Performing Arts Theater — Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Intro to Stained Glass</a></div>
+<div class="location">Art Escape — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Jami Jameson Band</a></div>
+<div class="location">Murphy's Irish Pub and Restaurant — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">John Campbell Quartet</a></div>
+<div class="location">Parkside Wine Bar — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/king-baby-the-mighty-bogarts-at-waterhawk/" rel="noopener noreferrer" target="_blank">King Baby &amp; The Mighty Bogarts at Waterhawk</a></div>
+<div class="location">Waterhawk Lake Club — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/calendar/" rel="noopener noreferrer" target="_blank">Live Music Every Friday Night at the Baldassari Wine Lounge!</a></div>
+<div class="location">Baldassari Wine Lounge — Windsor</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Native Plant Nursery Sale at Sonoma Garden Park</a></div>
+<div class="location">Sonoma Garden Park — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Old Skool with Niecey Robinson</a></div>
+<div class="location">Sonoma Speakeasy — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/calendar/" rel="noopener noreferrer" target="_blank">The Pulsators at River Front Cafe</a></div>
+<div class="location">River Front Cafe — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">The Real-Life Art History of M. Louise Stanley</a></div>
+<div class="location">Sonoma Valley Museum of Art — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25–27</div>
+<div>
+<div class="event-name"><a href="https://www.riverandredwoodsfilmfestival.com/" rel="noopener noreferrer" target="_blank">River + Redwoods Film Festival</a></div>
+<div class="location">Monte Rio Theater — Monte Rio</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Ross Street Sessions: Kalei Yamanoha &amp; Joshua James Jackson</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">SAL Presents FOLLIES</a></div>
+<div class="location">Sonoma Community Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Slave Play — Left Edge Theatre</a></div>
+<div class="location">The California Theatre — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Sonoma Guided History Tour</a></div>
+<div class="location">City Hall on Sonoma Plaza — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Sonoma Valley Certified Farmers' Market</a></div>
+<div class="location">Arnold Field Parking Lot — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Sonoma Valley Harvest Dinner</a></div>
+<div class="location">Sonoma Plaza — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Watercolor Basics</a></div>
+<div class="location">Sonoma Community Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Ariel Marin Band</a></div>
+<div class="location">Sonoma Speakeasy — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://sebastopolcalendar.com/" rel="noopener noreferrer" target="_blank">The Art of Lap Loom Tapestry Weaving</a></div>
+<div class="location">Gather Sebastopol — Sebastopol</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.thebirdrestaurant.com/live-music" rel="noopener noreferrer" target="_blank">The Backyard BBQ Live Music Lineup at The Bird!</a></div>
+<div class="location">The Bird Restaurant — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://stayhealdsburg.com/healdsburg-events/" rel="noopener noreferrer" target="_blank">Celestial Floating Sound Bath</a></div>
+<div class="location">Healdsburg area</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Character Lab for Kids</a></div>
+<div class="location">Art Escape — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.chopsteenclub.org" rel="noopener noreferrer" target="_blank">Chop's Teen Club's 25th Birthday Bash</a></div>
+<div class="location">Chop's Teen Club — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/comedy-in-the-deerfield-cave/" rel="noopener noreferrer" target="_blank">Comedy in the Deerfield Cave</a></div>
+<div class="location">Deerfield Ranch Winery — Kenwood</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Copperfield’s Books Presents Kristin Hannah, In Conversation</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">The Cork Pullers</a></div>
+<div class="location">Passaggio Wines — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Dave McBride</a></div>
+<div class="location">B.R. Cohn Winery — Glen Ellen</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.exploretock.com/rodneystrong/event/595895/davis-bynum-farm-to-fork-lunch" rel="noopener noreferrer" target="_blank">Davis Bynum Farm to Fork Lunch</a></div>
+<div class="location">Rodney Strong Vineyards — Healdsburg area</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Downtown Sound: Los Alegres Callejeros</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Fall Lantern Workshop</a></div>
+<div class="location">Sonoma Community Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">Festa d’Autunno — Autumn Festival</a></div>
+<div class="location">HANNA Winery — Alexander Valley</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomamediagroup.com/events/list/" rel="noopener noreferrer" target="_blank">Fifty Years in Bloom — Sequoia Floral 50th Anniversary</a></div>
+<div class="location">3245 Santa Rosa Ave — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Full Moon Sound Healing</a></div>
+<div class="location">Flatbed Farm — Glen Ellen</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Glory Dayz</a></div>
+<div class="location">Murphy's Irish Pub and Restaurant — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Guided Sunset Hike at Montini</a></div>
+<div class="location">Montini Open Space Preserve — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26–Nov 7</div>
+<div>
+<div class="event-name"><a href="https://stewardscr.org/events/2025-free-guided-weekend-walks/" rel="noopener noreferrer" target="_blank">Guided Walks — Armstrong Redwoods State Natural Reserve</a></div>
+<div class="location">Armstrong Redwoods — Guerneville</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.landpaths.org/" rel="noopener noreferrer" target="_blank">Harvest Festival at Bayer Farm</a></div>
+<div class="location">Bayer Neighborhood Park &amp; Gardens — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomamediagroup.com/events/list/" rel="noopener noreferrer" target="_blank">2026 Healdsburg Arts Festival</a></div>
+<div class="location">Center Street — Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://sebastopolcalendar.com/" rel="noopener noreferrer" target="_blank">Honoring Labor With Song</a></div>
+<div class="location">Sebastopol area</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.eventbrite.com/e/ink-rhythm-tickets-1997155896047" rel="noopener noreferrer" target="_blank">Ink &amp; Rhythm</a></div>
+<div class="location">Petaluma Historical Library &amp; Museum — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/jlco/" rel="noopener noreferrer" target="_blank">Jazz at Lincoln Center Orchestra with Wynton Marsalis</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Jenni Purcell</a></div>
+<div class="location">HopMonk Tavern — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.eventbrite.com/e/made-with-love-2026-tickets-1990825552820" rel="noopener noreferrer" target="_blank">Made with Love 2026</a></div>
+<div class="location">1301 Southpoint Blvd — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Live Music at Bloom Carneros</a></div>
+<div class="location">Bloom Carneros — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomamediagroup.com/events/list/" rel="noopener noreferrer" target="_blank">Park Rx — Intermediate Hiking for Fitness Fall 2026</a></div>
+<div class="location">Sugarloaf Ridge State Park — Kenwood</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26–Nov 7</div>
+<div>
+<div class="event-name"><a href="https://www.ilovefarmersmarkets.org/markets" rel="noopener noreferrer" target="_blank">Petaluma Walnut Park Farmers Market</a></div>
+<div class="location">D Street &amp; Petaluma Blvd South — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://renegadeorchestra.com" rel="noopener noreferrer" target="_blank">Renegade Orchestra at Sebastiani Theater</a></div>
+<div class="location">Sebastiani Theater — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26–Dec 27</div>
+<div>
+<div class="event-name"><a href="https://thesantarosafarmersmarket.com/" rel="noopener noreferrer" target="_blank">Santa Rosa Original Certified Farmers Market</a></div>
+<div class="location">Luther Burbank Center for the Arts Parking Lot — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Saturday Harvest Market</a></div>
+<div class="location">Sonoma Garden Park — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26–Oct 31</div>
+<div>
+<div class="event-name"><a href="https://petalumansofyesteryear.org/historical-tours" rel="noopener noreferrer" target="_blank">Saturday Walking Tours of Historic Downtown Petaluma</a></div>
+<div class="location">Petaluma Historical Library and Museum — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.eventbrite.com/e/scons-education-fair-2026-tickets-1988244198921" rel="noopener noreferrer" target="_blank">SCONS Education Fair 2026</a></div>
+<div class="location">Flamingo Resort — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/sebastopol-gallery-grand-reopening/" rel="noopener noreferrer" target="_blank">Sebastopol Gallery Grand Reopening!</a></div>
+<div class="location">Sebastopol Gallery — Sebastopol</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26–27</div>
+<div>
+<div class="event-name"><a href="https://www.farmtrails.org/experience/weekend-along-the-farm-trails/" rel="noopener noreferrer" target="_blank">Sonoma County Farm Trails Fall Tour</a></div>
+<div class="location">Farms throughout Sonoma County</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomamediagroup.com/events/list/" rel="noopener noreferrer" target="_blank">Sonoma County VegFest</a></div>
+<div class="location">Santa Rosa Veterans Memorial Building — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Sonoma Jazz Jam Session</a></div>
+<div class="location">Parkside Wine Bar — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Sonoma Valley Grand Tasting at Vintage Festival</a></div>
+<div class="location">Sonoma Barracks — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">The Springs Community Farmers' Market</a></div>
+<div class="location">The Springs — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Tangled and Free</a></div>
+<div class="location">Murphy's Irish Pub and Restaurant — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.eventbrite.com/e/terrier-tickets-1998450875365" rel="noopener noreferrer" target="_blank">TERRIER</a></div>
+<div class="location">The Creekside — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Vintage Festival Daytime Festival</a></div>
+<div class="location">Sonoma Plaza — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Vintage Festival — Grape Stomp Competition</a></div>
+<div class="location">Sonoma Plaza Amphitheatre — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26–27</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/" rel="noopener noreferrer" target="_blank">Water Bark at Spring Lake Park</a></div>
+<div class="location">Spring Lake Regional Park — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">WineRoad 50th Anniversary Grand Tasting</a></div>
+<div class="location">DeLoach Vineyards — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/calendar/" rel="noopener noreferrer" target="_blank">Alpha Rhythm Kings at Sonoma Plaza</a></div>
+<div class="location">Sonoma Plaza — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/calendar/" rel="noopener noreferrer" target="_blank">Bandjango Collectif at The California</a></div>
+<div class="location">The California Theatre — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27–Oct 25</div>
+<div>
+<div class="event-name"><a href="https://kjzy.com/events/community-calendar" rel="noopener noreferrer" target="_blank">Bodega Bay Farmers Market</a></div>
+<div class="location">Bodega Bay Community Center — Bodega Bay</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Bourbon Street Blues Band</a></div>
+<div class="location">Murphy's Irish Pub and Restaurant — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Chris Hanlin</a></div>
+<div class="location">HopMonk Tavern — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27–Nov 29</div>
+<div>
+<div class="event-name"><a href="https://thesantarosafarmersmarket.com/" rel="noopener noreferrer" target="_blank">Cloverdale Farmers Market</a></div>
+<div class="location">West 2nd Street — Cloverdale</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://sebastopolcalendar.com/" rel="noopener noreferrer" target="_blank">Flora &amp; Fauna — Watercolor Course</a></div>
+<div class="location">Bohemian Flowers Farm — Freestone</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27–Oct 25</div>
+<div>
+<div class="event-name"><a href="https://kjzy.com/events/community-calendar" rel="noopener noreferrer" target="_blank">Jazz in the Plaza, Petaluma</a></div>
+<div class="location">Putnam Plaza Park — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Jesse Brewster</a></div>
+<div class="location">B.R. Cohn Winery — Glen Ellen</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Kitchen Concert: The Cover Girls</a></div>
+<div class="location">Sonoma Community Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Mountain Cemetery Tour</a></div>
+<div class="location">Sonoma Mountain Cemetery — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Park Rx — Forest Bathing Walks 2026</a></div>
+<div class="location">Sugarloaf Ridge State Park — Kenwood</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.petalumadowntown.com/antique-show" rel="noopener noreferrer" target="_blank">Petaluma Fall Antique Faire</a></div>
+<div class="location">Historic Downtown Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Public Star Party</a></div>
+<div class="location">Robert Ferguson Observatory — Kenwood</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27–Dec 27</div>
+<div>
+<div class="event-name"><a href="https://www.sebastopolfarmersmarket.org/" rel="noopener noreferrer" target="_blank">Sebastopol Farmers Market</a></div>
+<div class="location">6908 Weeks Way — Sebastopol</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.eventbrite.com/e/si-pudiera-quedarme-if-i-could-stay-tickets-1998381663350" rel="noopener noreferrer" target="_blank">Si Pudiera Quedarme / If I Could Stay</a></div>
+<div class="location">Petaluma Historical Library &amp; Museum — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">The SoCo Market Presents Ross Street Markets</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Strings Attached</a></div>
+<div class="location">Passaggio Wines — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Sunday Acoustic Reset with Peter Filice</a></div>
+<div class="location">Roche Winery — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Sunday Jazz at the Speakeasy</a></div>
+<div class="location">Sonoma Speakeasy — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.rodneystrong.com/events/" rel="noopener noreferrer" target="_blank">Unplugged and Unwined</a></div>
+<div class="location">Rodney Strong Vineyards</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Vinyl Sunday Presents: Harvest Party at the Barn</a></div>
+<div class="location">Denmark Street Barn — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">28</div>
+<div>
+<div class="event-name"><a href="https://www.eventbrite.com/e/live-at-lagunitas-drama-tickets-1999041071658" rel="noopener noreferrer" target="_blank">Live at Lagunitas: DRAMA</a></div>
+<div class="location">Lagunitas Brewing Company — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">28</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Open Mic with Richard &amp; Chris</a></div>
+<div class="location">Murphy's Irish Pub and Restaurant — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">28</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Pro Jam with Special Guest Joel Astley</a></div>
+<div class="location">The California Theatre — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">28</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Sean Carscadden</a></div>
+<div class="location">MacArthur Place — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">28</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Sonoma Town Bluegrass Jam</a></div>
+<div class="location">Sonoma Community Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29</div>
+<div>
+<div class="event-name"><a href="https://stayhealdsburg.com/healdsburg-events/" rel="noopener noreferrer" target="_blank">Bill Frisell Harmony Five</a></div>
+<div class="location">Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29–Oct 27</div>
+<div>
+<div class="event-name"><a href="https://sebastopolcalendar.com/" rel="noopener noreferrer" target="_blank">Outdoor Traditional Pranayama</a></div>
+<div class="location">Ragle Ranch Regional Park — Sebastopol</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29</div>
+<div>
+<div class="event-name"><a href="https://tickets.lutherburbankcenter.org/0/6030" rel="noopener noreferrer" target="_blank">Pat Benatar &amp; Neil Giraldo</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29–Dec 29</div>
+<div>
+<div class="event-name"><a href="https://www.ilovefarmersmarkets.org/markets" rel="noopener noreferrer" target="_blank">Petaluma Farmers Market</a></div>
+<div class="location">320 N. McDowell Blvd — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29–Dec 29</div>
+<div>
+<div class="event-name"><a href="https://www.petalumariverpark.org/calendar/river-park-walk-november-26-e4xza-929sh-mnzmk-e4l74-yxxst" rel="noopener noreferrer" target="_blank">Tuesday Morning River Walk</a></div>
+<div class="location">Petaluma River Park — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30–Jan 6</div>
+<div>
+<div class="event-name"><a href="https://www.bigeasypetaluma.com/events/wednesday-night-big-band-jazz-100028591781" rel="noopener noreferrer" target="_blank">Big Band Jazz at The Big Easy</a></div>
+<div class="location">The Big Easy — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Free Spirits Gospel Choir</a></div>
+<div class="location">Sonoma Community Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Heidi Porch reads from Ditching the Sky</a></div>
+<div class="location">Readers' Books — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30–Dec 2</div>
+<div>
+<div class="event-name"><a href="https://sebastopolcalendar.com/" rel="noopener noreferrer" target="_blank">Luther Burbank Experiment Farm Work Day</a></div>
+<div class="location">Luther Burbank Experiment Farm — Sebastopol</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Overlook Trail Hike</a></div>
+<div class="location">Sonoma Overlook Trail — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/event/rick-steves26/" rel="noopener noreferrer" target="_blank">Rick Steves: How to See the World</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Trivia Night at Ausiello's</a></div>
+<div class="location">Ausiello's 5th St Grill — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Trivia Night at Murphy's</a></div>
+<div class="location">Murphy's Irish Pub and Restaurant — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Trivia Night at the Saloon</a></div>
+<div class="location">Jack London Saloon — Glen Ellen</div>
+</div>
+</div>
+<h3 class="month">October</h3>
+<div class="event">
+<div class="date">1</div>
+<div>
+<div class="event-name"><a href="https://www.artnitehealdsburg.com/" rel="noopener noreferrer" target="_blank">Art Nite Healdsburg</a></div>
+<div class="location">Downtown Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">1</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/chris-jorgensen-gallery-evening-birthday-celebration-with-sons-of-norway/" rel="noopener noreferrer" target="_blank">Chris Jorgensen Gallery Evening &amp; Birthday Celebration with Sons of Norway</a></div>
+<div class="location">Sonoma State Historic Park — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">1</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Dick Conte Trio</a></div>
+<div class="location">Murphy's Irish Pub and Restaurant — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">1</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/comedy-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Don’t Tell Santa Rosa at Vintage Space</a></div>
+<div class="location">Vintage Space at The Flamingo Resort — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">1</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/first-thursdays-art-walk-sonoma-9/" rel="noopener noreferrer" target="_blank">First Thursdays Art Walk Sonoma</a></div>
+<div class="location">Arts Guild of Sonoma / Downtown Sonoma — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">1</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Karaoke at the Speakeasy</a></div>
+<div class="location">Sonoma Speakeasy — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">1</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Maple Magic &amp; Winter Wonder</a></div>
+<div class="location">Sonoma Botanical Garden — Glen Ellen</div>
+</div>
+</div>
+<div class="event">
+<div class="date">1</div>
+<div>
+<div class="event-name"><a href="https://www.sonomacounty.com/events/wanderlust-food-truck-festival/" rel="noopener noreferrer" target="_blank">Wanderlust Food Truck Festival</a></div>
+<div class="location">Courthouse Square — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2–18</div>
+<div>
+<div class="event-name"><a href="https://6thstreetplayhouse.com/2026-27-season-shows/" rel="noopener noreferrer" target="_blank">6th Street Playhouse presents Misalliance</a></div>
+<div class="location">6th Street Playhouse — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/art-trails-opening-itinerary-check/" rel="noopener noreferrer" target="_blank">Art Trails Opening – Itinerary Check!</a></div>
+<div class="location">Corrick’s Stationery, Gallery and Gifts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://www.sonomacounty.com/events/the-beatles-reimagined-featuring-jazz-mafia-otis-mcdonald/" rel="noopener noreferrer" target="_blank">The Beatles Reimagined featuring Jazz Mafia &amp; Otis McDonald</a></div>
+<div class="location">The Lounge at Mercy — Cotati</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/best-of-san-francisco-stand-up-comedy-2026/" rel="noopener noreferrer" target="_blank">Best of San Francisco Stand-Up Comedy 2026</a></div>
+<div class="location">Raven Performing Arts Theater — Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2–5</div>
+<div>
+<div class="event-name"><a href="https://sonomalibrary.org/friends" rel="noopener noreferrer" target="_blank">2026 BIG BOOK SALE by Friends of the Santa Rosa Libraries</a></div>
+<div class="location">Veterans Memorial Hall — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Fiber, Paintings and Prints Gallery Opening Reception</a></div>
+<div class="location">Art Escape — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/first-friday-art-walk-at-sofa-art-galleries-12/" rel="noopener noreferrer" target="_blank">First Friday Art Walk at SOFA Art Galleries</a></div>
+<div class="location">SOFA Art District — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/first-fridays-at-chimera-arts-3/2026-10-02/" rel="noopener noreferrer" target="_blank">First Fridays at Chimera Arts</a></div>
+<div class="location">Chimera Art Space — Sebastopol</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Friday Market Music</a></div>
+<div class="location">Arnold Field Parking Lot — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2–4</div>
+<div>
+<div class="event-name"><a href="https://giving4life.org/2026-grand-bazaar/" rel="noopener noreferrer" target="_blank">Grand Bazaar of Petaluma</a></div>
+<div class="location">Petaluma Fairgrounds — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Hal Sparks! Friday Night Comedy</a></div>
+<div class="location">Barrel Proof Lounge — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Holly Near and Friends</a></div>
+<div class="location">Sebastiani Theatre — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Irish Sessions — Participate or Listen</a></div>
+<div class="location">Sonoma Community Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/lucia/" rel="noopener noreferrer" target="_blank">Lucía</a></div>
+<div class="location">Weill Hall Loft, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Ross Street Sessions: Michael Capella Band</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Scarlett Letters</a></div>
+<div class="location">Murphy's Irish Pub and Restaurant — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2–Jan 6</div>
+<div>
+<div class="event-name"><a href="https://www.srcity.org/3673/Classes-and-Events" rel="noopener noreferrer" target="_blank">Senior Dance at Finley Center</a></div>
+<div class="location">Finley Complex — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Blue Rooster</a></div>
+<div class="location">Murphy's Irish Pub and Restaurant — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Bob Edmonson</a></div>
+<div class="location">Passaggio Wines — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3–11</div>
+<div>
+<div class="event-name"><a href="https://brewstersbeergarden.com/calendar1/2026/9/26/annual-oktoberfest-launches" rel="noopener noreferrer" target="_blank">Brewsters Annual Oktoberfest</a></div>
+<div class="location">Brewsters Beer Garden — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/color-lab-2" rel="noopener noreferrer" target="_blank">Color Lab with Lena Wolff</a></div>
+<div class="location">Petaluma Arts Center — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/comedy-night-at-the-cloverdale-citrus-fair/" rel="noopener noreferrer" target="_blank">Comedy Night at the Cloverdale Citrus Fair</a></div>
+<div class="location">Cloverdale Citrus Fairgrounds — Cloverdale</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Downtown Sound: Pazifico</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Dry Creek Station</a></div>
+<div class="location">B.R. Cohn Winery — Glen Ellen</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="http://www.thegablesinn.com" rel="noopener noreferrer" target="_blank">Grape Stomp in the Vineyard</a></div>
+<div class="location">The Gables Wine Country Inn — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">Harvest Open House</a></div>
+<div class="location">deLorimier Winery — Geyserville</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://manymoonsfestival.com/" rel="noopener noreferrer" target="_blank">Many Moons Festival</a></div>
+<div class="location">Ives Park — Sebastopol</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/art-events-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Live Music by Sophia Rayne at Usher Gallery</a></div>
+<div class="location">Usher Gallery — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://sebastopolcalendar.com/" rel="noopener noreferrer" target="_blank">OAEC Garden Tour</a></div>
+<div class="location">Occidental Arts &amp; Ecology Center — Occidental</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/fall-festivals-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Pumpkin Day at Oak Hill Farm</a></div>
+<div class="location">Oak Hill Farm — Glen Ellen</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://stayhealdsburg.com/healdsburg-events/" rel="noopener noreferrer" target="_blank">2026 Ripp’n River Bash</a></div>
+<div class="location">Appellation Healdsburg — Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://www.sonomavalleyevents.com/" rel="noopener noreferrer" target="_blank">Saturday Harvest Market</a></div>
+<div class="location">Sonoma Garden Park — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">SCRIBE at Shady Oak Barrel House</a></div>
+<div class="location">Shady Oak Barrel House — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3–4</div>
+<div>
+<div class="event-name"><a href="https://www.sonomacounty.com/events/sonoma-con-2026/" rel="noopener noreferrer" target="_blank">Sonoma Con 2026</a></div>
+<div class="location">Sonoma County Fairgrounds — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3–4</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/" rel="noopener noreferrer" target="_blank">Water Bark at Spring Lake Park</a></div>
+<div class="location">Spring Lake Regional Park — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">Anaba Harvest Party</a></div>
+<div class="location">Anaba Wines — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">Blessing of the Animals</a></div>
+<div class="location">St. Francis Winery — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://runsignup.com/Race/CA/SantaRosa/cindysracefit4momsantarosa" rel="noopener noreferrer" target="_blank">Cindy's Race</a></div>
+<div class="location">Howarth Park — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Festival Calentano</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4–31</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">Pumpkin Patch &amp; Fall Festival</a></div>
+<div class="location">Beltane Ranch — Glen Ellen</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Salsa Sundays</a></div>
+<div class="location">The California Theatre — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/sip-paint-paradise-ridge/" rel="noopener noreferrer" target="_blank">Sip &amp; Paint @ Paradise Ridge</a></div>
+<div class="location">Paradise Ridge Winery — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">The SoCo Market Presents Ross Street Markets</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/art-events-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Spring Hill Halloween and Fall Market</a></div>
+<div class="location">Spring Hill Gardens — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://www.sebastopolwf.org" rel="noopener noreferrer" target="_blank">Ukrainian BBQ and Beer Fest</a></div>
+<div class="location">Ragle Ranch Regional Park — Sebastopol</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/we-are-one-artist-talk-and-presentation-with-bryan" rel="noopener noreferrer" target="_blank">We Are One — Artist Talk with Bryan Keith Thomas</a></div>
+<div class="location">Petaluma Arts Center — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">5</div>
+<div>
+<div class="event-name"><a href="https://sonomaspeakerseries.com/event/in-conversation-with-van-jones/" rel="noopener noreferrer" target="_blank">In Conversation with Van Jones</a></div>
+<div class="location">Hanna Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">6</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">Hiss Golden Messenger</a></div>
+<div class="location">Sonoma County</div>
+</div>
+</div>
+<div class="event">
+<div class="date">6–Dec 31</div>
+<div>
+<div class="event-name"><a href="https://opendoorssc.com/mobile-services/" rel="noopener noreferrer" target="_blank">Open Door Mobile Services Program</a></div>
+<div class="location">Multiple Sonoma County locations</div>
+</div>
+</div>
+<div class="event">
+<div class="date">6–Dec 8</div>
+<div>
+<div class="event-name"><a href="https://veteran.events/event/women-veterans-of-sonoma-county-meetup-a-meetup-for-empowerment-camaraderie/2025-01-07/" rel="noopener noreferrer" target="_blank">Women Veterans of Sonoma County Meetup</a></div>
+<div class="location">North Bay Vet Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">7</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">Summer Film Series at The Madrona</a></div>
+<div class="location">The Madrona — Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">7</div>
+<div>
+<div class="event-name"><a href="https://www.wakeupsonoma.org/events" rel="noopener noreferrer" target="_blank">Work In Progress — Robert Reich New Movie</a></div>
+<div class="location">Sebastiani Theatre — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">8</div>
+<div>
+<div class="event-name"><a href="https://www.sonomafamilymeal.org/store-2/braziliancookingclass" rel="noopener noreferrer" target="_blank">Brazilian Cooking Class Benefiting Sonoma Family Meal</a></div>
+<div class="location">1370A Redwood Way — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">8</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/comedy-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Don’t Tell Santa Rosa at Vintage Space</a></div>
+<div class="location">Vintage Space at The Flamingo Resort — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">8</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/the-lily-tomlin-tour-2026/" rel="noopener noreferrer" target="_blank">The Lily Tomlin Tour 2026</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">8</div>
+<div>
+<div class="event-name"><a href="https://www.sonomacounty.com/events/wanderlust-food-truck-festival/" rel="noopener noreferrer" target="_blank">Wanderlust Food Truck Festival</a></div>
+<div class="location">Courthouse Square — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">9</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">P.U.R.R. Presents: A Punk Clown Takeover</a></div>
+<div class="location">Barrel Proof Lounge — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">9</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Ross Street Sessions: Funky Milagro</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">9</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-2026-municipal-election" rel="noopener noreferrer" target="_blank">2026 Santa Rosa Municipal Community Information Meeting</a></div>
+<div class="location">Finley Community Center — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">9</div>
+<div>
+<div class="event-name"><a href="https://www.exploretock.com/rodneystrong/event/621477/sunset-trivia-night" rel="noopener noreferrer" target="_blank">Sunset Trivia Night</a></div>
+<div class="location">Rodney Strong Vineyards</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10–11</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">5th Annual Sonoma County Americana Music Festival</a></div>
+<div class="location">The California Theatre — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10–18</div>
+<div>
+<div class="event-name"><a href="https://artandmusicgallery.com/events/art-trails/" rel="noopener noreferrer" target="_blank">ART TRAILS 2026 at the Art &amp; Music Gallery in Petaluma</a></div>
+<div class="location">Art and Music Gallery — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/funky-florals-cut-paper-collage-workshop-with-sall" rel="noopener noreferrer" target="_blank">Funky Florals — Cut Paper Collage Workshop with Sally-Ann Langley</a></div>
+<div class="location">Petaluma Arts Center — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/golden-harvest-2026" rel="noopener noreferrer" target="_blank">Golden Harvest Senior Resource &amp; Wellness Faire 2026</a></div>
+<div class="location">Sonoma Community Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://www.cloverdaleartsalliance.org/caa-events/john-prine-birthday-celebration" rel="noopener noreferrer" target="_blank">John Prine Birthday Celebration</a></div>
+<div class="location">La Familia Sana — Cloverdale</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/museum-of-sonoma-countys-block-party/" rel="noopener noreferrer" target="_blank">Museum of Sonoma County’s Block Party</a></div>
+<div class="location">Museum of Sonoma County — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://petalumapride.org/" rel="noopener noreferrer" target="_blank">Petaluma Pride Festival</a></div>
+<div class="location">Petaluma Fairgrounds — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/event/see-art-in-action-at-t-barnys-sculpture-studio-2/" rel="noopener noreferrer" target="_blank">See Art in Action at T Barny’s Sculpture Studio</a></div>
+<div class="location">T Barny Gallery &amp; Sculpture Gardens — Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://harvestfair.org/" rel="noopener noreferrer" target="_blank">Sonoma County Harvest Fair Awards Gala</a></div>
+<div class="location">Sonoma County Fairgrounds — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://shonefarm.santarosa.edu/" rel="noopener noreferrer" target="_blank">SRJC Shone Farm Fall Festival</a></div>
+<div class="location">SRJC Shone Farm — Forestville</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10–12</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/twist-of-fate/" rel="noopener noreferrer" target="_blank">Twist of Fate — Santa Rosa Symphony</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">11</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">8th Annual Harvest Party</a></div>
+<div class="location">Bricoleur Vineyards — Windsor</div>
+</div>
+</div>
+<div class="event">
+<div class="date">11</div>
+<div>
+<div class="event-name"><a href="https://healdsburgjazz.org/" rel="noopener noreferrer" target="_blank">Cyrus Chestnut Trio</a></div>
+<div class="location">Paul Mahder Gallery — Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">11</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">Fall Harvest Festival</a></div>
+<div class="location">DeLoach Vineyards — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">11</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">Harvest and Stomp</a></div>
+<div class="location">Battaglini Wines — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">15–Nov 19</div>
+<div>
+<div class="event-name"><a href="https://barrelprooflounge.com/" rel="noopener noreferrer" target="_blank">Live Band Karaoke</a></div>
+<div class="location">Barrel Proof Lounge — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">15</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/comedy-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Don’t Tell Santa Rosa at Vintage Space</a></div>
+<div class="location">Vintage Space at The Flamingo Resort — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">15</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">An Evening with the Rush Tribute Project</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">15</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/multi-chamber-mixer-october" rel="noopener noreferrer" target="_blank">Multi-Chamber Mixer — October</a></div>
+<div class="location">Centerline 33 — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">15–Nov 19</div>
+<div>
+<div class="event-name"><a href="https://arlenefranciscenter.org/sketchbook-club/" rel="noopener noreferrer" target="_blank">Sonoma County Sketchbook Club</a></div>
+<div class="location">Arlene Francis Center — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/comedy-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Forbidden Kiss LIVE – Chaos</a></div>
+<div class="location">The California Theatre — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Froggy’s 30th Birthday Featuring Corey Kent with Max Vogel</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16</div>
+<div>
+<div class="event-name"><a href="https://www.townofwindsor.ca.gov/338/Special-Events" rel="noopener noreferrer" target="_blank">Green Halloween Party</a></div>
+<div class="location">Huerta Gym — Windsor</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/raiatea-helm/" rel="noopener noreferrer" target="_blank">Raiatea Helm — A Legacy of Hawaiian Song &amp; String</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Ross Street Sessions: School of Rock House Band</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Downtown Sound: The Psychedelic Fuzz</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/dust-to-dust-artist-talk-and-presentation-with-kat" rel="noopener noreferrer" target="_blank">Dust to Dust — Artist Talk with Katie Murken</a></div>
+<div class="location">Petaluma Arts Center — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://www.srcity.org/2913/Floating-Pumpkin-Patch" rel="noopener noreferrer" target="_blank">Floating Pumpkin Patch</a></div>
+<div class="location">Ridgway Swim Center — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/fall-festivals-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Fort Ross Harvest Festival</a></div>
+<div class="location">Fort Ross State Historic Park — Jenner</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://www.visitpetaluma.com/fairs-and-festivals/" rel="noopener noreferrer" target="_blank">LumaFest &amp; Día de los Muertos Celebration</a></div>
+<div class="location">Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://sebastopolcalendar.com/" rel="noopener noreferrer" target="_blank">OAEC Garden Tour</a></div>
+<div class="location">Occidental Arts &amp; Ecology Center — Occidental</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://petalumagap.com/wind-to-wine-festival/" rel="noopener noreferrer" target="_blank">Petaluma Gap Wind to Wine Festival</a></div>
+<div class="location">Gambonini Family Ranch — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Tequila Teaser</a></div>
+<div class="location">La Rosa Tequileria &amp; Grille — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">18</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/ingrid-michaelson/" rel="noopener noreferrer" target="_blank">Ingrid Michaelson featuring Allie Moss &amp; Hannah Winkler</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">18</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/reuse-in-art-reuse-in-life-a-conversation-between" rel="noopener noreferrer" target="_blank">Reuse in Art, Reuse in Life — Ali Gass &amp; Phoebe Schenker</a></div>
+<div class="location">Petaluma Arts Center — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">18</div>
+<div>
+<div class="event-name"><a href="http://www.songofsonoma.org" rel="noopener noreferrer" target="_blank">Song of Sonoma Autumn Tea</a></div>
+<div class="location">Luther Burbank Art and Gardens — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">18</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Symphony Pops: A Tribute to John Williams, The Movie Maestro</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">22</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/comedy-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Don’t Tell Santa Rosa at Vintage Space</a></div>
+<div class="location">Vintage Space at The Flamingo Resort — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">23</div>
+<div>
+<div class="event-name"><a href="https://www.thegablesinn.com" rel="noopener noreferrer" target="_blank">Murder Mystery at The Gables Inn</a></div>
+<div class="location">The Gables Wine Country Inn — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">23</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Ross Street Sessions: MCHS Mariachi</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://www.visitpetaluma.com/event/cider-circus-2/" rel="noopener noreferrer" target="_blank">Cider Circus</a></div>
+<div class="location">Steamer Landing Park — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Downtown Sound: LaiddBackZach &amp; the .Wav</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://www.srcity.org/2164/Halloween-at-Howarth" rel="noopener noreferrer" target="_blank">Halloween at Howarth</a></div>
+<div class="location">Howarth Memorial Park — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">KSRO Presents Jimmy Failla</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://sebastopolcalendar.com/" rel="noopener noreferrer" target="_blank">Lobster Bash</a></div>
+<div class="location">Friedman Event Center — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://www.sonomafamilymeal.org/knifes-edge-2026" rel="noopener noreferrer" target="_blank">Sonoma Family Meal's Knife's Edge Chef Showdown and Tasting</a></div>
+<div class="location">SaraLee &amp; Richard's Barn — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/gaelle-solal/" rel="noopener noreferrer" target="_blank">Sonoma Guitar Series: Gaëlle Solal</a></div>
+<div class="location">Schroeder Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://www.townofwindsor.com/trickortreat" rel="noopener noreferrer" target="_blank">Trick or Treat Trail</a></div>
+<div class="location">Keiser Park — Windsor</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/boo-lets-dance/" rel="noopener noreferrer" target="_blank">Boo! Let’s Dance</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Clover Sonoma Family Fun Series: 360 Allstars</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://ci.healdsburg.ca.us/911/Dia-De-Muertos" rel="noopener noreferrer" target="_blank">Día de Muertos</a></div>
+<div class="location">Healdsburg Plaza — Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.sonomacounty.com/events/geyserville-fall-colors-festival-vintage-car-show/" rel="noopener noreferrer" target="_blank">Geyserville Fall Colors Festival &amp; Vintage Car Show</a></div>
+<div class="location">Downtown Geyserville</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/comedy-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Don’t Tell Santa Rosa at Vintage Space</a></div>
+<div class="location">Vintage Space at The Flamingo Resort — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/lyle-lovett/" rel="noopener noreferrer" target="_blank">Lyle Lovett and his Small Large Band</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29</div>
+<div>
+<div class="event-name"><a href="https://www.wakeupsonoma.org/events" rel="noopener noreferrer" target="_blank">Slay O'Ween</a></div>
+<div class="location">Lilly's Outpost — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30</div>
+<div>
+<div class="event-name"><a href="https://members.cloverdalechamber.com/chambereventcalendar" rel="noopener noreferrer" target="_blank">Downtown Trick-or-Treat</a></div>
+<div class="location">Downtown Cloverdale</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">Ross Street Sessions: 945</a></div>
+<div class="location">Ross Street — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">31</div>
+<div>
+<div class="event-name"><a href="https://www.townofwindsor.ca.gov/338/Special-Events" rel="noopener noreferrer" target="_blank">Día de los Muertos</a></div>
+<div class="location">Windsor Town Green</div>
+</div>
+</div>
+<div class="event">
+<div class="date">31</div>
+<div>
+<div class="event-name"><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener noreferrer" target="_blank">The Halloween Bar Crawl — Santa Rosa</a></div>
+<div class="location">Downtown Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">31</div>
+<div>
+<div class="event-name"><a href="https://www.visitpetaluma.com/find-events/" rel="noopener noreferrer" target="_blank">Halloween Trick or Treat Trail</a></div>
+<div class="location">Downtown Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">31</div>
+<div>
+<div class="event-name"><a href="https://healdsburgfarmersmarket.org/" rel="noopener noreferrer" target="_blank">Healdsburg Farmers’ Market Pumpkin Festival and Costume Competition</a></div>
+<div class="location">Healdsburg Farmers’ Market — Healdsburg</div>
+</div>
+</div>
+<h3 class="month">November</h3>
+<div class="event">
+<div class="date">5</div>
+<div>
+<div class="event-name"><a href="https://www.artnitehealdsburg.com/" rel="noopener noreferrer" target="_blank">Art Nite Healdsburg</a></div>
+<div class="location">Downtown Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">5</div>
+<div>
+<div class="event-name"><a href="https://happeningsonomacounty.com/comedy-in-sonoma-county/" rel="noopener noreferrer" target="_blank">Don’t Tell Santa Rosa at Vintage Space</a></div>
+<div class="location">Vintage Space at The Flamingo Resort — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">5</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/la-santa-cecilia/" rel="noopener noreferrer" target="_blank">La Santa Cecilia</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">7</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Leonid &amp; Friends 2026 Tour</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">7–8</div>
+<div>
+<div class="event-name"><a href="https://www.wineroad.com/events/wine-food-affair/" rel="noopener noreferrer" target="_blank">Wine &amp; Food Affair</a></div>
+<div class="location">Alexander, Dry Creek &amp; Russian River Valleys</div>
+</div>
+</div>
+<div class="event">
+<div class="date">8</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/what-you-wont-do-for-love/" rel="noopener noreferrer" target="_blank">What You Won’t Do For Love — Why Not Theatre</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">9</div>
+<div>
+<div class="event-name"><a href="https://sonomaspeakerseries.com/event/scottpelley/" rel="noopener noreferrer" target="_blank">In Conversation with Scott Pelley</a></div>
+<div class="location">Hanna Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://schulzmuseum.org/event/pearls-jubilee/" rel="noopener noreferrer" target="_blank">Pearls Jubilee with Stephan Pastis</a></div>
+<div class="location">Charles M. Schulz Museum — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">11</div>
+<div>
+<div class="event-name"><a href="https://www.petalumaveteransparade.com/" rel="noopener noreferrer" target="_blank">Petaluma Veterans Day Parade</a></div>
+<div class="location">Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">11</div>
+<div>
+<div class="event-name"><a href="https://www.townofwindsor.ca.gov/338/Special-Events" rel="noopener noreferrer" target="_blank">Veterans Day Ceremony</a></div>
+<div class="location">Windsor Town Green</div>
+</div>
+</div>
+<div class="event">
+<div class="date">13</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/healthcare-forum-2026" rel="noopener noreferrer" target="_blank">Healthcare Forum 2026 + Resource Fair</a></div>
+<div class="location">The Backdrop @ Becoming Independent — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">14–16</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/echoes-of-innocence/" rel="noopener noreferrer" target="_blank">Echoes of Innocence — Santa Rosa Symphony</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">14</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Jerry Seinfeld — 5 PM &amp; 8 PM</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">14</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-oakland-skates" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Oakland Skates</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">14–15</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/sonoma-bachharvest-time-a-seal-upon-our-hearts/" rel="noopener noreferrer" target="_blank">Sonoma Bach: Harvest Time — A Seal Upon Our Hearts</a></div>
+<div class="location">Schroeder Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">14</div>
+<div>
+<div class="event-name"><a href="https://www.townofwindsor.ca.gov/338/Special-Events" rel="noopener noreferrer" target="_blank">Wine Country Women's Festival</a></div>
+<div class="location">Keiser Park — Windsor</div>
+</div>
+</div>
+<div class="event">
+<div class="date">14</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/write-collage-words-images-memory" rel="noopener noreferrer" target="_blank">Write &amp; Collage: Words, Images &amp; Memory</a></div>
+<div class="location">Petaluma Arts Center — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">19</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/event/anthony-jeselnik26/" rel="noopener noreferrer" target="_blank">Anthony Jeselnik: Wrath of Man</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">19</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/juilliard-string-quartet/" rel="noopener noreferrer" target="_blank">Juilliard String Quartet with Simone Dinnerstein</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">19</div>
+<div>
+<div class="event-name"><a href="https://www.townofwindsor.ca.gov/338/Special-Events" rel="noopener noreferrer" target="_blank">Winter Wine Walk</a></div>
+<div class="location">Downtown Windsor</div>
+</div>
+</div>
+<div class="event">
+<div class="date">20–Dec 20</div>
+<div>
+<div class="event-name"><a href="https://6thstreetplayhouse.com/2026-27-season-shows/" rel="noopener noreferrer" target="_blank">6th Street Playhouse presents Meet Me In St. Louis</a></div>
+<div class="location">6th Street Playhouse — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">20</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-chicago261120" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Chicago Misfits</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">21</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/event/bored-teachers26/" rel="noopener noreferrer" target="_blank">Bored Teachers</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">21</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-chicago2611211" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Chicago Misfits</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Sesame Street Live — Elmo’s Got the Moves</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://www.santarosametrochamber.com/events/signature-chamber-events/winter-lights/" rel="noopener noreferrer" target="_blank">Winter Lights Tree Lighting Celebration</a></div>
+<div class="location">Courthouse Square — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">28</div>
+<div>
+<div class="event-name"><a href="https://www.visitpetaluma.com/fairs-and-festivals/" rel="noopener noreferrer" target="_blank">Santa's Riverboat Arrival</a></div>
+<div class="location">Petaluma Turning Basin</div>
+</div>
+</div>
+<div class="event">
+<div class="date">28</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Tower of Power</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Emporium Presents Brad Williams: The Tall Tales Tour</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<h3 class="month">December</h3>
+<div class="event">
+<div class="date">1–31</div>
+<div>
+<div class="event-name"><a href="https://www.visitpetaluma.com/blog/holiday-event-calendar/" rel="noopener noreferrer" target="_blank">Petaluma City of Lights Driving Tour</a></div>
+<div class="location">Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">A Celtic Christmas by A Taste of Ireland</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3–Jan 1</div>
+<div>
+<div class="event-name"><a href="https://www.people4parkswindsor.org/charlie-brown-christmas-tree-grove" rel="noopener noreferrer" target="_blank">Charlie Brown Christmas Tree Grove</a></div>
+<div class="location">Windsor Town Green</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://www.townofwindsor.ca.gov/338/Special-Events" rel="noopener noreferrer" target="_blank">Windsor Holiday Celebration</a></div>
+<div class="location">Windsor Town Green</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/cherish-the-ladies/" rel="noopener noreferrer" target="_blank">Cherish the Ladies — A Celtic Christmas</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://www.healdsburg.gov/1066/Merry-Healdsburg---Tree-Lighting-Celebra" rel="noopener noreferrer" target="_blank">Merry Healdsburg Tree Lighting Celebration</a></div>
+<div class="location">Healdsburg Plaza</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-dallas261204" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Dallas Scorpions</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">5</div>
+<div>
+<div class="event-name"><a href="https://www.sonoma.com/events/" rel="noopener noreferrer" target="_blank">Christmas Craft Fair</a></div>
+<div class="location">Sonoma County</div>
+</div>
+</div>
+<div class="event">
+<div class="date">5</div>
+<div>
+<div class="event-name"><a href="https://www.visitpetaluma.com/blog/holiday-event-calendar/" rel="noopener noreferrer" target="_blank">Downtown Holiday Shopping Stroll</a></div>
+<div class="location">Downtown Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">5</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-dallas26125" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Dallas Scorpions</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">6</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Symphony Pops: Home for the Holidays</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">7</div>
+<div>
+<div class="event-name"><a href="https://sonomaspeakerseries.com/event/in-conversation-with-evan-thomas/" rel="noopener noreferrer" target="_blank">In Conversation with Evan Thomas</a></div>
+<div class="location">Hanna Center — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">8</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Pink Martini All-Stars present A Season of Stars</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/mark-west-area-chamber-of-commerce-monthly-soci-10" rel="noopener noreferrer" target="_blank">Mark West Area Chamber of Commerce Monthly Social</a></div>
+<div class="location">Exchange Bank with Molsberry Markets — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">11</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/event/posada26/" rel="noopener noreferrer" target="_blank">20th Annual Posada Navideña</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">12–13</div>
+<div>
+<div class="event-name"><a href="https://transcendencetheatre.org/whats-on/broadway_holiday_2026/" rel="noopener noreferrer" target="_blank">Broadway Holiday</a></div>
+<div class="location">Jackson Theater — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">12</div>
+<div>
+<div class="event-name"><a href="https://www.visitpetaluma.com/blog/holiday-event-calendar/" rel="noopener noreferrer" target="_blank">Light Up the Square</a></div>
+<div class="location">Theatre Square — Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">12–13</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/winterludehandels-messiah-2/" rel="noopener noreferrer" target="_blank">Winterlude…Handel’s Messiah — Santa Rosa Symphony</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">13</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">A Drag Queen Christmas</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">14</div>
+<div>
+<div class="event-name"><a href="https://www.visitpetaluma.com/blog/holiday-event-calendar/" rel="noopener noreferrer" target="_blank">A Chanticleer Christmas</a></div>
+<div class="location">Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16–20</div>
+<div>
+<div class="event-name"><a href="https://transcendencetheatre.org/whats-on/broadway_holiday_2026/" rel="noopener noreferrer" target="_blank">Broadway Holiday</a></div>
+<div class="location">Sebastiani Theatre — Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Nutcracker! Magical Christmas Ballet</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/voctave/" rel="noopener noreferrer" target="_blank">Voctave — It Feels Like Christmas</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">18</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">A Magical Cirque Christmas</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">19–20</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/sonoma-bachearly-music-christmas-on-yoolis-night/" rel="noopener noreferrer" target="_blank">Sonoma Bach: Early Music Christmas — On Yoolis Night</a></div>
+<div class="location">Schroeder Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">20</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/san-francisco-gay-mens-chorusholiday-spectacular/" rel="noopener noreferrer" target="_blank">San Francisco Gay Men’s Chorus — Holiday Spectacular</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">23</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Dave Koz and Friends Christmas Tour 2026</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<h2 class="year">2027</h2>
+<h3 class="month">January</h3>
+<div class="event">
+<div class="date">9</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Psychic Medium John Edward</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">9–11</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/beethoven-dvorak/" rel="noopener noreferrer" target="_blank">Santa Rosa Symphony: Beethoven &amp; Dvořák</a></div>
+<div class="location">Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">15–31</div>
+<div>
+<div class="event-name"><a href="https://6thstreetplayhouse.com/2026-27-season-shows/" rel="noopener noreferrer" target="_blank">6th Street Playhouse presents A Night With Janis Joplin</a></div>
+<div class="location">6th Street Playhouse — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">15</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-kenosha270115" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Kenosha Knights</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16</div>
+<div>
+<div class="event-name"><a href="https://tickets.lutherburbankcenter.org/0/5869" rel="noopener noreferrer" target="_blank">Beth Hart with Special Guest Rome</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-kenosha270116" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Kenosha Knights</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/sonoma-bachorgan-recital-reflections-of-light/" rel="noopener noreferrer" target="_blank">Sonoma Bach: Organ Recital — Reflections of Light</a></div>
+<div class="location">Schroeder Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16–17</div>
+<div>
+<div class="event-name"><a href="https://www.wineroad.com/events/winter-wineland/?section=programs" rel="noopener noreferrer" target="_blank">Winter WINEland</a></div>
+<div class="location">Northern Sonoma County wineries</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Clover Sonoma Family Fun Series: The Cat in the Hat — Live on Stage</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/back-to-beethoven/" rel="noopener noreferrer" target="_blank">Santa Rosa Symphony: Back to Beethoven</a></div>
+<div class="location">Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">28–31</div>
+<div>
+<div class="event-name"><a href="https://healdsburgjazz.org/" rel="noopener noreferrer" target="_blank">Healdsburg Jazz Winterfest</a></div>
+<div class="location">Healdsburg</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/new-century-chamber-orchestra-2/" rel="noopener noreferrer" target="_blank">New Century Chamber Orchestra</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-boston270129" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Boston Wahoos</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">30</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-boston270130" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Boston Wahoos</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<h3 class="month">February</h3>
+<div class="event">
+<div class="date">6–8</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/of-myths-masters/" rel="noopener noreferrer" target="_blank">Santa Rosa Symphony: Of Myths &amp; Masters</a></div>
+<div class="location">Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">9</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/event/swan-lake27/" rel="noopener noreferrer" target="_blank">World Ballet Company: Swan Lake</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">HYPROV with Colin Mochrie</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">11</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/kenny-barronsongbook/" rel="noopener noreferrer" target="_blank">Kenny Barron — Songbook</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">13</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Smokey Robinson</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">18</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/ladysmith-black-mambazo/" rel="noopener noreferrer" target="_blank">Ladysmith Black Mambazo</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">20</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-oakland270220" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Oakland Skates</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">21</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Symphony Pops: Storm Large, The Crazy Arc of Love</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/event/cirque-kalabante-world-of-words/" rel="noopener noreferrer" target="_blank">Cirque Kalabanté — World of Words</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">26</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/let-love-lead/" rel="noopener noreferrer" target="_blank">Let Love Lead — A Celebration of Black Music</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/michael-davidman/" rel="noopener noreferrer" target="_blank">Michael Davidman, piano</a></div>
+<div class="location">Schroeder Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<h3 class="month">March</h3>
+<div class="event">
+<div class="date">5–21</div>
+<div>
+<div class="event-name"><a href="https://6thstreetplayhouse.com/2026-27-season-shows/" rel="noopener noreferrer" target="_blank">6th Street Playhouse presents Who's Afraid of Virginia Woolf</a></div>
+<div class="location">6th Street Playhouse — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">5</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/mavis-staples/" rel="noopener noreferrer" target="_blank">Mavis Staples</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">5</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-sandiego-270305" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. San Diego Renegades</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">6</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Jake Shimabukuro</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">6</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-sandiego270306" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. San Diego Renegades</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">6–7</div>
+<div>
+<div class="event-name"><a href="https://www.wineroad.com/events/barrel-tasting-weekends/" rel="noopener noreferrer" target="_blank">Wine Road Barrel Tasting Weekend</a></div>
+<div class="location">Northern Sonoma County wineries</div>
+</div>
+</div>
+<div class="event">
+<div class="date">8</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Treasure Island Reimagined: Jane Hawkins and the Pirate’s Gold</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">13–15</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/mozart-brahms/" rel="noopener noreferrer" target="_blank">Mozart &amp; Brahms — Santa Rosa Symphony</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">16–21</div>
+<div>
+<div class="event-name"><a href="https://sonomafilmfest.org/festival/plan-your-trip" rel="noopener noreferrer" target="_blank">30th Sonoma International Film Festival</a></div>
+<div class="location">Sonoma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">19</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-nyfd-270312" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. New York Fire Department</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">20</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-nyfd-270313" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. New York Fire Department</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">20</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/david-russell/" rel="noopener noreferrer" target="_blank">Sonoma Guitar Series: David Russell</a></div>
+<div class="location">Schroeder Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">21</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/category/dance/" rel="noopener noreferrer" target="_blank">Burn the Floor: Maks and Peta</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Twilight in Concert</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">27</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/step-afrika/" rel="noopener noreferrer" target="_blank">Step Afrika!</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<h3 class="month">April</h3>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Clifford The Big Red Dog — The Musical</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">2</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-stlouis-270402" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. St. Louis Spirit</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/family-day/" rel="noopener noreferrer" target="_blank">Free Family Day with 123 Andrés</a></div>
+<div class="location">Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">3</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-stlouis270403" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. St. Louis Spirit</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">4</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Symphony Pops: The Music of Billy Joel Starring Michael Cavanaugh</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">9</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-vancouver270409" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Vancouver BC Hockey Club</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10–12</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/carmina-burana/" rel="noopener noreferrer" target="_blank">Carmina Burana — Santa Rosa Symphony</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10</div>
+<div>
+<div class="event-name"><a href="https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-vancouver270410" rel="noopener noreferrer" target="_blank">Santa Rosa Growlers vs. Vancouver BC Hockey Club</a></div>
+<div class="location">Snoopy's Home Ice — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">10–11</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/sonoma-bachspring-returns-bella-madre-de-fiori/" rel="noopener noreferrer" target="_blank">Sonoma Bach: Spring Returns — Bella Madre de’ Fiori</a></div>
+<div class="location">Schroeder Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">17</div>
+<div>
+<div class="event-name"><a href="https://www.petalumadowntown.com/butter-eggs-parade.html" rel="noopener noreferrer" target="_blank">Butter &amp; Egg Days Parade &amp; Festival</a></div>
+<div class="location">Downtown Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">18</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/aga-khan-master-musicians/" rel="noopener noreferrer" target="_blank">Aga Khan Master Musicians with Vincent Peirani &amp; Vincent Ségal</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">18</div>
+<div>
+<div class="event-name"><a href="https://www.townofwindsor.ca.gov/338/Special-Events" rel="noopener noreferrer" target="_blank">Earth Day Celebration</a></div>
+<div class="location">Windsor Town Green area</div>
+</div>
+</div>
+<div class="event">
+<div class="date">18</div>
+<div>
+<div class="event-name"><a href="https://www.townofwindsor.ca.gov/338/Special-Events" rel="noopener noreferrer" target="_blank">Reuse &amp; Repair Fair</a></div>
+<div class="location">Huerta Gym — Windsor</div>
+</div>
+</div>
+<div class="event">
+<div class="date">20</div>
+<div>
+<div class="event-name"><a href="https://internationalballetstars.com/events/santa-rosa-ca?event_limit=8" rel="noopener noreferrer" target="_blank">Alice in Wonderland — International Ballet Stars</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">20</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/anthony-ray-hinton/" rel="noopener noreferrer" target="_blank">Anthony Ray Hinton</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/dave-pietro-quintet/" rel="noopener noreferrer" target="_blank">Dave Pietro Quintet</a></div>
+<div class="location">Weill Hall Loft, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">24</div>
+<div>
+<div class="event-name"><a href="https://levisgranfondo.com/" rel="noopener noreferrer" target="_blank">Levi's GranFondo</a></div>
+<div class="location">Windsor</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/events/" rel="noopener noreferrer" target="_blank">Click, Clack, Moo</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/music-in-the-wild/" rel="noopener noreferrer" target="_blank">Music in the Wild — Santa Rosa Symphony</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">25</div>
+<div>
+<div class="event-name"><a href="https://www.petalumadowntown.com/antique-show" rel="noopener noreferrer" target="_blank">Petaluma Spring Antique Faire</a></div>
+<div class="location">Downtown Petaluma</div>
+</div>
+</div>
+<div class="event">
+<div class="date">29</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/cmslc/" rel="noopener noreferrer" target="_blank">Chamber Music Society of Lincoln Center — Mozart &amp; Brahms</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<h3 class="month">May</h3>
+<div class="event">
+<div class="date">7–23</div>
+<div>
+<div class="event-name"><a href="https://6thstreetplayhouse.com/2026-27-season-shows/" rel="noopener noreferrer" target="_blank">6th Street Playhouse presents Seagull</a></div>
+<div class="location">6th Street Playhouse — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">8–10</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/pictures-at-an-exhibition/" rel="noopener noreferrer" target="_blank">Pictures at an Exhibition — Santa Rosa Symphony</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">13</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/ethan-lipton/" rel="noopener noreferrer" target="_blank">Ethan Lipton &amp; His Orchestra</a></div>
+<div class="location">Weill Hall Loft, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">14</div>
+<div>
+<div class="event-name"><a href="https://lutherburbankcenter.org/event/stella-swings-ella-big-band26/" rel="noopener noreferrer" target="_blank">Stella Swings Ella — Big Band</a></div>
+<div class="location">Luther Burbank Center for the Arts — Santa Rosa</div>
+</div>
+</div>
+<div class="event">
+<div class="date">15</div>
+<div>
+<div class="event-name"><a href="https://www.windsorhalfmarathon.org/race-details-1" rel="noopener noreferrer" target="_blank">Windsor Half Marathon / 10K / 5K</a></div>
+<div class="location">Windsor Town Green</div>
+</div>
+</div>
+<div class="event">
+<div class="date">28–Jun 26</div>
+<div>
+<div class="event-name"><a href="https://6thstreetplayhouse.com/2026-27-season-shows/" rel="noopener noreferrer" target="_blank">6th Street Playhouse presents The Pajama Game</a></div>
+<div class="location">6th Street Playhouse — Santa Rosa</div>
+</div>
+</div>
+<h3 class="month">June</h3>
+<div class="event">
+<div class="date">4–5</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/sonoma-bachseason-finale-where-two-or-more-are-gathered/" rel="noopener noreferrer" target="_blank">Sonoma Bach Season Finale — Where Two or More are Gathered</a></div>
+<div class="location">Schroeder Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">6</div>
+<div>
+<div class="event-name"><a href="https://gmc.sonoma.edu/road-to-100-the-complete-beethoven-symphonies-year-4/" rel="noopener noreferrer" target="_blank">Road to 100: The Complete Beethoven Symphonies, Year 4</a></div>
+<div class="location">Weill Hall, Green Music Center — Rohnert Park</div>
+</div>
+</div>
+<div class="event">
+<div class="date">11–20</div>
+<div>
+<div class="event-name"><a href="https://healdsburgjazz.org/" rel="noopener noreferrer" target="_blank">Healdsburg Jazz Summerfest</a></div>
+<div class="location">Healdsburg</div>
+</div>
+</div>
+<h3 class="month">August</h3>
+<div class="event">
+<div class="date">7–8</div>
+<div>
+<div class="event-name"><a href="https://gravensteinapplefair.com/" rel="noopener noreferrer" target="_blank">Gravenstein Apple Fair</a></div>
+<div class="location">Ragle Ranch Regional Park — Sebastopol</div>
+</div>
+</div>
+<section class="sources-panel"><h2>Calendar Sources</h2><ul>
+<li><a href="https://gmc.sonoma.edu/all-events/" rel="noopener" target="_blank">Green Music Center — Official Events</a></li>
+<li><a href="https://lutherburbankcenter.org/events/" rel="noopener" target="_blank">Luther Burbank Center for the Arts — Official Events</a></li>
+<li><a href="https://kjzy.com/events/community-calendar" rel="noopener" target="_blank">KJZY Community Calendar</a></li>
+<li><a href="https://www.sonomamediagroup.com/events/" rel="noopener" target="_blank">KJZY Community Calendar 2 / Sonoma Media Group</a></li>
+<li><a href="https://kjzy.com/local-events" rel="noopener" target="_blank">KJZY Local Events / Evvnt</a></li>
+<li><a href="https://www.pressdemocrat.com/events/#!/" rel="noopener" target="_blank">The Press Democrat Events / CitySpark</a></li>
+<li><a href="https://mynorthbaytickets.com/" rel="noopener" target="_blank">Press Democrat News Group / MyNorthBayTickets</a></li>
+<li><a href="https://happeningsonomacounty.com/" rel="noopener" target="_blank">Happening in Sonoma County</a></li>
+<li><a href="https://www.sonomacounty.com/events/" rel="noopener" target="_blank">Sonoma County Tourism Events</a></li>
+<li><a href="https://www.sonomacounty.com/events/biggest-and-best-annual-sonoma-county-festivals/" rel="noopener" target="_blank">Sonoma County Tourism — Annual Festivals</a></li>
+<li><a href="https://sonomacountyfair.com/pages/copy-of-calendar-of-events" rel="noopener" target="_blank">Sonoma County Fair &amp; Event Center</a></li>
+<li><a href="https://www.visitsantarosa.com/events/" rel="noopener" target="_blank">Visit Santa Rosa Events</a></li>
+<li><a href="https://www.sonoma.com/events/" rel="noopener" target="_blank">Sonoma.com Events</a></li>
+<li><a href="https://stayhealdsburg.com/healdsburg-events/" rel="noopener" target="_blank">Stay Healdsburg Events</a></li>
+<li><a href="https://www.eventbrite.com/" rel="noopener" target="_blank">Eventbrite — Sonoma County searches</a></li>
+<li><a href="https://www.sonomavalleyevents.com/" rel="noopener" target="_blank">Sonoma Valley Events</a></li>
+<li><a href="https://www.downtownsantarosa.org/events/calendar" rel="noopener" target="_blank">Downtown Santa Rosa Events</a></li>
+<li><a href="https://parks.sonomacounty.ca.gov/play/calendar" rel="noopener" target="_blank">Sonoma County Regional Parks Calendar</a></li>
+<li><a href="https://norcalpublicmedia.org/arts-culture/event-calendar#!/" rel="noopener" target="_blank">NorCal Public Media Event Calendar</a></li>
+<li><a href="https://gogrape.com/sonoma/things-to-do/" rel="noopener" target="_blank">Grapeline / GoGrape Sonoma Things To Do</a></li>
+<li><a href="https://www.petalumavoice.org/local-event-calendar/" rel="noopener" target="_blank">Petaluma Voice Local Event Calendar</a></li>
+<li><a href="https://www.cityofsebastopol.gov/our-community/community-calendar/" rel="noopener" target="_blank">City of Sebastopol Community Calendar</a></li>
+<li><a href="https://sebastopolcalendar.com/" rel="noopener" target="_blank">Sebastopol Community Calendar</a></li>
+<li><a href="https://transcendencetheatre.org/shows/" rel="noopener" target="_blank">Transcendence Theatre Company</a></li>
+<li><a href="https://www.wineroad.com/events/" rel="noopener" target="_blank">Wine Road</a></li>
+</ul>
+<p style="margin-bottom:0;color:#665f69;">
+Some source calendars are JavaScript-powered or embedded. Those are included in the weekly source scan,
+but individual events are added only when the date and location can be verified.
+</p>
+</section>
+<div class="notice">
+<strong>Note:</strong> Event dates, times, venues and ticket availability can change.
+  Expired events are removed during refreshes. Multi-day events remain until their final listed date.
+</div>
+<footer>Jazzy 93.7 • KJZY-FM • Sonoma County Community Calendar</footer>
+</main>
+<script>
+
+(function () {
+  const input = document.getElementById('eventSearch');
+  const searchButton = document.getElementById('searchButton');
+  const clearButton = document.getElementById('clearButton');
+  const status = document.getElementById('searchStatus');
+  const noResults = document.getElementById('noResults');
+
+  function normalize(text) {
+    return (text || '').toLowerCase().trim();
+  }
+
+  function runSearch() {
+    const query = normalize(input.value);
+    const events = Array.from(document.querySelectorAll('.event'));
+    let visibleCount = 0;
+
+    events.forEach(event => {
+      const match = !query || normalize(event.innerText).includes(query);
+      event.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    // Hide month headings with no visible events.
+    document.querySelectorAll('.month').forEach(monthHeading => {
+      let node = monthHeading.nextElementSibling;
+      let hasVisibleEvent = false;
+
+      while (node && !node.classList.contains('month') && !node.classList.contains('year')) {
+        if (node.classList.contains('event') && node.style.display !== 'none') {
+          hasVisibleEvent = true;
+          break;
+        }
+        node = node.nextElementSibling;
+      }
+      monthHeading.style.display = hasVisibleEvent ? '' : 'none';
+    });
+
+    // Hide year headings with no visible month/events beneath them.
+    document.querySelectorAll('.year').forEach(yearHeading => {
+      let node = yearHeading.nextElementSibling;
+      let hasVisibleEvent = false;
+
+      while (node && !node.classList.contains('year')) {
+        if (node.classList.contains('event') && node.style.display !== 'none') {
+          hasVisibleEvent = true;
+          break;
+        }
+        node = node.nextElementSibling;
+      }
+      yearHeading.style.display = hasVisibleEvent ? '' : 'none';
+    });
+
+    if (query) {
+      status.textContent = visibleCount + (visibleCount === 1 ? ' event found.' : ' events found.');
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    } else {
+      status.textContent = 'Showing all events.';
+      noResults.style.display = 'none';
+    }
+  }
+
+  searchButton.addEventListener('click', runSearch);
+  clearButton.addEventListener('click', function () {
+    input.value = '';
+    runSearch();
+    input.focus();
+  });
+
+  input.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      runSearch();
+    }
+  });
+
+  input.addEventListener('input', function () {
+    if (input.value === '') runSearch();
+  });
+})();
+
+</script>
+</body>
+</html>
