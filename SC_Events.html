@@ -2364,7 +2364,12 @@ but individual events are added only when the date and location can be verified.
   const noResults = document.getElementById('noResults');
 
   function normalize(text) {
-    return (text || '').toLowerCase().trim();
+    return (text || '')
+      .toLowerCase()
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
   }
 
   function runSearch() {
