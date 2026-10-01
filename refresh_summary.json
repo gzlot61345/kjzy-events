@@ -1,10 +1,13 @@
 {
-  "refresh_date": "2026-09-30",
-  "events_added": 2,
+  "refresh_date": "2026-10-01",
+  "events_added": 0,
   "events_updated": 0,
   "expired_removed": 3,
-  "duplicates_suppressed": 7,
-  "total_upcoming": 297,
+  "duplicates_suppressed": 0,
+  "total_upcoming": 276,
   "local_events_evvnt_complete": false,
-  "notes": "Manual refresh completed; Evvnt coverage remains partial. Whole-file link-safety audit found no obvious transient checkout, seat-map, session, or Luther Burbank ticket-selection URLs."
+  "notes": [
+    "Research staging only. SC_Events.html unchanged.",
+    "Additional verified candidates were found but could not be safely written in this run."
+  ]
 }
