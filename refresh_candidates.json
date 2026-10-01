@@ -2,9 +2,25 @@
   "research_date": "2026-10-01",
   "additions": [],
   "updates": [],
-  "expired": [],
+  "expired": [
+    {
+      "date": "2026-09-30",
+      "title": "Heidi Porch reads from Ditching the Sky"
+    },
+    {
+      "date": "2026-09-30",
+      "title": "Overlook Trail Hike"
+    },
+    {
+      "date": "2026-09-30",
+      "title": "Rick Steves: How to See the World"
+    }
+  ],
   "duplicate_removals": [],
   "link_replacements": [],
   "local_events_evvnt_complete": false,
-  "notes": ["Research staging file; SC_Events.html unchanged."]
+  "notes": [
+    "Research staging only. SC_Events.html unchanged.",
+    "Additional verified candidates were found but could not be safely written in this run."
+  ]
 }
