@@ -1,13 +1,878 @@
 {
-  "refresh_date": "2026-10-01",
-  "events_added": 0,
-  "events_updated": 0,
-  "expired_removed": 3,
+  "refresh_date": "2026-10-02",
+  "events_added": 86,
+  "events_updated": 10,
+  "expired_removed": 7,
   "duplicates_suppressed": 0,
-  "total_upcoming": 276,
+  "total_upcoming": 358,
   "local_events_evvnt_complete": false,
+  "postponed_removed": 1,
   "notes": [
-    "Research staging only. SC_Events.html unchanged.",
-    "Additional verified candidates were found but could not be safely written in this run."
-  ]
+    "Started from the 280-listing approved main master at 87bf923e4023e41fa3aeff9bab4babdb6754335f; no older draft used.",
+    "Expired means final date before October 2, 2026, America/Los_Angeles. Today and active multi-day events remain.",
+    "Festival Calentano removed because the official organizer postponed it to a date to be determined; counted separately from expired removals.",
+    "All eight Finley occurrences, remaining Balletto Thursdays, Battaglini October 10, KJZY styling, favicon, search normalization and Calendar Sources preserved.",
+    "Maple Magic is an October–December seasonal program, retained with the official seasonal page and no invented final day. Wine Road Barrel Tasting corrected to March 5–7, 2027.",
+    "Parks additions are supported by the official Parks calendar including published direct registration links; automated retrieval of the registration pages returned HTTP 405. Sold-out/cancelled entries, redundant sessions and ambiguous entries were not added.",
+    "All six pages / 504 records of the KJZY local-events Evvnt feed were retrieved. Independent verification of all backfill candidates is incomplete; unverified candidates were not imported. The Evvnt completion flag is therefore false.",
+    "Source coverage remains limited where pages are blocked, rate-limited or embedded (including Sonoma.com, Press Democrat, NorCal Public Media, Eventbrite and Cotati). This is a verified-changes refresh, not a claim that every source event was independently reverified.",
+    "Duplicates_suppressed counts duplicate rows removed from the approved master; none found. Known candidate overlaps were skipped before insertion."
+  ],
+  "changes": {
+    "added": [
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "5",
+        "name": "Monday Pro Jam with Special Guest Tony Lindsay",
+        "url": "https://www.caltheatre.com/event-details/monday-pro-jam-with-special-guest-tony-lindsay-5",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "8",
+        "name": "Slave Play",
+        "url": "https://www.caltheatre.com/event-details/slave-play-5",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "9",
+        "name": "Slave Play",
+        "url": "https://www.caltheatre.com/event-details/slave-play-6",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "11",
+        "name": "Slave Play",
+        "url": "https://www.caltheatre.com/event-details/slave-play-7",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "12",
+        "name": "Pro Jam with Special Guest Baxter Robinson",
+        "url": "https://www.caltheatre.com/event-details/pro-jam-with-special-guest-baxter-robinson",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "17–18",
+        "name": "Hell Heim — Near Dark",
+        "url": "https://www.caltheatre.com/event-details/hell-heim-near-dark",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "22",
+        "name": "The Rocky Horror Show — The Live Musical",
+        "url": "https://www.caltheatre.com/event-details/the-rocky-horror-show-the-live-musical-4",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "23",
+        "name": "The Rocky Horror Show — The Live Musical",
+        "url": "https://www.caltheatre.com/event-details/the-rocky-horror-show-the-live-musical-5",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "24",
+        "name": "The Rocky Horror Show — The Live Musical",
+        "url": "https://www.caltheatre.com/event-details/the-rocky-horror-show-the-live-musical-6",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "25",
+        "name": "Americana Afternoon with Spike Sikes",
+        "url": "https://www.caltheatre.com/event-details/americana-afternoon-with-spike-sikes",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "29",
+        "name": "The Okay Ultras",
+        "url": "https://www.caltheatre.com/event-details/the-okay-ultras",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "30–31",
+        "name": "The Villains Ball Halloween Party",
+        "url": "https://www.caltheatre.com/event-details/the-villains-ball-halloween-party",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "1",
+        "name": "Salsa Sunday",
+        "url": "https://www.caltheatre.com/event-details/salsa-sunday-2",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "6",
+        "name": "Early Bird Dance Night — Ladies Only",
+        "url": "https://www.caltheatre.com/event-details/early-bird-dance-night-ladies-only-2",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "7",
+        "name": "The Illegals",
+        "url": "https://www.caltheatre.com/event-details/the-illegals",
+        "location": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "2–3",
+        "name": "Hallberg Butterfly Gardens Fall Plant Sale & Fundraiser",
+        "url": "https://happeningsonomacounty.com/event/hallberg-butterfly-gardens-fall-plant-sale-fundraiser/2026-10-02/",
+        "location": "Hallberg Butterfly Gardens — Sebastopol"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "2–4",
+        "name": "Bye Bye Birdie — Cinnabar Theater (final weekend)",
+        "url": "https://happeningsonomacounty.com/event/bye-bye-birdie-by-cinnabar-theater-at-ssu-8/",
+        "location": "Warren Theater, Ives Hall, Sonoma State University — Rohnert Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "2",
+        "name": "Haunted Wine Tour & Tasting",
+        "url": "https://happeningsonomacounty.com/event/haunted-wine-tour-tasting/2026-10-02/",
+        "location": "Buena Vista Winery — Sonoma"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "2",
+        "name": "Sonoma State Harvest Night",
+        "url": "https://happeningsonomacounty.com/event/sonoma-state-harvest-night/",
+        "location": "Sonoma State University — Rohnert Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "2",
+        "name": "The Bluebyrds",
+        "url": "https://happeningsonomacounty.com/event/the-bluebyrds-at-river-front-cafe/",
+        "location": "River Front Cafe — Petaluma"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "2",
+        "name": "Danny Montana & The Bar Association",
+        "url": "https://happeningsonomacounty.com/event/danny-montana-the-bar-association-at-brewsters/",
+        "location": "Brewsters Beer Garden — Petaluma"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "2",
+        "name": "The Rhythm Drivers",
+        "url": "https://happeningsonomacounty.com/event/the-rhythm-drivers-at-waterhawk/",
+        "location": "Waterhawk — Rohnert Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "2",
+        "name": "Trivia Night at Marimar Estate",
+        "url": "https://www.sonomamediagroup.com/event/trivia-night-at-marimar-estate/",
+        "location": "Marimar Estate — Sebastopol"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "3",
+        "name": "Artstart’s Fresh Paint Fundraiser",
+        "url": "https://www.sonomamediagroup.com/event/artstarts-fresh-paint-fundraiser/",
+        "location": "Chop’s Teen Club — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "3",
+        "name": "Floating into Fall Festival",
+        "url": "https://www.sonomamediagroup.com/event/floating-into-fall-festival/",
+        "location": "Heart and Hands Farm — Petaluma"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "3",
+        "name": "Year of Design DJ Block Party",
+        "url": "https://stayhealdsburg.com/event/year-of-design-dj-block-party/",
+        "location": "Fountain Plaza at Spicy Vines — Healdsburg"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "11",
+        "name": "Healdsburg Crush",
+        "url": "https://www.bgcsonoma-marin.org/healdsburgcrush",
+        "location": "Bacchus Landing — Healdsburg"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "16",
+        "name": "Winemaker Dinner with Croix Estate",
+        "url": "https://stayhealdsburg.com/event/winemaker-dinner-with-croix-estate/",
+        "location": "Hazel Hill, Montage Healdsburg — Healdsburg"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "21",
+        "name": "Sparkle Party",
+        "url": "https://stayhealdsburg.com/event/sparkle-party/",
+        "location": "Barndiva — Healdsburg"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "5",
+        "name": "The Greek by Dino Moniodis",
+        "url": "https://stayhealdsburg.com/event/the-greek-by-dino-moniodis-3/",
+        "location": "Appellation Kitchen — Healdsburg"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "12",
+        "name": "The Greek by Dino Moniodis",
+        "url": "https://stayhealdsburg.com/event/the-greek-by-dino-moniodis-3/",
+        "location": "Appellation Kitchen — Healdsburg"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "10",
+        "name": "Downtown Sound: The Restless Sons",
+        "url": "https://www.downtownsantarosa.org/do/downtown-sound",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "28",
+        "name": "Trivia Night at Ausiello’s",
+        "url": "https://www.downtownsantarosa.org/do/trivia-night-at-ausiellos",
+        "location": "Ausiello’s 5th Street Bar & Grill — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "25",
+        "name": "Trivia Night at Ausiello’s",
+        "url": "https://www.downtownsantarosa.org/do/trivia-night-at-ausiellos",
+        "location": "Ausiello’s 5th Street Bar & Grill — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "December",
+        "date": "30",
+        "name": "Trivia Night at Ausiello’s",
+        "url": "https://www.downtownsantarosa.org/do/trivia-night-at-ausiellos",
+        "location": "Ausiello’s 5th Street Bar & Grill — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "17",
+        "name": "Glitter and Gore",
+        "url": "https://mynorthbaytickets.com/e/glitter-and-gore",
+        "location": "Snoopy’s Home Ice — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "22",
+        "name": "An Evening with Alton Brown",
+        "url": "https://lutherburbankcenter.org/event/alton-brown26/",
+        "location": "Luther Burbank Center for the Arts — Santa Rosa"
+      },
+      {
+        "year": "2027",
+        "month": "March",
+        "date": "7",
+        "name": "Vir Das: I say we RUN!",
+        "url": "https://lutherburbankcenter.org/event/vir-das27/",
+        "location": "Luther Burbank Center for the Arts — Santa Rosa"
+      },
+      {
+        "year": "2027",
+        "month": "August",
+        "date": "21–22",
+        "name": "Santa Rosa Marathon, Half Marathon, 10K & 5K",
+        "url": "https://santarosamarathon.com/",
+        "location": "Old Courthouse Square — Santa Rosa"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "2",
+        "name": "Bring Your Own Binoculars & Chair",
+        "url": "https://www.simpletix.com/e/bring-your-own-binoculars-chair-2026-tickets-240975",
+        "location": "Robert Ferguson Observatory — Kenwood"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "3",
+        "name": "Senderos & RFO Observación de Estrellas",
+        "url": "https://www.simpletix.com/e/senderos-rfo-observacion-de-estrellas-2026-tickets-241546",
+        "location": "Robert Ferguson Observatory — Kenwood"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "10",
+        "name": "Solar Observing",
+        "url": "https://www.simpletix.com/e/solar-observing-2026-tickets-252932",
+        "location": "Robert Ferguson Observatory — Kenwood"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "10",
+        "name": "Public Star Party",
+        "url": "https://www.simpletix.com/e/public-star-parties-2026-tickets-240100",
+        "location": "Robert Ferguson Observatory — Kenwood"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "25",
+        "name": "Family Day at Robert Ferguson Observatory",
+        "url": "https://www.simpletix.com/e/family-day-programs-2026-tickets-241536",
+        "location": "Robert Ferguson Observatory — Kenwood"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "13",
+        "name": "Sips and Stars — Landmark Vineyards",
+        "url": "https://www.simpletix.com/e/sips-and-stars-2026-landmark-vineyards-tickets-247655",
+        "location": "Robert Ferguson Observatory — Kenwood"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "30",
+        "name": "Spooky Skies",
+        "url": "https://rfo.org/index.php/spooky-skies/",
+        "location": "Robert Ferguson Observatory — Kenwood"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "3",
+        "name": "Backcountry Hike",
+        "url": "https://secure.sonomacountyparks.org/registration/backcountry-hike26.10.03",
+        "location": "Taylor Mountain Regional Park and Preserve"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "6",
+        "name": "Senior Saunter",
+        "url": "https://secure.sonomacountyparks.org/registration/senior-saunter-26.10.06",
+        "location": "Crane Creek Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "7",
+        "name": "Volunteer: Ice Plant Removal",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-26.10.07",
+        "location": "Doran Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "8",
+        "name": "Kayak: Coastal Exploration",
+        "url": "https://secure.sonomacountyparks.org/registration/kayak-coastal-exploration26.10.08",
+        "location": "Westside Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "10",
+        "name": "Kayak: Coastal Exploration",
+        "url": "https://secure.sonomacountyparks.org/registration/kayak-coastal-exploration26.10.10",
+        "location": "Westside Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "10",
+        "name": "Science Saturdays: Slime Time 1-2pm",
+        "url": "https://secure.sonomacountyparks.org/registration/science-saturdays-slime-time-12pm26.10.10",
+        "location": "Environmental Discovery Center Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "12",
+        "name": "Volunteer: Shoreline Sweep",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-shoreline-sweep26.10.12",
+        "location": "Steelhead Beach Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "14",
+        "name": "Volunteer: Ice Plant Removal",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-26.10.14",
+        "location": "Doran Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "15",
+        "name": "Art in the Parks: Craft and Sip",
+        "url": "https://secure.sonomacountyparks.org/registration/art-in-the-parks-craft-and-sip",
+        "location": "Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "15",
+        "name": "Kayak 101: Introductory Skills",
+        "url": "https://secure.sonomacountyparks.org/registration/kayak-101-introductory-skills26.10.15",
+        "location": "Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "16",
+        "name": "Kayak: Settle Down at Sundown Paddle",
+        "url": "https://secure.sonomacountyparks.org/registration/kayak-settle-down-at-sundown-paddle26.10.16",
+        "location": "Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "16",
+        "name": "Rainbow Hike",
+        "url": "https://secure.sonomacountyparks.org/registration/rainbow-hike26.10.16",
+        "location": "Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "16",
+        "name": "StoryWalk Celebration: Moon Rope/Un Lazo a la Luna",
+        "url": "https://secure.sonomacountyparks.org/registration/storytrail-community-celebration-26.10.16",
+        "location": "Helen Putnam Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "17",
+        "name": "Volunteer: Shoreline Sweep",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-shoreline-sweep26.10.17",
+        "location": "Riverfront Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "17",
+        "name": "Park Preview: Wright Hill (10:00 am session)",
+        "url": "https://secure.sonomacountyparks.org/registration/park-preview-wright-hill-1000-am-session-26.10.17",
+        "location": "Wright Hill Ranch Regional Park and Preserve"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "21",
+        "name": "Volunteer: Ice Plant Removal",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-26.10.21",
+        "location": "Doran Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "21",
+        "name": "Volunteer Grab Bag: Litter Pick-up….and More",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-grab-bag-litter-pickupand-more26.10.21",
+        "location": "Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "22",
+        "name": "Kayak: Senior Paddle",
+        "url": "https://secure.sonomacountyparks.org/registration/kayak-senior-paddle26.10.22",
+        "location": "Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "28",
+        "name": "Winging it Wednesday",
+        "url": "https://secure.sonomacountyparks.org/registration/winging-it-wednesday-F26-2",
+        "location": "Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "28",
+        "name": "Volunteer: Ice Plant Removal",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-Su15",
+        "location": "Doran Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "29",
+        "name": "Volunteer: Invasive Plant Removal",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-invasive-plant-removal26.10.29",
+        "location": "Taylor Mountain Regional Park and Preserve"
+      },
+      {
+        "year": "2026",
+        "month": "October",
+        "date": "31",
+        "name": "Kayak: Spooky Paddle!",
+        "url": "https://secure.sonomacountyparks.org/registration/kayak-spooky-paddle",
+        "location": "Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "3",
+        "name": "Senior Saunter",
+        "url": "https://secure.sonomacountyparks.org/registration/senior-saunter-26.11.03",
+        "location": "Helen Putnam Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "4",
+        "name": "Volunteer: Ice Plant Removal",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-Su16",
+        "location": "Doran Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "6",
+        "name": "Rainbow Hike: Tidepools",
+        "url": "https://secure.sonomacountyparks.org/registration/rainbow-hike-tidepools26.11.06",
+        "location": "Pinnacle Gulch Coastal Access Trail"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "7",
+        "name": "Little Parkies",
+        "url": "https://secure.sonomacountyparks.org/registration/little-parkies26.11.07",
+        "location": "Crane Creek Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "7",
+        "name": "Fishing in the City – Pesca en la ciudad (#1 ages 5-8)",
+        "url": "https://secure.sonomacountyparks.org/registration/fishing-in-the-city-26.11.07.1",
+        "location": "Foothill Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "11",
+        "name": "Volunteer: Ice Plant Removal",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-Su17",
+        "location": "Doran Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "14",
+        "name": "Nuestros Parques: Let’s Climb a Mountain",
+        "url": "https://secure.sonomacountyparks.org/registration/nuestros-parques-lets-climb-a-mountain26.11.14",
+        "location": "Shiloh Ranch Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "14",
+        "name": "Parks After Dark: Glow in the Dark",
+        "url": "https://secure.sonomacountyparks.org/registration/parks-after-dark-glow-in-the-dark26.11.14",
+        "location": "Foothill Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "14",
+        "name": "Science Saturdays: Leaf Rubbings 1-2pm",
+        "url": "https://secure.sonomacountyparks.org/registration/science-saturdays-leaf-rubbings-12pm",
+        "location": "Environmental Discovery Center Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "18",
+        "name": "Volunteer: Ice Plant Removal",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-Su18",
+        "location": "Doran Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "19",
+        "name": "Volunteer: Native Planting Project",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-native-planting-project26.11.19",
+        "location": "Taylor Mountain Regional Park and Preserve"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "20",
+        "name": "Feelin' Crabby",
+        "url": "https://secure.sonomacountyparks.org/registration/feelin-crabby-26.11.20",
+        "location": "Spud Point Marina"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "21",
+        "name": "Feelin' Crabby",
+        "url": "https://secure.sonomacountyparks.org/registration/feelin-crabby-bilingual-26.11.21",
+        "location": "Spud Point Marina"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "22",
+        "name": "Tide Pool Creatures Meet and Greet",
+        "url": "https://secure.sonomacountyparks.org/registration/tide-pool-creatures-meet-and-greet26.11.22",
+        "location": "Doran Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "23",
+        "name": "Volunteer: Creek Cleanup",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-shoreline-sweep26.11.23",
+        "location": "Colgan Creek Trail"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "23–24",
+        "name": "Thanksgiving Week 2-Day Camp",
+        "url": "https://secure.sonomacountyparks.org/registration/thanksgiving-week-2day-camp26.11",
+        "location": "Environmental Discovery Center Spring Lake Regional Park"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "25",
+        "name": "Winging it Wednesday",
+        "url": "https://secure.sonomacountyparks.org/registration/winging-it-wednesday-F26-3",
+        "location": "Taylor Mountain Regional Park and Preserve"
+      },
+      {
+        "year": "2026",
+        "month": "November",
+        "date": "25",
+        "name": "Volunteer: Ice Plant Removal",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-Su19",
+        "location": "Doran Regional Park"
+      }
+    ],
+    "updated": [
+      {
+        "name": "Maple Magic & Winter Wonder",
+        "year": 2026,
+        "month": "October",
+        "old_date": "1",
+        "changes": {
+          "date": "Oct–Dec",
+          "url": "https://sonomabg.org/visit/maple-magic-winter-wonder/"
+        },
+        "source": "https://sonomabg.org/visit/maple-magic-winter-wonder/"
+      },
+      {
+        "name": "Ross Street Sessions: Michael Capella Band",
+        "year": 2026,
+        "month": "October",
+        "old_date": "2",
+        "changes": {
+          "name": "Ross Street Sessions: Funky Milagro opens for Michael Capella Band"
+        },
+        "source": "https://www.downtownsantarosa.org/do/ross-street-sessions-michael-capella-band"
+      },
+      {
+        "name": "Hiss Golden Messenger",
+        "year": 2026,
+        "month": "October",
+        "old_date": "6",
+        "changes": {
+          "location": "Little Saint — Healdsburg"
+        },
+        "source": "https://www.sonomacounty.com/events/live-at-little-saint-hiss-golden-messenger/"
+      },
+      {
+        "name": "Ross Street Sessions: Funky Milagro",
+        "year": 2026,
+        "month": "October",
+        "old_date": "9",
+        "changes": {
+          "name": "Ross Street Sessions: TBD",
+          "url": "https://www.downtownsantarosa.org/do/ross-street-sessions-tbd"
+        },
+        "source": "https://www.downtownsantarosa.org/do/ross-street-sessions-tbd"
+      },
+      {
+        "name": "Turn of the Century — High Energy Party Rock",
+        "year": 2026,
+        "month": "October",
+        "old_date": "10",
+        "changes": {
+          "date": "10–11"
+        },
+        "source": "https://www.downtownsantarosa.org/do/turn-of-the-century--high-energy-party-rock-in-downtown-santa-rosa"
+      },
+      {
+        "name": "Mistah F.A.B. & Philthy Rich — Motion Detected Tour",
+        "year": 2026,
+        "month": "October",
+        "old_date": "17",
+        "changes": {
+          "date": "17–18"
+        },
+        "source": "https://www.downtownsantarosa.org/do/mistah-fab-and-philthy-rich--motion-detected-tour-santa-rosa"
+      },
+      {
+        "name": "AREA 54 The Alien Disco: Mos Eisely Cantina Edition",
+        "year": 2026,
+        "month": "October",
+        "old_date": "23",
+        "changes": {
+          "date": "23–24"
+        },
+        "source": "https://www.downtownsantarosa.org/do/performancelab-presents-area-54-the-alien-disco-mos-eisely-cantina-ed"
+      },
+      {
+        "name": "Healdsburg Farmers’ Market Pumpkin Festival and Costume Competition",
+        "year": 2026,
+        "month": "October",
+        "old_date": "31",
+        "changes": {
+          "location": "Foley Family Community Pavilion — Healdsburg",
+          "url": "https://healdsburgfarmersmarket.org/visit/"
+        },
+        "source": "https://healdsburgfarmersmarket.org/visit/"
+      },
+      {
+        "name": "Christmas Craft Fair",
+        "year": 2026,
+        "month": "December",
+        "old_date": "5",
+        "changes": {
+          "location": "Faith Lutheran Church of Sonoma Valley — Sonoma"
+        },
+        "source": "https://www.flcsv.org/page120.html"
+      },
+      {
+        "name": "Wine Road Barrel Tasting Weekend",
+        "year": 2027,
+        "month": "March",
+        "old_date": "6–7",
+        "changes": {
+          "date": "5–7"
+        },
+        "source": "https://www.wineroad.com/events/barrel-tasting-weekends/"
+      }
+    ],
+    "expired": [
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "1",
+        "name": "Art Nite Healdsburg",
+        "url": "https://stayhealdsburg.com/event/artnite-healdsburg-every-first-thursday/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "1",
+        "name": "Chris Jorgensen Gallery Evening & Birthday Celebration with Sons of Norway",
+        "url": "https://happeningsonomacounty.com/event/chris-jorgensen-gallery-evening-birthday-celebration-with-sons-of-norway/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "1",
+        "name": "Dick Conte Trio",
+        "url": "https://www.sonomavalleyevents.com/10/01/2026/dick-conte-trio/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "1",
+        "name": "Don’t Tell Santa Rosa at Vintage Space",
+        "url": "https://happeningsonomacounty.com/event/dont-tell-santa-rosa-at-vintage-space-7/2026-10-01/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "1",
+        "name": "First Thursdays Art Walk Sonoma",
+        "url": "https://happeningsonomacounty.com/event/first-thursdays-art-walk-sonoma-9/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "1",
+        "name": "Harvest Happy Hour at Balletto",
+        "url": "https://www.sonomacounty.com/events/harvest-happy-hour-at-balletto/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "1",
+        "name": "Wanderlust Food Truck Festival",
+        "url": "https://www.sonomacounty.com/events/wanderlust-food-truck-festival/"
+      }
+    ],
+    "postponed": [
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "4",
+        "name": "Festival Calentano",
+        "url": "https://lutherburbankcenter.org/event/festival-calentano26/"
+      }
+    ]
+  }
 }
