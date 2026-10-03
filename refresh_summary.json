@@ -1,26 +1,27 @@
 {
   "refresh_date": "2026-10-03",
-  "events_added": 20,
+  "events_added": 21,
   "events_updated": 2,
   "expired_removed": 22,
   "postponed_removed": 0,
   "duplicates_suppressed": 0,
-  "total_upcoming": 356,
+  "total_upcoming": 357,
   "local_events_evvnt_complete": false,
   "starting_commit": "a372fe1de20b5798d787620399105ecb13815ebe",
   "notes": [
     "Started from current GitHub main: 358 listings, Updated October 2, 2026, unique month headings. No older draft used.",
-    "Removed 22 October 2 single-day occurrences. Active ranges and Maple Magic October–December seasonal program retained. Added 20 specifically verified occurrences; additions may be newly discovered rather than newly announced.",
+    "Removed 22 October 2 single-day occurrences. Active ranges and Maple Magic October–December seasonal program retained. Added 21 specifically verified occurrences; additions may be newly discovered rather than newly announced.",
     "Pumpkin Day now links to its dedicated Sonoma County Tourism event page; Lily Tomlin now links to the official Luther Burbank Center event page. Dates and venues unchanged.",
     "No additional confirmed postponements/cancellations found in checked sources. Festival Calentano remains excluded: official page still says postponed, date TBD.",
     "All eight approved Finley dates were rechecked against the official city schedule and retained exactly. Balletto, Battaglini, styles, favicon, search code and Calendar Sources retained; no Submit Your Event panel.",
-    "Actual output HTML verified: ten month headings, each appearing once; 356 event rows in chronological order; displayed count equals total_upcoming. No duplicate rows found. Known source overlaps (including RFO and Spicy Vines) were not imported.",
+    "Actual output HTML verified: ten month headings, each appearing once; 357 event rows in chronological order; displayed count equals total_upcoming. No duplicate rows found. Known source overlaps (including RFO and Spicy Vines) were not imported.",
     "All 30 listed source URLs were attempted. Accessible calendars and selected event details were checked; this is not an exhaustive re-verification of every existing event or every paginated source.",
     "Incomplete source coverage: Press Democrat robots restriction; Sonoma.com 502; Eventbrite 429; NorCal Public Media and GoGrape unreadable; Visit Santa Rosa, Fair calendar, Petaluma Voice and Cotati embedded/JavaScript content not fully exposed. Several Happening and Tourism detail pages timed out or returned 500 and those unverified candidates were withheld.",
     "KJZY local-events/Evvnt: public feed first 100 records retrieved; independent verification of the full feed remains incomplete. No unverified Evvnt candidates imported.",
     "Parks official calendar HTML retrieved, but individual registration pages were not fully reverified. Existing Parks listings retained; absence from a current source page is not treated as cancellation.",
     "Unresolved: Downtown Santa Rosa lists both MCHS Mariachi and Norbays Music Awards on Ross Street October 23; the existing Mariachi detail page remains current. No replacement/cancellation inferred and no overlapping Norbays row added.",
-    "Unresolved: Harvest Open House generic Sonoma.com link remains because no verified replacement was found. Conflicting passed-event labels on future-dated Tourism candidates were not used to infer cancellations or add those candidates."
+    "Unresolved: Harvest Open House generic Sonoma.com link remains because no verified replacement was found. Conflicting passed-event labels on future-dated Tourism candidates were not used to infer cancellations or add those candidates.",
+    "October 3 follow-up: added previously missed KJZY listing Jewish Film Festival: The Last Twins, October 13 at Rialto Cinemas Sebastopol. Official Rialto film page confirms two separate screenings, 1 PM and 6:30 PM; represented as one event-day listing. Total now 357; cumulative October 3 additions now 21."
   ],
   "changes": {
     "added": [
@@ -183,6 +184,14 @@
         "name": "CSRG Sears Point Challenge",
         "location": "Sonoma Raceway — Sonoma",
         "url": "https://www.sonomacounty.com/events/csrg-sears-point-challenge/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "13",
+        "name": "Jewish Film Festival: The Last Twins",
+        "location": "Rialto Cinemas — Sebastopol • Screenings at 1:00 PM & 6:30 PM",
+        "url": "https://rialtocinemas.com/festivals-series/jewish-film-festival/jff-the-last-twins-seb/"
       }
     ],
     "updated": [
