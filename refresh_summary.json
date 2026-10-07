@@ -1,971 +1,512 @@
 {
-  "refresh_date": "2026-10-04",
-  "events_added": 62,
-  "events_updated": 2,
-  "expired_removed": 39,
+  "refresh_date": "2026-10-06",
+  "events_added": 14,
+  "events_updated": 0,
+  "expired_removed": 33,
   "postponed_removed": 0,
   "duplicates_suppressed": 0,
-  "total_upcoming": 380,
+  "total_upcoming": 361,
   "local_events_evvnt_complete": false,
-  "starting_commit": "f558acc434227786cc21305503ca049c7f2abb57",
+  "starting_commit": "15f0ca95c51d5f614dd588a266c62e4c15195bf4",
   "notes": [
-    "Started from current GitHub main October 3 approved master, 357 listings. Removed 39 expired occurrences; active multi-day/seasonal events retained.",
-    "62 added listings include newly discovered October recurring occurrences and the second Art Trails weekend; not all were newly announced. Recurring additions cover verified October occurrences only, not unsupported longer date ranges.",
-    "All 39 entries in the KJZY Community Calendar were compared against the master. Added missing walks, farmers markets, October 4 Jazz in the Plaza, October 7 Big Band Jazz, and the October 31 library Halloween event. Library official time is 3–5:30 PM, correcting AM on KJZY. October 13 The Last Twins remains present.",
-    "Art Trails gallery listing split into October 10–11 and 17–18 based on the explicit current KJZY description. Organizer gallery page confirms venue but gives no dated schedule. Downtown Sound updated to include the opening act named by its organizer.",
-    "All eight Finley occurrences retained byte-for-byte and current city exceptions checked. Balletto, Battaglini, styles, favicon, search code, Calendar Sources and no Submit Your Event panel preserved.",
-    "Actual HTML checked for chronological order, no duplicate rows, 380 listings and ten unique month headings. Summary total matches displayed total.",
-    "All 30 listed source URLs attempted. Some sources and paginated calendars could not be completely checked; this is not an exhaustive re-verification of every future event.",
-    "Incomplete access: Press Democrat restrictions; Sonoma.com errors; Eventbrite throttling; NorCal Public Media restrictions; Fair, Visit Santa Rosa, Petaluma Voice and Cotati embedded calendars. GoGrape redirects to a transport site. Parks registration pages blocked automated requests. Broad Tourism/Sonoma Valley/Happening calendars were only partially covered.",
-    "296 existing event URLs checked: 103 returned HTTP 200; 193 rejected or errored on automated requests. No HTTP 404/410 found. Access failures were not treated as cancellations or grounds for removal. Some new candidate details also failed and those candidates were withheld.",
-    "Evvnt independent verification incomplete; no unverified Evvnt candidates imported.",
-    "No new confirmed cancellation/postponement removal. Festival Calentano remains excluded with official date TBD.",
-    "Unresolved: Murder Mystery at Gables is October 23 on KJZY versus October 24 on Tourism; organizer homepage did not resolve this. Existing October 24 retained. Ross Street October 23 Mariachi/Norbays conflict remains; existing Mariachi retained. Harvest Open House generic link remains.",
-    "KJZY recurring ranges beyond specifically verified occurrences were not extrapolated. Big Band Jazz only October 7 independently verified; Jazz in the Plaza only October 4 added. Unsupported Women Veterans 2026 listing remains excluded because linked evidence is from 2025. Windsor Senior Recreation Center is a program/facility directory, not one dated event.",
-    "Petaluma Walnut Park organizer page mixes stale November 2024 content with current October programming; additions use October Saturdays corroborated by KJZY, not the stale November text."
+    "Manual catch-up as of October 6, America/Los_Angeles. Current GitHub master was still October 4 with 380 listings. No older draft used.",
+    "14 verified additional event occurrences. These are newly discovered listings, not necessarily newly announced. No existing event details changed.",
+    "Removed only events whose final calendar date precedes October 6. Active multi-day and seasonal listings retained. October 6 occurrences retained under the date-based cutoff.",
+    "All 34 current KJZY Community Calendar headings compared to the previous 39-entry reconciliation: the five disappeared entries are expired Big Book Sale, Grand Bazaar, Cindy’s Race, Ukrainian BBQ and Van Jones. No new KJZY headings. Existing film festival and eight Finley dates preserved.",
+    "All 30 Calendar Sources links attempted. Accessible current pages reviewed, with selected direct event checks; paginated calendars and all future event details were not exhaustively verified.",
+    "Incomplete coverage: Press Democrat, Sonoma.com, Eventbrite, Parks and NorCal Public Media returned errors/restrictions; several embedded calendars (Fair, Visit Santa Rosa, Petaluma Voice, Cotati) were not exposed. GoGrape redirects to transportation information. Evvnt independent verification remains incomplete; no unverified Evvnt candidates imported.",
+    "Withheld Flora & Fauna October 11 candidate: detail page contradicts itself with March course dates. River Run October 7 candidate also has conflicting weekday language. SINGO, Waterhawk line dancing and Dan Durkin detail pages failed; no additions based on failed pages.",
+    "No newly confirmed cancellations or postponements among checked information. Prior Gables and Ross Street conflicts remain unresolved; no change inferred from absence on a calendar.",
+    "All eight Finley blocks, Balletto dates, Battaglini, October 13 Jewish Film Festival, styling, favicon, search normalization, source panel and other retained event blocks preserved. Each of ten month headings occurs once; actual count, displayed count and summary total match. Search tested.",
+    "Automated link check attempted 324 unique master-event URLs: 122 returned HTTP 200; others returned errors or access restrictions. Failed automated access alone is not evidence of a broken public link or cancellation."
   ],
   "changes": {
     "added": [
+      {
+        "name": "Luther Burbank Experiment Farm Work Day",
+        "date": "7",
+        "url": "https://sebastopolcalendar.com/event/luther-burbank-experiment-farm-work-day/2026-10-07/",
+        "location": "Luther Burbank Experiment Farm — Sebastopol",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "The Power of Gentle Presence: A Path Toward Inner Peace and Deeper Connection with Others",
+        "date": "8",
+        "url": "https://sebastopolcalendar.com/event/the-power-of-gentle-presence-a-path-toward-inner-peace-and-deeper-connection-with-others/",
+        "location": "Many Rivers Books & Tea — Sebastopol",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Joy of Astonishment: An Afternoon of Magic and Mentalism",
+        "date": "8",
+        "url": "https://www.caltheatre.com/event-details/joy-of-astonishment-an-afternoon-of-magic-and-mentalism-2",
+        "location": "The California Theatre — Santa Rosa",
+        "year": 2026,
+        "month": "November"
+      },
+      {
+        "name": "The Flying Salvias at HopMonk Sebastopol",
+        "date": "7",
+        "url": "https://happeningsonomacounty.com/event/the-flying-salvias-at-hopmonk-sebastopol/",
+        "location": "HopMonk Tavern — Sebastopol",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Circus of Bubbles LIVE! at the Mystic Theatre",
+        "date": "7",
+        "url": "https://happeningsonomacounty.com/event/circus-of-bubbles-live-at-the-mystic-theatre/",
+        "location": "Mystic Theatre — Petaluma",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Emilia presented by SRJC Theatre Arts",
+        "date": "7",
+        "url": "https://happeningsonomacounty.com/event/emilia-presented-by-srjc-theatre-arts-5/",
+        "location": "Frank Chong Studio Theater, Santa Rosa Junior College — Santa Rosa",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Live Music Fridays",
+        "date": "9",
+        "url": "https://sebastopolcalendar.com/event/live-music-fridays/2026-10-09/",
+        "location": "Pax Wines — Sebastopol",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Soul Motion: Body Prayer",
+        "date": "11",
+        "url": "https://sebastopolcalendar.com/event/soul-motion-body-prayer-every-sunday-in-person/2026-10-11/",
+        "location": "Wischemann Hall — Sebastopol",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Restorative Group Reiki Experience",
+        "date": "11",
+        "url": "https://sebastopolcalendar.com/event/restorative-group-reiki-experience/2026-10-11/",
+        "location": "Energy Wave Center — Sebastopol",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Luther Locals Online: Sonic Rose",
+        "date": "14",
+        "url": "https://lutherburbankcenter.org/event/sonic-rose26/",
+        "location": "Online — Luther Burbank Center Facebook • 5 PM",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Masters of Hawaiian Music: George Kahumoku Jr., Led Kaapana & Jeff Peterson",
+        "date": "10",
+        "url": "https://sebastopolcalendar.com/event/masters-of-hawaiian-music-george-kahumoku-jr-led-kaapana-jeff-peterson/",
+        "location": "Sebastopol Community Cultural Center — Sebastopol",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Karaoke Night at Clubhouse Bar & Grill",
+        "date": "7",
+        "url": "https://happeningsonomacounty.com/event/karaoke-night-at-clubhouse-bar-grill-11/2026-10-07/",
+        "location": "Clubhouse Bar & Grill — Santa Rosa",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Big Stage Karaoke Wednesdays with KJ Danny D",
+        "date": "7",
+        "url": "https://happeningsonomacounty.com/event/big-stage-karaoke-wednesdays-with-kj-danny-d-38/",
+        "location": "Barrel Proof Lounge — Santa Rosa",
+        "year": 2026,
+        "month": "October"
+      },
+      {
+        "name": "Summer Nights: Live Music and Outdoor Market",
+        "date": "8",
+        "url": "https://happeningsonomacounty.com/event/summer-nights-live-music-and-outdoor-market-10/",
+        "location": "Santa Rosa Vintners Square — Santa Rosa",
+        "year": 2026,
+        "month": "October"
+      }
+    ],
+    "updated": [],
+    "expired": [
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "2–5",
+        "name": "2026 BIG BOOK SALE by Friends of the Santa Rosa Libraries",
+        "url": "https://www.froggy929.com/event/2026-big-book-sale-by-friends-of-the-santa-rosa-libraries/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "2–4",
+        "name": "Bye Bye Birdie — Cinnabar Theater (final weekend)",
+        "url": "https://happeningsonomacounty.com/event/bye-bye-birdie-by-cinnabar-theater-at-ssu-8/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "2–4",
+        "name": "Grand Bazaar of Petaluma",
+        "url": "https://giving4life.org/2026-grand-bazaar/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "3–4",
+        "name": "1TRIBE: Reggae • Dancehall • Afrobeats • Amapiano with Konnex & Kobie",
+        "url": "https://www.downtownsantarosa.org/do/1tribe-reggae--dancehall--afrobeats--amapiano-with-konnex-and-kobie"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "3–4",
+        "name": "Sonoma Con 2026",
+        "url": "https://www.sonomacounty.com/events/sonoma-con-2026/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "3–4",
+        "name": "Water Bark at Spring Lake Park",
+        "url": "https://www.sonomacountyparksfoundation.org/water-bark.html"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "4",
+        "name": "Anaba Harvest Party",
+        "url": "https://www.anabawines.com/events/the-2026-anaba-harvest-party/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "4",
+        "name": "Blessing of the Animals",
+        "url": "https://www.sonoma.com/event/blessing-of-the-animals-at-st-francis-winery/"
+      },
       {
         "year": 2026,
         "month": "October",
         "date": "4",
         "name": "Boating at the Barn on the Petaluma River",
-        "url": "https://happeningsonomacounty.com/event/boating-at-the-barn-on-the-petaluma-river/2026-10-04/",
-        "location": "David Yearsley River Heritage Center, Steamer Landing Park — Petaluma"
+        "url": "https://happeningsonomacounty.com/event/boating-at-the-barn-on-the-petaluma-river/2026-10-04/"
       },
       {
         "year": 2026,
         "month": "October",
         "date": "4",
-        "name": "Jazz in the Plaza",
-        "url": "https://happeningsonomacounty.com/event/jazz-in-the-plaza-49/",
-        "location": "Putnam Plaza Park — Petaluma"
+        "name": "Bodega Bay Farmers Market",
+        "url": "https://www.ourfarmersmarkets.org/locations-bodega-bay/"
       },
       {
         "year": 2026,
         "month": "October",
         "date": "4",
-        "name": "Tales of Suspense — 3 Classic Radio Dramas Live on Stage",
-        "url": "https://happeningsonomacounty.com/event/tales-of-suspense-3-classic-radio-dramas-live-on-stage/2026-10-04/",
-        "location": "Cloverdale Performing Arts Center — Cloverdale"
+        "name": "Cindy's Race",
+        "url": "https://runsignup.com/Race/CA/SantaRosa/cindysracefit4momsantarosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "4",
+        "name": "Cloverdale Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/"
       },
       {
         "year": 2026,
         "month": "October",
         "date": "4",
         "name": "Debussy & Mahler — Sonoma County Philharmonic",
-        "url": "https://happeningsonomacounty.com/event/debussy-mahler-sonoma-county-philharmonic/2026-10-04/",
-        "location": "Jackson Theater, Sonoma Country Day School — Santa Rosa"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "4",
-        "name": "Emilia presented by SRJC Theatre Arts",
-        "url": "https://happeningsonomacounty.com/event/emilia-presented-by-srjc-theatre-arts-4/",
-        "location": "Frank Chong Studio Theater, Santa Rosa Junior College — Santa Rosa"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "4",
-        "name": "Haunted Wine Tour & Tasting",
-        "url": "https://happeningsonomacounty.com/event/haunted-wine-tour-tasting/2026-10-04/",
-        "location": "Buena Vista Winery — Sonoma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "4",
-        "name": "ZigZag at Murphy’s",
-        "url": "https://happeningsonomacounty.com/event/zigzag-at-murphys-6/",
-        "location": "Murphy’s Irish Pub & Restaurant — Sonoma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "4",
-        "name": "Spike Sikes presents Monk at the Trunk",
-        "url": "https://happeningsonomacounty.com/event/spike-sikes-presents-monk-at-the-trunk-at-the-elephant-in-the-room/",
-        "location": "Elephant in the Room — Healdsburg"
+        "url": "https://happeningsonomacounty.com/event/debussy-mahler-sonoma-county-philharmonic/2026-10-04/"
       },
       {
         "year": 2026,
         "month": "October",
         "date": "4",
         "name": "Electric Church Blues Jam",
-        "url": "https://happeningsonomacounty.com/event/electric-church-blues-jam-at-the-big-easy/2026-10-04/",
-        "location": "The Big Easy — Petaluma"
+        "url": "https://happeningsonomacounty.com/event/electric-church-blues-jam-at-the-big-easy/2026-10-04/"
       },
       {
         "year": 2026,
         "month": "October",
         "date": "4",
-        "name": "Those Darn Accordions at Brewsters",
-        "url": "https://happeningsonomacounty.com/event/those-darn-accordions-at-brewsters/2026-10-04/",
-        "location": "Brewsters Beer Garden — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "6",
-        "name": "Tuesday Morning River Walk",
-        "url": "https://www.petalumariverpark.org/calendar/river-park-walk-ars2x-djslw-7jznw-6bahf-fykf4-s9r98-f2zh3-mf3jc-326pj-a7exg-6t29g-3jhct-wa6h2-wg2mc-rt45g-f3f64-wf9fk-2rhal-j5bp7-dkhk7-n266n-6sem8-7k2dt-fcl36-7xckh-ezk2r-p9fg8-4dbae-f5wpa",
-        "location": "Petaluma River Park, Steamer Landing — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "10",
-        "name": "River Park Weekend Walk",
-        "url": "https://www.petalumariverpark.org/calendar/river-park-walk-ars2x-djslw-7jznw-6bahf-fykf4-s9r98-f2zh3-mf3jc-326pj-a7exg-6t29g-3jhct-wa6h2-wg2mc-rt45g-f3f64-wf9fk-2rhal-j5bp7-dkhk7-n266n-6sem8-7k2dt-ytys4-22awr-lz5e2-bx55m-h2wz9",
-        "location": "Petaluma River Park, Steamer Landing — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "13",
-        "name": "Tuesday Morning River Walk",
-        "url": "https://www.petalumariverpark.org/calendar/river-park-walk-ars2x-djslw-7jznw-6bahf-fykf4-s9r98-f2zh3-mf3jc-326pj-a7exg-6t29g-3jhct-wa6h2-wg2mc-rt45g-f3f64-wf9fk-2rhal-j5bp7-dkhk7-n266n-6sem8-7k2dt-fcl36-7xckh-ezk2r-p9fg8-4dbae-f5wpa-8j922",
-        "location": "Petaluma River Park, Steamer Landing — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "17",
-        "name": "River Park Weekend Walk",
-        "url": "https://www.petalumariverpark.org/calendar/river-park-walk-ars2x-djslw-7jznw-6bahf-fykf4-s9r98-f2zh3-mf3jc-326pj-a7exg-6t29g-3jhct-wa6h2-wg2mc-rt45g-f3f64-wf9fk-2rhal-j5bp7-dkhk7-n266n-6sem8-7k2dt-ytys4-22awr-lz5e2-bx55m-h2wz9-kabe3",
-        "location": "Petaluma River Park, Steamer Landing — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "20",
-        "name": "Tuesday Morning River Walk",
-        "url": "https://www.petalumariverpark.org/calendar/river-park-walk-ars2x-djslw-7jznw-6bahf-fykf4-s9r98-f2zh3-mf3jc-326pj-a7exg-6t29g-3jhct-wa6h2-wg2mc-rt45g-f3f64-wf9fk-2rhal-j5bp7-dkhk7-n266n-6sem8-7k2dt-fcl36-7xckh-ezk2r-p9fg8-4dbae-f5wpa-73m23",
-        "location": "Petaluma River Park, Steamer Landing — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "24",
-        "name": "River Park Weekend Walk",
-        "url": "https://www.petalumariverpark.org/calendar/river-park-walk-ars2x-djslw-7jznw-6bahf-fykf4-s9r98-f2zh3-mf3jc-326pj-a7exg-6t29g-3jhct-wa6h2-wg2mc-rt45g-f3f64-wf9fk-2rhal-j5bp7-dkhk7-n266n-6sem8-7k2dt-ytys4-22awr-lz5e2-bx55m-h2wz9-kabe3-crn9f",
-        "location": "Petaluma River Park, Steamer Landing — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "27",
-        "name": "Tuesday Morning River Walk",
-        "url": "https://www.petalumariverpark.org/calendar/river-park-walk-ars2x-djslw-7jznw-6bahf-fykf4-s9r98-f2zh3-mf3jc-326pj-a7exg-6t29g-3jhct-wa6h2-wg2mc-rt45g-f3f64-wf9fk-2rhal-j5bp7-dkhk7-n266n-6sem8-7k2dt-fcl36-7xckh-ezk2r-p9fg8-4dbae-f5wpa-lxyfe",
-        "location": "Petaluma River Park, Steamer Landing — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "31",
-        "name": "River Park Weekend Walk",
-        "url": "https://www.petalumariverpark.org/calendar/js3wwackht7dzdp",
-        "location": "Petaluma River Park, Steamer Landing — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "7",
-        "name": "Wednesday Night Big Band Jazz at The Big Easy",
-        "url": "https://happeningsonomacounty.com/event/wednesday-night-big-band-jazz-at-the-big-easy-11/2026-10-07/",
-        "location": "The Big Easy — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "31",
-        "name": "Guerneville Library Halloween Open House",
-        "url": "https://events.sonomalibrary.org/event/river-friends-halloween-event-118377?language=en",
-        "location": "Guerneville Regional Library — Guerneville • 3–5:30 PM"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "11",
-        "name": "La Ultima y Nos Vamos — Clave Especial, Banda Machos & Más",
-        "url": "https://ticketon.com/events/clave-especial-banda-machos--mas-petaluma-ca-2026-10-11-f7oqb8n5rtum",
-        "location": "Petaluma Fairgrounds — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "4",
-        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
-        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
-        "location": "Armstrong Redwoods State Natural Reserve — Guerneville"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "10",
-        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
-        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
-        "location": "Armstrong Redwoods State Natural Reserve — Guerneville"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "11",
-        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
-        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
-        "location": "Armstrong Redwoods State Natural Reserve — Guerneville"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "17",
-        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
-        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
-        "location": "Armstrong Redwoods State Natural Reserve — Guerneville"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "18",
-        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
-        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
-        "location": "Armstrong Redwoods State Natural Reserve — Guerneville"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "24",
-        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
-        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
-        "location": "Armstrong Redwoods State Natural Reserve — Guerneville"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "25",
-        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
-        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
-        "location": "Armstrong Redwoods State Natural Reserve — Guerneville"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "31",
-        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
-        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
-        "location": "Armstrong Redwoods State Natural Reserve — Guerneville"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "10",
-        "name": "Saturday Walking Tours of Historic Downtown Petaluma",
-        "url": "https://petalumansofyesteryear.org/historical-tours",
-        "location": "Petaluma Historical Library & Museum — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "17",
-        "name": "Saturday Walking Tours of Historic Downtown Petaluma",
-        "url": "https://petalumansofyesteryear.org/historical-tours",
-        "location": "Petaluma Historical Library & Museum — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "24",
-        "name": "Saturday Walking Tours of Historic Downtown Petaluma",
-        "url": "https://petalumansofyesteryear.org/historical-tours",
-        "location": "Petaluma Historical Library & Museum — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "31",
-        "name": "Saturday Walking Tours of Historic Downtown Petaluma",
-        "url": "https://petalumansofyesteryear.org/historical-tours",
-        "location": "Petaluma Historical Library & Museum — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "7",
-        "name": "Santa Rosa Original Certified Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/",
-        "location": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "10",
-        "name": "Santa Rosa Original Certified Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/",
-        "location": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "14",
-        "name": "Santa Rosa Original Certified Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/",
-        "location": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "17",
-        "name": "Santa Rosa Original Certified Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/",
-        "location": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "21",
-        "name": "Santa Rosa Original Certified Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/",
-        "location": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "24",
-        "name": "Santa Rosa Original Certified Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/",
-        "location": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "28",
-        "name": "Santa Rosa Original Certified Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/",
-        "location": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "31",
-        "name": "Santa Rosa Original Certified Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/",
-        "location": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "10",
-        "name": "Petaluma Walnut Park Farmers Market",
-        "url": "https://www.ilovefarmersmarkets.org/markets",
-        "location": "Walnut Park, Fourth and D Streets — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "17",
-        "name": "Petaluma Walnut Park Farmers Market",
-        "url": "https://www.ilovefarmersmarkets.org/markets",
-        "location": "Walnut Park, Fourth and D Streets — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "24",
-        "name": "Petaluma Walnut Park Farmers Market",
-        "url": "https://www.ilovefarmersmarkets.org/markets",
-        "location": "Walnut Park, Fourth and D Streets — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "31",
-        "name": "Petaluma Walnut Park Farmers Market",
-        "url": "https://www.ilovefarmersmarkets.org/markets",
-        "location": "Walnut Park, Fourth and D Streets — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "6",
-        "name": "Petaluma East Side Farmers Market",
-        "url": "https://www.ilovefarmersmarkets.org/markets",
-        "location": "320 N. McDowell Boulevard — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "13",
-        "name": "Petaluma East Side Farmers Market",
-        "url": "https://www.ilovefarmersmarkets.org/markets",
-        "location": "320 N. McDowell Boulevard — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "20",
-        "name": "Petaluma East Side Farmers Market",
-        "url": "https://www.ilovefarmersmarkets.org/markets",
-        "location": "320 N. McDowell Boulevard — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "27",
-        "name": "Petaluma East Side Farmers Market",
-        "url": "https://www.ilovefarmersmarkets.org/markets",
-        "location": "320 N. McDowell Boulevard — Petaluma"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "4",
-        "name": "Bodega Bay Farmers Market",
-        "url": "https://www.ourfarmersmarkets.org/locations-bodega-bay/",
-        "location": "Bodega Bay Community Center — Bodega Bay"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "11",
-        "name": "Bodega Bay Farmers Market",
-        "url": "https://www.ourfarmersmarkets.org/locations-bodega-bay/",
-        "location": "Bodega Bay Community Center — Bodega Bay"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "18",
-        "name": "Bodega Bay Farmers Market",
-        "url": "https://www.ourfarmersmarkets.org/locations-bodega-bay/",
-        "location": "Bodega Bay Community Center — Bodega Bay"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "25",
-        "name": "Bodega Bay Farmers Market",
-        "url": "https://www.ourfarmersmarkets.org/locations-bodega-bay/",
-        "location": "Bodega Bay Community Center — Bodega Bay"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "4",
-        "name": "Sebastopol Farmers Market",
-        "url": "https://www.sebastopolfarmersmarket.org/",
-        "location": "Weeks Way — Sebastopol"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "11",
-        "name": "Sebastopol Farmers Market",
-        "url": "https://www.sebastopolfarmersmarket.org/",
-        "location": "Weeks Way — Sebastopol"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "18",
-        "name": "Sebastopol Farmers Market",
-        "url": "https://www.sebastopolfarmersmarket.org/",
-        "location": "Weeks Way — Sebastopol"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "25",
-        "name": "Sebastopol Farmers Market",
-        "url": "https://www.sebastopolfarmersmarket.org/",
-        "location": "Weeks Way — Sebastopol"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "4",
-        "name": "Cloverdale Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/",
-        "location": "West Second Street — Cloverdale"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "11",
-        "name": "Cloverdale Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/",
-        "location": "West Second Street — Cloverdale"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "18",
-        "name": "Cloverdale Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/",
-        "location": "West Second Street — Cloverdale"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "25",
-        "name": "Cloverdale Farmers Market",
-        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/",
-        "location": "West Second Street — Cloverdale"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "17–18",
-        "name": "ART TRAILS 2026 at the Art & Music Gallery in Petaluma",
-        "url": "https://artandmusicgallery.com/events/art-trails/",
-        "location": "Art and Music Gallery — Petaluma"
-      }
-    ],
-    "updated": [
-      {
-        "name": "ART TRAILS 2026 at the Art & Music Gallery in Petaluma",
-        "change": "KJZY current description explicitly specifies October 10–11 and 17–18; replaced continuous range with two weekend listings. Second weekend counted as one added listing."
-      },
-      {
-        "name": "Downtown Sound: Muster the Gusto opens for The Restless Sons",
-        "change": "Official organizer now names opening act; October 10 unchanged."
-      }
-    ],
-    "expired": [
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "2–3",
-        "name": "Hallberg Butterfly Gardens Fall Plant Sale & Fundraiser",
-        "url": "https://happeningsonomacounty.com/event/hallberg-butterfly-gardens-fall-plant-sale-fundraiser/2026-10-02/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "2–3",
-        "name": "Sebastopol Cemetery Walk",
-        "url": "https://sebastopolcalendar.com/event/sebastopol-cemetery-walk/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "2026 Ripp’n River Bash",
-        "url": "https://stayhealdsburg.com/event/2026-rippn-river-bash/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Adrian West Band",
-        "url": "https://happeningsonomacounty.com/event/adrian-west-band/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Artstart’s Fresh Paint Fundraiser",
-        "url": "https://www.sonomamediagroup.com/event/artstarts-fresh-paint-fundraiser/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Backcountry Hike",
-        "url": "https://secure.sonomacountyparks.org/registration/backcountry-hike26.10.03"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Blue Rooster",
-        "url": "https://www.sonomavalleyevents.com/10/03/2026/blue-rooster/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Bob Edmonson",
-        "url": "https://www.sonomavalleyevents.com/10/03/2026/bob-edmonson/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Color Lab with Lena Wolff",
-        "url": "https://mynorthbaytickets.com/e/color-lab-2"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Comedy Night at the Cloverdale Citrus Fair",
-        "url": "https://happeningsonomacounty.com/event/comedy-night-at-the-cloverdale-citrus-fair/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Debussy & Mahler - Sonoma County Philharmonic",
-        "url": "https://happeningsonomacounty.com/event/debussy-mahler-sonoma-county-philharmonic-2/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Dginn at the Elephant in the Room",
-        "url": "https://happeningsonomacounty.com/event/dginn-at-the-elephant-in-the-room/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Downtown Sound: Pazifico",
-        "url": "https://www.downtownsantarosa.org/do/downtown-sound-pazifico"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Dry Creek Station",
-        "url": "https://www.sonomavalleyevents.com/10/03/2026/dry-creek-station/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
         "name": "Emilia presented by SRJC Theatre Arts",
-        "url": "https://happeningsonomacounty.com/event/emilia-presented-by-srjc-theatre-arts-3/"
+        "url": "https://happeningsonomacounty.com/event/emilia-presented-by-srjc-theatre-arts-4/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Fleetwood Macramé at Hopmonk Sebastopol",
-        "url": "https://happeningsonomacounty.com/event/fleetwood-macrame-at-hopmonk-sebastopol-3/"
+        "date": "4",
+        "name": "Flora & Fauna — Watercolor Course with Hannah Day",
+        "url": "https://sebastopolcalendar.com/event/flora-fauna-watercolor-course-with-hannah-day-at-bohemian-flowers-farm/2026-10-04/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Floating into Fall Festival",
-        "url": "https://www.sonomamediagroup.com/event/floating-into-fall-festival/"
+        "date": "4",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Free guided walks through Armstrong Redwoods in Guerneville",
-        "url": "https://happeningsonomacounty.com/event/free-guided-walks-through-armstrong-redwoods-in-guerneville-100/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Grape Stomp in the Vineyard",
-        "url": "https://www.sonomacounty.com/events/4th-annual-grape-stomp-at-the-gables-wine-country-inn/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Harvest Open House",
-        "url": "https://www.sonoma.com/events/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
+        "date": "4",
         "name": "Haunted Wine Tour & Tasting",
-        "url": "https://happeningsonomacounty.com/event/haunted-wine-tour-tasting/2026-10-03/"
+        "url": "https://happeningsonomacounty.com/event/haunted-wine-tour-tasting/2026-10-04/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Live Music by Sophia Rayne at Usher Gallery",
-        "url": "https://happeningsonomacounty.com/event/live-music-by-sophia-rayne-at-usher-gallery/"
+        "date": "4",
+        "name": "Jazz in the Plaza",
+        "url": "https://happeningsonomacounty.com/event/jazz-in-the-plaza-49/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Many Moons Festival",
-        "url": "https://manymoonsfestival.com/"
+        "date": "4",
+        "name": "Salsa Sundays",
+        "url": "https://www.downtownsantarosa.org/do/salsa-sundays-2"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "OAEC Garden Tour",
-        "url": "https://sebastopolcalendar.com/event/oaec-garden-tour/2026-10-03/"
+        "date": "4",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Psychic Fair",
-        "url": "https://sebastopolcalendar.com/event/psychic-fair/"
+        "date": "4",
+        "name": "Sip & Paint @ Paradise Ridge",
+        "url": "https://happeningsonomacounty.com/event/sip-paint-paradise-ridge/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Pumpkin Day at Oak Hill Farm",
-        "url": "https://www.sonomacounty.com/events/pumpkin-day-2026/"
+        "date": "4",
+        "name": "Spike Sikes presents Monk at the Trunk",
+        "url": "https://happeningsonomacounty.com/event/spike-sikes-presents-monk-at-the-trunk-at-the-elephant-in-the-room/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Rincon Valley Neighborhood Yard Sale",
-        "url": "https://www.sonomamediagroup.com/event/rincon-valley-neighborhood-yard-sale/"
+        "date": "4",
+        "name": "Spring Hill Halloween and Fall Market",
+        "url": "https://happeningsonomacounty.com/event/spring-hill-halloween-and-fall-market/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Saturday Harvest Market",
-        "url": "https://www.sonomavalleyevents.com/10/03/2026/saturday-harvest-market/"
+        "date": "4",
+        "name": "Tales of Suspense — 3 Classic Radio Dramas Live on Stage",
+        "url": "https://happeningsonomacounty.com/event/tales-of-suspense-3-classic-radio-dramas-live-on-stage/2026-10-04/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "SCRIBE at Shady Oak Barrel House",
-        "url": "https://www.downtownsantarosa.org/do/scribe-at-shady-oak-barrel-house"
+        "date": "4",
+        "name": "The SoCo Market Presents Ross Street Markets",
+        "url": "https://www.downtownsantarosa.org/do/the-soco-market-presents-ross-street-markets"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Senderos & RFO Observación de Estrellas",
-        "url": "https://www.simpletix.com/e/senderos-rfo-observacion-de-estrellas-2026-tickets-241546"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Sonoma State Palooza & Community Day",
-        "url": "https://happeningsonomacounty.com/event/sonoma-state-palooza-community-day/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Tales of Suspense - 3 Classic Radio Dramas Live on Stage",
-        "url": "https://happeningsonomacounty.com/event/tales-of-suspense-3-classic-radio-dramas-live-on-stage/2026-10-03/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "Tea Tasting — Organic or Non? Can You Tell the Difference?",
-        "url": "https://sebastopolcalendar.com/event/tea-tasting-organic-or-non-can-you-tell-the-difference/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "The ILLEAGLES at Coyote Sonoma",
-        "url": "https://happeningsonomacounty.com/event/the-illeagles-at-coyote-sonoma/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "The Juggs at the Penngrove Pub",
-        "url": "https://happeningsonomacounty.com/event/the-juggs-at-the-penngrove-pub/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "The Next Phase + Savor! Santana Tribute at The Big Easy",
-        "url": "https://happeningsonomacounty.com/event/the-next-phase-savor-santana-tribute-at-the-big-easy/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
-        "name": "The Pulsators at Rio Nido Roadhouse",
-        "url": "https://happeningsonomacounty.com/event/the-pulsators-at-rio-nido-roadhouse/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "3",
+        "date": "4",
         "name": "Those Darn Accordions at Brewsters",
-        "url": "https://happeningsonomacounty.com/event/those-darn-accordions-at-brewsters/2026-10-03/"
+        "url": "https://happeningsonomacounty.com/event/those-darn-accordions-at-brewsters/2026-10-04/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "3",
-        "name": "Year of Design DJ Block Party",
-        "url": "https://stayhealdsburg.com/event/year-of-design-dj-block-party/"
+        "date": "4",
+        "name": "Ukrainian BBQ and Beer Fest",
+        "url": "https://business.sebastopol.org/events/details/ukrainian-bbq-and-beer-fest-5052236"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "4",
+        "name": "We Are One — Artist Talk with Bryan Keith Thomas",
+        "url": "https://mynorthbaytickets.com/e/we-are-one-artist-talk-and-presentation-with-bryan"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "4",
+        "name": "ZigZag at Murphy’s",
+        "url": "https://happeningsonomacounty.com/event/zigzag-at-murphys-6/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "5",
+        "name": "In Conversation with Van Jones",
+        "url": "https://sonomaspeakerseries.com/event/in-conversation-with-van-jones/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "5",
+        "name": "Monday Pro Jam with Special Guest Tony Lindsay",
+        "url": "https://www.caltheatre.com/event-details/monday-pro-jam-with-special-guest-tony-lindsay-5"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "5",
+        "name": "The Greek by Dino Moniodis",
+        "url": "https://stayhealdsburg.com/event/the-greek-by-dino-moniodis-3/"
       }
     ]
   },
-  "kjzy_entries_reconciled": 39,
+  "kjzy_entries_reconciled": 34,
   "kjzy_reconciliation": [
     {
       "title": "Windsor Senior Recreation Center",
-      "disposition": "Facility/program directory, not a dated event."
+      "status": "Description unchanged since October 4; prior disposition: Facility/program directory, not a dated event."
     },
     {
       "title": "Guided Walks - Armstrong Redwoods State Natural Reserve",
-      "disposition": "Added verified October weekend occurrences."
+      "status": "Description unchanged since October 4; prior disposition: Added verified October weekend occurrences."
     },
     {
       "title": "Saturday Walking Tours of Historic Downtown Petaluma",
-      "disposition": "Added verified October Saturdays."
+      "status": "Description unchanged since October 4; prior disposition: Added verified October Saturdays."
     },
     {
       "title": "Santa Rosa Original Certified Farmers Market",
-      "disposition": "Added verified October Wednesdays and Saturdays."
+      "status": "Description unchanged since October 4; prior disposition: Added verified October Wednesdays and Saturdays."
     },
     {
       "title": "Petaluma Walnut Park Farmers Market",
-      "disposition": "Added verified October Saturdays."
+      "status": "Description unchanged since October 4; prior disposition: Added verified October Saturdays."
     },
     {
       "title": "Bodega Bay Farmers Market",
-      "disposition": "Added verified October Sundays."
+      "status": "Description unchanged since October 4; prior disposition: Added verified October Sundays."
     },
     {
       "title": "Sebastopol Farmers Market",
-      "disposition": "Added verified October Sundays."
+      "status": "Description unchanged since October 4; prior disposition: Added verified October Sundays."
     },
     {
       "title": "Cloverdale Farmers Market",
-      "disposition": "Added verified October Sundays."
+      "status": "Description unchanged since October 4; prior disposition: Added verified October Sundays."
     },
     {
       "title": "Jazz in the Plaza, Petaluma",
-      "disposition": "Added October 4; longer recurrence not independently established."
+      "status": "Description unchanged since October 4; prior disposition: Added October 4; longer recurrence not independently established."
     },
     {
       "title": "Tuesday Morning River Walk",
-      "disposition": "Added four official October Tuesday dates."
+      "status": "Description unchanged since October 4; prior disposition: Added four official October Tuesday dates."
     },
     {
       "title": "Petaluma Farmers Market",
-      "disposition": "Added four October Tuesdays."
+      "status": "Description unchanged since October 4; prior disposition: Added four October Tuesdays."
     },
     {
       "title": "Big Band Jazz at The Big Easy",
-      "disposition": "Added October 7 only; later dates not independently verified."
+      "status": "Description unchanged since October 4; prior disposition: Added October 7 only; later dates not independently verified."
     },
     {
       "title": "Senior Dance at Finley Center",
-      "disposition": "Already represented; retained approved master information."
-    },
-    {
-      "title": "2026 BIG BOOK SALE by Friends of the Santa Rosa Libraries ",
-      "disposition": "Already represented; retained approved master information."
-    },
-    {
-      "title": "Grand Bazaar of Petaluma",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "6th Street Playhouse presents Misalliance",
-      "disposition": "Already represented; retained approved master information."
-    },
-    {
-      "title": "Cindy's Race",
-      "disposition": "Already represented; retained approved master information."
-    },
-    {
-      "title": "Ukrainian BBQ and Beer Fest",
-      "disposition": "Already represented; retained approved master information."
-    },
-    {
-      "title": "In Conversation with Van Jones",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "Women Veterans of Sonoma County Meetup",
-      "disposition": "Not imported: 2026 unsupported by linked 2025 page."
+      "status": "Description unchanged since October 4; prior disposition: Not imported: 2026 unsupported by linked 2025 page."
     },
     {
       "title": "Open Door Mobile Services Program",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "Brazilian Cooking Class Benefiting Sonoma Family Meal",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "Sunset Trivia Night",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "ART TRAILS 2026 at the Art & Music Gallery in Petaluma",
-      "disposition": "Split into two explicitly listed weekends."
+      "status": "Description unchanged since October 4; prior disposition: Split into two explicitly listed weekends."
     },
     {
       "title": "CYRUS CHESTNUT TRIO",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "Jewish Film Festival: The Last Twins",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "Sonoma County Sketchbook Club",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "Live Band Karaoke",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "Song of Sonoma Autumn Tea",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "Murder Mystery at The Gables Inn",
-      "disposition": "Conflict unresolved: retained existing October 24; KJZY says October 23."
+      "status": "Description unchanged since October 4; prior disposition: Conflict unresolved: retained existing October 24; KJZY says October 23."
     },
     {
       "title": "Guerneville Library Halloween Open House",
-      "disposition": "Added October 31, 3–5:30 PM from official library page."
+      "status": "Description unchanged since October 4; prior disposition: Added October 31, 3–5:30 PM from official library page."
     },
     {
       "title": "In Conversation with Scott Pelley",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "6th Street Playhouse presents Meet Me In St. Louis",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
-      "title": "Bored Teachers ",
-      "disposition": "Already represented; retained approved master information."
+      "title": "Bored Teachers",
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "In Conversation with Evan Thomas",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "6th Street Playhouse presents A Night With Janis Joplin",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "6th Street Playhouse presents Who's Afraid of Virginia Woolf",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "6th Street Playhouse presents Seagull",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     },
     {
       "title": "6th Street Playhouse presents The Pajama Game",
-      "disposition": "Already represented; retained approved master information."
+      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
     }
   ]
 }
