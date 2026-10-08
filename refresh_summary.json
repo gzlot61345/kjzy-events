@@ -1,21 +1,22 @@
 {
-  "refresh_date": "2026-10-07",
-  "events_added": 0,
+  "refresh_date": "2026-10-08",
+  "events_added": 26,
   "events_updated": 0,
-  "expired_removed": 4,
+  "expired_removed": 11,
   "postponed_removed": 0,
   "duplicates_suppressed": 0,
-  "total_upcoming": 357,
+  "total_upcoming": 372,
   "local_events_evvnt_complete": false,
-  "starting_commit": "29dc8d4f18ad6f8c1f929c65706b67518e9c0085",
+  "starting_commit": "dba4fb79187c19aff2ff0b45e2439985aa5cbb12",
   "notes": [
-    "Refreshed from the current GitHub production master dated October 6; no attachment, staging file, or prior draft used.",
-    "Removed only October 6 single-day occurrences whose final date is before October 7. The October 6–December 31 Open Door Mobile Services range remains active.",
-    "All 30 Calendar Sources URLs were attempted. Accessible current pages were reviewed, but several sources failed or exposed embedded/paginated subsets; research is explicitly partial, not exhaustive.",
-    "All 34 current KJZY Community Calendar headings were compared with the master and prior reconciliation. No new KJZY heading was found. The unsupported Women Veterans 2026 recurrence remains excluded because its link supports 2025.",
-    "No newly verified additions, date/title/venue changes, cancellations, or postponements were established in the accessible source material. Uncertainty or source access failure did not trigger removal.",
-    "All eight approved Finley Senior Dance occurrences remain; Balletto future Thursdays, Battaglini October 10, direct links, and Jewish Film Festival: The Last Twins on October 13 remain.",
-    "The 357-row output retains one heading per month/year, KJZY styling, embedded favicon, Search/Clear controls, normalization, Calendar Sources, target=_blank links, and no Submit Your Event panel."
+    "Refreshed from the current GitHub production master dated October 7; no attachment, staging file, or prior draft used.",
+    "Removed only the 11 October 7 single-day occurrences whose final date is before October 8. Active multi-day and seasonal listings remain.",
+    "Added 26 independently verified event occurrences from direct current source/detail pages: 17 explicitly listed remaining Ross Street food-truck dates and nine other future events. These are newly discovered calendar entries, not necessarily newly announced.",
+    "All 30 Calendar Sources URLs were attempted. Accessible pages were reviewed, but several sources failed or exposed embedded/paginated subsets; research is partial, not exhaustive.",
+    "All 34 current KJZY Community Calendar headings were compared with the master and existing reconciliation. No new KJZY heading was found. Unsupported Women Veterans 2026 dates remain excluded because the linked page supports 2025.",
+    "No newly verified cancellation, postponement, or existing title/date/venue change was established. Uncertainty or source access failure did not trigger removal.",
+    "All eight approved Finley Senior Dance occurrences remain; the October 8, 15, 22 and 29 Balletto dates, Battaglini October 10, direct links, and Jewish Film Festival: The Last Twins on October 13 remain.",
+    "The 372-row output retains chronological month grouping, one heading per month/year, KJZY styling, embedded favicon, Search/Clear controls and normalization, Calendar Sources, target=_blank links, and no Submit Your Event panel."
   ],
   "source_coverage": [
     {
@@ -135,8 +136,8 @@
     {
       "source": "GoGrape Sonoma",
       "url": "https://gogrape.com/sonoma/things-to-do/",
-      "status": "redirected",
-      "notes": "Redirected to a Sonoma Valley transportation/tour page rather than a dated events calendar."
+      "status": "failed",
+      "notes": "Source returned an internal retrieval error today; no cancellation inferred."
     },
     {
       "source": "Petaluma Voice",
@@ -183,8 +184,8 @@
     {
       "source": "California Theatre",
       "url": "https://www.caltheatre.com/",
-      "status": "accessible",
-      "notes": "Official events landing page reviewed; individual future detail pages not exhaustively opened."
+      "status": "failed",
+      "notes": "Official landing page returned an internal retrieval error today; existing direct event links were retained unless expired."
     },
     {
       "source": "Petaluma Fairgrounds",
@@ -200,36 +201,294 @@
     }
   ],
   "changes": {
-    "added": [],
+    "added": [
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "1–30",
+        "name": "October Songwriter Cohort",
+        "url": "https://www.supernovasupport.com/october-songwriter-cohort",
+        "location": "Online • Sonoma County"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "8",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "12",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "13",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "14",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "15",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "16",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "19",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "20",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "21",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "22",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "23",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "26",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "27",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "28",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "29",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "30",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "location": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "Wine Blending Workshop",
+        "url": "https://stayhealdsburg.com/event/wine-blending-workshop-3/",
+        "location": "Hazel Hill at Montage Healdsburg — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Oktoberfest at Stuhlmuller Vineyards",
+        "url": "https://stayhealdsburg.com/event/oktoberfest/",
+        "location": "Stuhlmuller Vineyards — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Live Music by Adam Lieb",
+        "url": "https://stayhealdsburg.com/event/live-music-by-adam-lieb-2/",
+        "location": "Spicy Vines Tasting Room — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Russian River Ramblers",
+        "url": "https://stayhealdsburg.com/event/russian-river-ramblers/",
+        "location": "Raven Performing Arts Theater — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "17",
+        "name": "Dust to Dust — Artist Talk and Presentation with Katie Murken",
+        "url": "https://mynorthbaytickets.com/e/dust-to-dust-artist-talk-and-presentation-with-kat",
+        "location": "Petaluma Arts Center — Petaluma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "18",
+        "name": "Reuse in Art, Reuse in Life — A Conversation Between Ali Gass and Phoebe Schenker",
+        "url": "https://mynorthbaytickets.com/e/reuse-in-art-reuse-in-life-a-conversation-between",
+        "location": "Petaluma Arts Center — Petaluma"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "7–8",
+        "name": "Sk8 to Elimin8 Cancer at Snoopy’s Home Ice",
+        "url": "https://fundraise.scottcares.org/snoopy",
+        "location": "Snoopy’s Home Ice — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "13",
+        "name": "Paint & Sip with Genevieve Elkin",
+        "url": "https://mynorthbaytickets.com/e/paint-sip-with-genevieve-elkin-2",
+        "location": "Petaluma Arts Center — Petaluma"
+      }
+    ],
     "updated": [],
     "expired": [
       {
         "year": 2026,
         "month": "October",
-        "date": "6",
-        "name": "Hiss Golden Messenger",
-        "url": "https://www.sonomacounty.com/events/live-at-little-saint-hiss-golden-messenger/"
+        "date": "7",
+        "name": "Big Stage Karaoke Wednesdays with KJ Danny D",
+        "url": "https://happeningsonomacounty.com/event/big-stage-karaoke-wednesdays-with-kj-danny-d-38/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "6",
-        "name": "Petaluma East Side Farmers Market",
-        "url": "https://www.ilovefarmersmarkets.org/markets"
+        "date": "7",
+        "name": "Circus of Bubbles LIVE! at the Mystic Theatre",
+        "url": "https://happeningsonomacounty.com/event/circus-of-bubbles-live-at-the-mystic-theatre/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "6",
-        "name": "Senior Saunter",
-        "url": "https://secure.sonomacountyparks.org/registration/senior-saunter-26.10.06"
+        "date": "7",
+        "name": "Emilia presented by SRJC Theatre Arts",
+        "url": "https://happeningsonomacounty.com/event/emilia-presented-by-srjc-theatre-arts-5/"
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "6",
-        "name": "Tuesday Morning River Walk",
-        "url": "https://www.petalumariverpark.org/calendar/river-park-walk-ars2x-djslw-7jznw-6bahf-fykf4-s9r98-f2zh3-mf3jc-326pj-a7exg-6t29g-3jhct-wa6h2-wg2mc-rt45g-f3f64-wf9fk-2rhal-j5bp7-dkhk7-n266n-6sem8-7k2dt-fcl36-7xckh-ezk2r-p9fg8-4dbae-f5wpa"
+        "date": "7",
+        "name": "Karaoke Night at Clubhouse Bar &amp; Grill",
+        "url": "https://happeningsonomacounty.com/event/karaoke-night-at-clubhouse-bar-grill-11/2026-10-07/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "7",
+        "name": "Luther Burbank Experiment Farm Work Day",
+        "url": "https://sebastopolcalendar.com/event/luther-burbank-experiment-farm-work-day/2026-10-07/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "7",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "7",
+        "name": "Summer Film Series at The Madrona",
+        "url": "https://themadronahotel.com/summer-film-series/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "7",
+        "name": "The Flying Salvias at HopMonk Sebastopol",
+        "url": "https://happeningsonomacounty.com/event/the-flying-salvias-at-hopmonk-sebastopol/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "7",
+        "name": "Volunteer: Ice Plant Removal",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-26.10.07"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "7",
+        "name": "Wednesday Night Big Band Jazz at The Big Easy",
+        "url": "https://happeningsonomacounty.com/event/wednesday-night-big-band-jazz-at-the-big-easy-11/2026-10-07/"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "7",
+        "name": "Work In Progress — Robert Reich New Movie",
+        "url": "https://www.sonomavalleyevents.com/10/07/2026/wake-up-sonoma-presents-work-in-progress/"
       }
     ],
     "postponed": [],
