@@ -1,437 +1,2860 @@
 {
-  "refresh_date": "2026-10-09",
-  "events_added": 0,
-  "events_updated": 0,
-  "expired_removed": 10,
+  "refresh_date": "2026-10-13",
+  "timezone": "America/Los_Angeles",
+  "refresh_type": "manual",
+  "starting_commit": "7d163d0b587de3d331655010422dc073f476c99f",
+  "starting_calendar_date": "2026-10-09",
+  "starting_count": 360,
+  "events_added": 172,
+  "events_updated": 9,
+  "expired_removed": 57,
   "postponed_removed": 0,
-  "duplicates_suppressed": 2,
-  "total_upcoming": 360,
-  "local_events_evvnt_complete": false,
-  "starting_commit": "f96ed6abed16a07f284058ba70a7b4f2d13e35a9",
-  "notes": [
-    "Refreshed from the current GitHub production master dated October 8; no attachment, staging file, or prior draft used.",
-    "Removed only the 10 October 8 single-day occurrences whose final date is before October 9. Active multi-day and seasonal listings remain.",
-    "Suppressed two actual duplicate occurrences: the October 17 Dust to Dust listing and October 18 Reuse in Art listing each shared the same date, venue and direct URL with a fuller-title row that was retained.",
-    "All 30 Calendar Sources URLs were attempted. Accessible pages were reviewed, but several sources failed or exposed embedded/paginated subsets; research is partial, not exhaustive.",
-    "All 33 current KJZY Community Calendar headings were compared with the master and existing reconciliation. The expired Brazilian Cooking Class heading disappeared; no new heading appeared. Unsupported Women Veterans 2026 dates remain excluded because the linked page supports 2025.",
-    "No independently verified new listing, cancellation, postponement, or existing title/date/venue change was established. Uncertainty or source access failure did not trigger removal.",
-    "All eight approved Finley Senior Dance occurrences remain, including October 9. The October 15, 22 and 29 Balletto dates, Battaglini October 10, direct links, and Jewish Film Festival: The Last Twins on October 13 remain.",
-    "The 360-row output retains chronological month grouping, one heading per month/year, KJZY styling, embedded favicon, Search/Clear controls and normalization, Calendar Sources, target=_blank links, and no Submit Your Event panel."
+  "cancelled_removed": 0,
+  "duplicates_suppressed": 0,
+  "confirmed_duplicates_removed": 0,
+  "duplicate_candidates_not_imported": [
+    "Previously removed October 17 Dust to Dust and October 18 Reuse in Art pairs remain single listings.",
+    "Existing Symphony concerts were not duplicated when rehearsal occurrences were added."
   ],
+  "total_upcoming": 475,
+  "reconciliation": "360 - 57 expired + 172 added - 0 duplicate removals = 475",
+  "santa_rosa_symphony_events_added": 5,
+  "santa_rosa_symphony_source_permanently_added": true,
+  "local_events_evvnt_complete": false,
+  "all_sources_fully_verified": false,
   "source_coverage": [
     {
-      "source": "Green Music Center",
+      "source": "Green Music Center — Official Events",
       "url": "https://gmc.sonoma.edu/all-events/",
-      "status": "accessible",
-      "notes": "Current listing page reviewed through visible October–November page; pagination continues beyond November 16 and was not exhaustively expanded."
+      "status": "reviewed",
+      "notes": "Reviewed five pages of the current official event inventory; existing concert dates retained."
     },
     {
-      "source": "Luther Burbank Center",
+      "source": "Luther Burbank Center for the Arts — Official Events",
       "url": "https://lutherburbankcenter.org/events/",
-      "status": "accessible",
-      "notes": "Current event list reviewed through November 28; later pagination not exhaustively expanded."
+      "status": "reviewed",
+      "notes": "Reviewed three pages of official events and direct detail pages; added White Christmas and improved three event links."
     },
     {
       "source": "KJZY Community Calendar",
       "url": "https://kjzy.com/events/community-calendar",
-      "status": "accessible",
-      "notes": "All 33 current event headings compared with the master/reconciliation. The expired Brazilian Cooking Class heading disappeared; no new heading. Unsupported Women Veterans 2026 recurrence remains excluded."
+      "status": "partially_reviewed",
+      "notes": "Reviewed the current community calendar; organizer checks made for candidate additions and date conflicts. Not every candidate was independently confirmed."
     },
     {
-      "source": "Sonoma Media Group",
+      "source": "KJZY Community Calendar 2 / Sonoma Media Group",
       "url": "https://www.sonomamediagroup.com/events/",
-      "status": "accessible",
-      "notes": "Landing page loaded; only exposed current page content reviewed."
+      "status": "partially_reviewed",
+      "notes": "Reviewed two listing pages and organizer links; unresolved candidates were not imported."
     },
     {
-      "source": "KJZY Local Events",
+      "source": "KJZY Local Events / Evvnt",
       "url": "https://kjzy.com/local-events",
-      "status": "accessible",
-      "notes": "Page loaded; no separate dated event inventory exposed."
+      "status": "inventory_unavailable",
+      "notes": "Embedded Evvnt inventory was unavailable for independent verification; no unverified Evvnt candidates imported."
     },
     {
-      "source": "Press Democrat Events",
+      "source": "The Press Democrat Events / CitySpark",
       "url": "https://www.pressdemocrat.com/events/#!/",
-      "status": "failed",
-      "notes": "Source returned an internal retrieval error; no cancellation inferred."
+      "status": "inventory_unavailable",
+      "notes": "CitySpark event inventory was not readable; page returned only an application shell."
     },
     {
-      "source": "My North Bay Tickets",
+      "source": "Press Democrat News Group / MyNorthBayTickets",
       "url": "https://mynorthbaytickets.com/",
-      "status": "accessible",
-      "notes": "Current landing inventory reviewed; pagination/details not exhaustively opened."
+      "status": "reviewed",
+      "notes": "Reviewed current ticket listings and relevant Sonoma County event details; corrected two Growlers dates, added lavender workshop and Snoopy show."
     },
     {
-      "source": "Happenings Sonoma County",
+      "source": "Happening in Sonoma County",
       "url": "https://happeningsonomacounty.com/",
-      "status": "accessible",
-      "notes": "Current landing page reviewed; recurring and paginated detail inventory not exhaustively expanded."
+      "status": "partially_reviewed",
+      "notes": "Reviewed homepage and 12 calendar pages plus selected organizer details. Inventory and all candidate events could not be exhaustively verified."
     },
     {
       "source": "Sonoma County Tourism Events",
       "url": "https://www.sonomacounty.com/events/",
-      "status": "accessible",
-      "notes": "Current event page reviewed; paginated/detail inventory not exhaustively expanded."
+      "status": "partially_reviewed",
+      "notes": "Reviewed current listing page, linked event details and organizer pages. Dynamic inventory and all future pagination could not be completely checked."
     },
     {
-      "source": "Sonoma County Annual Festivals",
+      "source": "Sonoma County Tourism — Annual Festivals",
       "url": "https://www.sonomacounty.com/events/biggest-and-best-annual-sonoma-county-festivals/",
-      "status": "accessible",
-      "notes": "Annual-festival page reviewed; informational annual entries were not treated as dated occurrences without direct verification."
+      "status": "reviewed",
+      "notes": "Reviewed annual festival guide; no future date inferred from an undated or prior-year description."
     },
     {
-      "source": "Sonoma County Fair",
+      "source": "Sonoma County Fair & Event Center",
       "url": "https://sonomacountyfair.com/pages/copy-of-calendar-of-events",
-      "status": "partial",
-      "notes": "Page loaded, but embedded/limited calendar content did not expose a complete dated inventory."
+      "status": "inventory_unavailable",
+      "notes": "Page accessible, but embedded calendar did not provide a complete event inventory."
     },
     {
-      "source": "Visit Santa Rosa",
+      "source": "Visit Santa Rosa Events",
       "url": "https://www.visitsantarosa.com/events/",
-      "status": "partial",
-      "notes": "Page loaded, but embedded/limited results did not expose a complete dated inventory."
+      "status": "partially_reviewed",
+      "notes": "Featured events readable; full dynamic event inventory was not available."
     },
     {
-      "source": "Sonoma.com",
+      "source": "Sonoma.com Events",
       "url": "https://www.sonoma.com/events/",
-      "status": "failed",
-      "notes": "Source returned an internal retrieval error; no cancellation inferred."
+      "status": "inaccessible",
+      "notes": "HTTP 502 from the source calendar."
     },
     {
-      "source": "Stay Healdsburg",
+      "source": "Stay Healdsburg Events",
       "url": "https://stayhealdsburg.com/healdsburg-events/",
-      "status": "accessible",
-      "notes": "Current listing page reviewed; pagination/details not exhaustively expanded."
+      "status": "partially_reviewed",
+      "notes": "Reviewed four listing pages and candidate details; several organizer pages blocked or dynamic, so coverage remains partial."
     },
     {
-      "source": "Eventbrite",
+      "source": "Eventbrite — Sonoma County searches",
       "url": "https://www.eventbrite.com/",
-      "status": "failed",
-      "notes": "Generic source returned an internal retrieval error and was not Sonoma-filter complete; no unverified candidates imported."
+      "status": "partially_reviewed",
+      "notes": "Official organizer ticket pages checked where linked; general Eventbrite county inventory not exhaustively reviewed."
     },
     {
       "source": "Sonoma Valley Events",
       "url": "https://www.sonomavalleyevents.com/",
-      "status": "accessible",
-      "notes": "Large current calendar page reviewed; 2,247-line page exposed, with detail conflicts left unchanged unless independently resolved."
+      "status": "inaccessible",
+      "notes": "HTTP 502 from the source calendar."
     },
     {
-      "source": "Downtown Santa Rosa",
+      "source": "Downtown Santa Rosa Events",
       "url": "https://www.downtownsantarosa.org/events/calendar",
-      "status": "accessible",
-      "notes": "Current calendar page reviewed; pagination/details not exhaustively expanded."
+      "status": "partially_reviewed",
+      "notes": "Reviewed displayed downtown events; additions without independent organizer confirmation held back."
     },
     {
-      "source": "Sonoma County Parks",
+      "source": "Sonoma County Regional Parks Calendar",
       "url": "https://parks.sonomacounty.ca.gov/play/calendar",
-      "status": "failed",
-      "notes": "Source returned an internal retrieval error; existing direct registration links retained unless expired."
+      "status": "partially_reviewed",
+      "notes": "Government listing page reviewed; registration detail pages commonly returned HTTP 405, preventing complete session verification."
     },
     {
-      "source": "NorCal Public Media",
+      "source": "NorCal Public Media Event Calendar",
       "url": "https://norcalpublicmedia.org/arts-culture/event-calendar#!/",
-      "status": "failed",
-      "notes": "Source returned an internal retrieval error; no cancellation inferred."
+      "status": "inaccessible",
+      "notes": "HTTP 403 from the source calendar."
     },
     {
-      "source": "GoGrape Sonoma",
+      "source": "Grapeline / GoGrape Sonoma Things To Do",
       "url": "https://gogrape.com/sonoma/things-to-do/",
-      "status": "redirected",
-      "notes": "Redirected to a Sonoma Valley transportation/tour page rather than a dated events calendar."
+      "status": "inventory_unavailable",
+      "notes": "URL now leads to wine-tour content rather than a usable local event calendar."
     },
     {
-      "source": "Petaluma Voice",
+      "source": "Petaluma Voice Local Event Calendar",
       "url": "https://www.petalumavoice.org/local-event-calendar/",
-      "status": "partial",
-      "notes": "Page loaded with minimal/embedded content; complete event inventory not exposed."
+      "status": "inventory_unavailable",
+      "notes": "Only an application shell was readable; no complete event inventory."
     },
     {
-      "source": "City of Sebastopol",
+      "source": "City of Sebastopol Community Calendar",
       "url": "https://www.cityofsebastopol.gov/our-community/community-calendar/",
-      "status": "accessible",
-      "notes": "Community calendar page reviewed; embedded/detail pagination not exhaustively expanded."
+      "status": "partially_reviewed",
+      "notes": "Community calendar redirects/embeds the Sebastopol Community Calendar, reviewed separately."
     },
     {
-      "source": "Sebastopol Calendar",
+      "source": "Sebastopol Community Calendar",
       "url": "https://sebastopolcalendar.com/",
-      "status": "accessible",
-      "notes": "Current listing page reviewed; recurring/detail pagination not exhaustively expanded."
+      "status": "partially_reviewed",
+      "notes": "Reviewed eight calendar pages and selected organizer pages; not all recurrence pages or candidates independently verified."
     },
     {
-      "source": "Transcendence Theatre",
+      "source": "Transcendence Theatre Company",
       "url": "https://transcendencetheatre.org/shows/",
-      "status": "partial",
-      "notes": "Shows page loaded with limited current content; no unsupported dated occurrences added."
+      "status": "reviewed",
+      "notes": "Reviewed shows page; currently listed holiday performances already present."
     },
     {
       "source": "Wine Road",
       "url": "https://www.wineroad.com/events/",
-      "status": "accessible",
-      "notes": "Current event page reviewed; detail pages not exhaustively opened."
+      "status": "partially_reviewed",
+      "notes": "Reviewed main events and winery-events page; winery event inventory not exhaustively verified."
     },
     {
-      "source": "Healdsburg Crush",
+      "source": "Boys & Girls Clubs of Sonoma-Marin — Healdsburg Crush",
       "url": "https://www.bgcsonoma-marin.org/healdsburgcrush",
-      "status": "accessible",
-      "notes": "Official event page loaded and reviewed."
+      "status": "reviewed",
+      "notes": "Official October 11 event expired and removed."
     },
     {
-      "source": "Robert Ferguson Observatory",
+      "source": "Robert Ferguson Observatory Events",
       "url": "https://rfo.org/",
-      "status": "accessible",
-      "notes": "Official site loaded; current landing content reviewed, with no complete calendar inventory exposed."
+      "status": "partially_reviewed",
+      "notes": "Reviewed official public calendar feed and 27 organizer ticket pages. Added verified individual public occurrences. Conflicting multi-day metadata for two 2027 occurrences held back; members-only and virtual events not imported."
     },
     {
-      "source": "California Theatre",
+      "source": "The California Theatre — Santa Rosa",
       "url": "https://www.caltheatre.com/",
-      "status": "failed",
-      "notes": "Official landing page returned an internal retrieval error today; existing direct event links were retained unless expired."
+      "status": "partially_reviewed",
+      "notes": "Reviewed current displayed performances and official detail pages; added six missing performances and corrected The Illeagles title/link. Additional load-more inventory not exhaustively checked."
     },
     {
-      "source": "Petaluma Fairgrounds",
+      "source": "Petaluma Fairgrounds Events",
       "url": "https://petalumafairgrounds.com/events",
-      "status": "partial",
-      "notes": "Events page loaded with sparse content; no complete paginated inventory exposed."
+      "status": "reviewed",
+      "notes": "Fairgrounds page and linked Petaluma Vintage Market organizer reviewed; added three explicitly dated markets."
     },
     {
-      "source": "Cotati RecDesk",
+      "source": "City of Cotati Recreation Calendar",
       "url": "https://cotati.recdesk.com/Community/Calendar",
-      "status": "partial",
-      "notes": "Calendar shell loaded, but dynamic/embedded event inventory was not exposed."
+      "status": "inventory_unavailable",
+      "notes": "Dynamic RecDesk calendar did not expose a complete event inventory."
+    },
+    {
+      "source": "Santa Rosa Symphony",
+      "url": "https://www.srsymphony.org/event-calendar/",
+      "status": "partially_reviewed",
+      "notes": "Permanently added source. Calendar shell was not fully readable; official 2026–27 season, family/Pops and Discovery Rehearsal pages reviewed. Five distinct public rehearsals added; existing concert listings not duplicated. Youth/other dynamic inventory not fully verified."
     }
   ],
-  "changes": {
-    "added": [],
-    "updated": [],
-    "expired": [
+  "validation": {
+    "actual_event_rows": 475,
+    "displayed_event_count": 475,
+    "month_year_headings_unique": true,
+    "month_year_heading_count": 15,
+    "chronological_order": true,
+    "expired_rows_remaining": 0,
+    "finley_dates_remaining": 7,
+    "balletto_dates_remaining": 3,
+    "styling_favicon_scripts_preserved": true,
+    "search_and_clear_test_passed": true,
+    "existing_sources_preserved": true,
+    "submit_event_panel_absent": true
+  },
+  "notes": [
+    "One-time manual refresh; no scheduled task was created, resumed, paused, disabled, changed or manually executed.",
+    "Fresh GitHub main master contained 360 listings dated October 9, not the older October 8 count of 372. Master re-fetched before publication.",
+    "Expired cutoff is final date before October 13 Pacific; active multi-day/seasonal listings retained. Expired October 9 Finley occurrence removed, seven remaining approved dates preserved; remaining Balletto dates October 15, 22 and 29 preserved.",
+    "LumaFest moved from October 17 to October 24 per SRJC. Growlers vs. New York Fire Department moved from March 19/20 to March 12/13, 2027 per organizer ticket pages. The Illeagles title corrected. Seven event URLs improved, including a replacement for Scott Pelley’s 404 page.",
+    "No additional cancellation/postponement or duplicate removal was confirmed. October 17/18 duplicate pairs were already corrected in October 9 master and are not counted again.",
+    "Recurring outdoor walks and markets expanded only through December 2026 using current official weekday/season schedules. Explicitly dated observatory programs extend through December 2027; UTC ticket timestamps converted to Pacific dates.",
+    "All 31 source URLs were attempted; successful HTTP responses alone are not treated as full verification. Sources and individual links with access restrictions are documented. No unverified Evvnt candidates added.",
+    "Unresolved: RFO March 2027 Public Star Party and April–August 2027 Senderos ticket metadata describe multi-day ranges inconsistent with single sessions; these ambiguous occurrences were not added. Other independently dated sessions retained.",
+    "Unresolved source candidates, including blocked Graton Resort pages, dynamic winery product pages and aggregator-only listings, were not imported. Existing approved events were not removed merely because source access failed."
+  ],
+  "event_changes": {
+    "added": [
       {
         "year": 2026,
-        "month": "October",
+        "month": "November",
+        "date": "14",
+        "name": "Santa Rosa Symphony Discovery Rehearsal: Echoes of Innocence — 2 PM",
+        "url": "https://www.srsymphony.org/event/echoes-of-innocence/",
+        "venue": "Weill Hall, Green Music Center — Rohnert Park",
+        "evidence": "https://www.srsymphony.org/event/echoes-of-innocence/",
+        "category": "Santa Rosa Symphony"
+      },
+      {
+        "year": 2027,
+        "month": "January",
+        "date": "9",
+        "name": "Santa Rosa Symphony Discovery Rehearsal: Beethoven & Dvořák — 2 PM",
+        "url": "https://www.srsymphony.org/event/beethoven-dvorak/",
+        "venue": "Weill Hall, Green Music Center — Rohnert Park",
+        "evidence": "https://www.srsymphony.org/event/beethoven-dvorak/",
+        "category": "Santa Rosa Symphony"
+      },
+      {
+        "year": 2027,
+        "month": "February",
+        "date": "6",
+        "name": "Santa Rosa Symphony Discovery Rehearsal: Of Myths & Masters — 2 PM",
+        "url": "https://www.srsymphony.org/event/of-myths-masters/",
+        "venue": "Weill Hall, Green Music Center — Rohnert Park",
+        "evidence": "https://www.srsymphony.org/event/of-myths-masters/",
+        "category": "Santa Rosa Symphony"
+      },
+      {
+        "year": 2027,
+        "month": "March",
+        "date": "13",
+        "name": "Santa Rosa Symphony Discovery Rehearsal: Mozart & Brahms — 2 PM",
+        "url": "https://www.srsymphony.org/event/mozart-brahms/",
+        "venue": "Weill Hall, Green Music Center — Rohnert Park",
+        "evidence": "https://www.srsymphony.org/event/mozart-brahms/",
+        "category": "Santa Rosa Symphony"
+      },
+      {
+        "year": 2027,
+        "month": "May",
         "date": "8",
-        "name": "Brazilian Cooking Class Benefiting Sonoma Family Meal",
-        "url": "https://www.sonomafamilymeal.org/store-2/braziliancookingclass"
+        "name": "Santa Rosa Symphony Discovery Rehearsal: Pictures at an Exhibition — 2 PM",
+        "url": "https://www.srsymphony.org/event/pictures-at-an-exhibition/",
+        "venue": "Weill Hall, Green Music Center — Rohnert Park",
+        "evidence": "https://www.srsymphony.org/event/pictures-at-an-exhibition/",
+        "category": "Santa Rosa Symphony"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "19",
+        "name": "All Star Improv Showcase",
+        "url": "https://www.caltheatre.com/event-details/all-star-improv-showcase-1",
+        "venue": "The California Theatre — Santa Rosa",
+        "evidence": "https://www.caltheatre.com/event-details/all-star-improv-showcase-1",
+        "category": null
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "8",
-        "name": "Don’t Tell Santa Rosa at Vintage Space",
-        "url": "https://happeningsonomacounty.com/event/dont-tell-santa-rosa-at-vintage-space-7/2026-10-08/"
+        "date": "16–17",
+        "name": "CASA Rave ft. Watts @ California Theatre",
+        "url": "https://www.caltheatre.com/event-details/casa-rave-ft-watts-california-theatre",
+        "venue": "The California Theatre — Santa Rosa",
+        "evidence": "https://www.caltheatre.com/event-details/casa-rave-ft-watts-california-theatre",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "14",
+        "name": "Pete Sawyer & The Left Hand Monkey Wrench Gang",
+        "url": "https://www.caltheatre.com/event-details/pete-sawyer-the-left-hand-monkey-wrench-gang-2",
+        "venue": "The California Theatre — Santa Rosa",
+        "evidence": "https://www.caltheatre.com/event-details/pete-sawyer-the-left-hand-monkey-wrench-gang-2",
+        "category": null
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "8",
-        "name": "Harvest Happy Hour at Balletto",
-        "url": "https://www.sonomacounty.com/events/harvest-happy-hour-at-balletto/"
+        "date": "15",
+        "name": "Slave Play - DISCOUNT NIGHT",
+        "url": "https://www.caltheatre.com/event-details/slave-play-discount-night-3",
+        "venue": "The California Theatre — Santa Rosa",
+        "evidence": "https://www.caltheatre.com/event-details/slave-play-discount-night-3",
+        "category": null
       },
       {
         "year": 2026,
         "month": "October",
-        "date": "8",
-        "name": "Kayak: Coastal Exploration",
-        "url": "https://secure.sonomacountyparks.org/registration/kayak-coastal-exploration26.10.08"
+        "date": "14",
+        "name": "Slave Play - INDUSTRY NIGHT",
+        "url": "https://www.caltheatre.com/event-details/slave-play-industry-night-2",
+        "venue": "The California Theatre — Santa Rosa",
+        "evidence": "https://www.caltheatre.com/event-details/slave-play-industry-night-2",
+        "category": null
       },
       {
         "year": 2026,
-        "month": "October",
-        "date": "8",
-        "name": "Ross Street Weekday Food Trucks",
-        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "8",
-        "name": "Slave Play",
-        "url": "https://www.caltheatre.com/event-details/slave-play-5"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "8",
-        "name": "Summer Nights: Live Music and Outdoor Market",
-        "url": "https://happeningsonomacounty.com/event/summer-nights-live-music-and-outdoor-market-10/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "8",
-        "name": "The Lily Tomlin Tour 2026",
-        "url": "https://lutherburbankcenter.org/event/lily-tomlin26/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "8",
-        "name": "The Power of Gentle Presence: A Path Toward Inner Peace and Deeper Connection with Others",
-        "url": "https://sebastopolcalendar.com/event/the-power-of-gentle-presence-a-path-toward-inner-peace-and-deeper-connection-with-others/"
-      },
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "8",
-        "name": "Wanderlust Food Truck Festival",
-        "url": "https://www.sonomacounty.com/events/wanderlust-food-truck-festival/"
-      }
-    ],
-    "postponed": [],
-    "duplicates_suppressed": [
-      {
-        "year": 2026,
-        "month": "October",
-        "date": "17",
-        "name": "Dust to Dust — Artist Talk with Katie Murken",
-        "url": "https://mynorthbaytickets.com/e/dust-to-dust-artist-talk-and-presentation-with-kat",
-        "reason": "Duplicate occurrence retained under fuller official title."
+        "month": "November",
+        "date": "20",
+        "name": "The Sun Kings",
+        "url": "https://www.caltheatre.com/event-details/the-sun-kings-3",
+        "venue": "The California Theatre — Santa Rosa",
+        "evidence": "https://www.caltheatre.com/event-details/the-sun-kings-3",
+        "category": null
       },
       {
         "year": 2026,
         "month": "October",
         "date": "18",
-        "name": "Reuse in Art, Reuse in Life — Ali Gass & Phoebe Schenker",
-        "url": "https://mynorthbaytickets.com/e/reuse-in-art-reuse-in-life-a-conversation-between",
-        "reason": "Duplicate occurrence retained under fuller official title."
+        "name": "Petaluma Vintage Market",
+        "url": "https://www.petalumavintage.com/",
+        "venue": "Petaluma Fairgrounds — Petaluma",
+        "evidence": "https://www.petalumavintage.com/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "15",
+        "name": "Petaluma Vintage Market",
+        "url": "https://www.petalumavintage.com/",
+        "venue": "Petaluma Fairgrounds — Petaluma",
+        "evidence": "https://www.petalumavintage.com/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "20",
+        "name": "Petaluma Vintage Market",
+        "url": "https://www.petalumavintage.com/",
+        "venue": "Petaluma Fairgrounds — Petaluma",
+        "evidence": "https://www.petalumavintage.com/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "1",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "7",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "8",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "14",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "15",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "21",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "22",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "28",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "29",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "5",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "6",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "12",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "13",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "19",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "20",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "26",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "27",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville",
+        "evidence": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "4",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "7",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "11",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "14",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "18",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "21",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "25",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "28",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "2",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "5",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "9",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "12",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "16",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "19",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "23",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "26",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "30",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "1",
+        "name": "Cloverdale Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/",
+        "venue": "West Second Street — Cloverdale",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "8",
+        "name": "Cloverdale Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/",
+        "venue": "West Second Street — Cloverdale",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "15",
+        "name": "Cloverdale Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/",
+        "venue": "West Second Street — Cloverdale",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "22",
+        "name": "Cloverdale Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/",
+        "venue": "West Second Street — Cloverdale",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "29",
+        "name": "Cloverdale Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/",
+        "venue": "West Second Street — Cloverdale",
+        "evidence": "https://thesantarosafarmersmarket.com/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "3",
+        "name": "Petaluma East Side Farmers Market",
+        "url": "https://www.ilovefarmersmarkets.org/markets",
+        "venue": "320 N. McDowell Boulevard — Petaluma",
+        "evidence": "https://www.ilovefarmersmarkets.org/markets",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "10",
+        "name": "Petaluma East Side Farmers Market",
+        "url": "https://www.ilovefarmersmarkets.org/markets",
+        "venue": "320 N. McDowell Boulevard — Petaluma",
+        "evidence": "https://www.ilovefarmersmarkets.org/markets",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "17",
+        "name": "Petaluma East Side Farmers Market",
+        "url": "https://www.ilovefarmersmarkets.org/markets",
+        "venue": "320 N. McDowell Boulevard — Petaluma",
+        "evidence": "https://www.ilovefarmersmarkets.org/markets",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "24",
+        "name": "Petaluma East Side Farmers Market",
+        "url": "https://www.ilovefarmersmarkets.org/markets",
+        "venue": "320 N. McDowell Boulevard — Petaluma",
+        "evidence": "https://www.ilovefarmersmarkets.org/markets",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "1",
+        "name": "Petaluma East Side Farmers Market",
+        "url": "https://www.ilovefarmersmarkets.org/markets",
+        "venue": "320 N. McDowell Boulevard — Petaluma",
+        "evidence": "https://www.ilovefarmersmarkets.org/markets",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "8",
+        "name": "Petaluma East Side Farmers Market",
+        "url": "https://www.ilovefarmersmarkets.org/markets",
+        "venue": "320 N. McDowell Boulevard — Petaluma",
+        "evidence": "https://www.ilovefarmersmarkets.org/markets",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "15",
+        "name": "Petaluma East Side Farmers Market",
+        "url": "https://www.ilovefarmersmarkets.org/markets",
+        "venue": "320 N. McDowell Boulevard — Petaluma",
+        "evidence": "https://www.ilovefarmersmarkets.org/markets",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "22",
+        "name": "Petaluma East Side Farmers Market",
+        "url": "https://www.ilovefarmersmarkets.org/markets",
+        "venue": "320 N. McDowell Boulevard — Petaluma",
+        "evidence": "https://www.ilovefarmersmarkets.org/markets",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "29",
+        "name": "Petaluma East Side Farmers Market",
+        "url": "https://www.ilovefarmersmarkets.org/markets",
+        "venue": "320 N. McDowell Boulevard — Petaluma",
+        "evidence": "https://www.ilovefarmersmarkets.org/markets",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "17",
+        "name": "Hamilton Family Wines — Annual Grape Stomp",
+        "url": "https://hamilton.wine/grape-stomp/",
+        "venue": "Hamilton Family Wines — Kenwood",
+        "evidence": "https://hamilton.wine/grape-stomp/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "24",
+        "name": "Hawley Harvest Release Party",
+        "url": "https://hawleywine.orderport.net/product-details/0516/harvest-party-ticket-2026--non-member",
+        "venue": "Hawley Estate — Healdsburg",
+        "evidence": "https://hawleywine.orderport.net/product-details/0516/harvest-party-ticket-2026--non-member",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "24",
+        "name": "Creative Phone Photography Workshop",
+        "url": "https://jacklondonpark.com/events/phone-photography-october-2026/",
+        "venue": "Jack London State Historic Park — Glen Ellen",
+        "evidence": "https://jacklondonpark.com/events/phone-photography-october-2026/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "29",
+        "name": "Boo Bash",
+        "url": "https://montgomeryvillageca.com/event/boo-bash-2/",
+        "venue": "Montgomery Village — Santa Rosa",
+        "evidence": "https://montgomeryvillageca.com/event/boo-bash-2/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "24",
+        "name": "Bundle Dye Workshop",
+        "url": "https://montgomeryvillageca.com/event/bundle-dye-workshop-at-made-local-marketplace/",
+        "venue": "Made Local Marketplace, Montgomery Village — Santa Rosa",
+        "evidence": "https://montgomeryvillageca.com/event/bundle-dye-workshop-at-made-local-marketplace/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "3–Mar 16",
+        "name": "Standing in Her Power: Portraits Beyond the Colonial Frame",
+        "url": "https://museum.santarosa.edu/event/standing-her-power-portraits-beyond-colonial-frame",
+        "venue": "SRJC Multicultural Museum — Santa Rosa",
+        "evidence": "https://museum.santarosa.edu/event/standing-her-power-portraits-beyond-colonial-frame",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "17",
+        "name": "It’s the Great Pumpkin — 60th Anniversary Event",
+        "url": "https://schulzmuseum.org/its-the-great-pumpkin-60th-anniversary-event/",
+        "venue": "Charles M. Schulz Museum — Santa Rosa",
+        "evidence": "https://schulzmuseum.org/its-the-great-pumpkin-60th-anniversary-event/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "14",
+        "name": "Second Saturday Cartoonist: Lisa Ing",
+        "url": "https://schulzmuseum.org/lisa-ing",
+        "venue": "Charles M. Schulz Museum — Santa Rosa",
+        "evidence": "https://schulzmuseum.org/lisa-ing",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "10",
+        "name": "Pearls Jubilee: Stephan Pastis in Conversation & Book Signing",
+        "url": "https://schulzmuseum.org/pearls-jubilee/",
+        "venue": "Charles M. Schulz Museum — Santa Rosa",
+        "evidence": "https://schulzmuseum.org/pearls-jubilee/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "17",
+        "name": "Mascarin Fall Release & 20th Anniversary Celebration",
+        "url": "https://shop.mascarin-wines.com/product-details/0308/mascarin-2026-fall-release-and-anniversary-event",
+        "venue": "Mascarin Family Wines — Healdsburg",
+        "evidence": "https://shop.mascarin-wines.com/product-details/0308/mascarin-2026-fall-release-and-anniversary-event",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "30–31",
+        "name": "Scream — 30 Year Reunion Screenings",
+        "url": "https://sonomacommunitycenter.org/about-us/scream/#reunion",
+        "venue": "Andrews Hall, Sonoma Community Center — Sonoma",
+        "evidence": "https://sonomacommunitycenter.org/about-us/scream/#reunion",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "27",
+        "name": "Wizards of Elixirs Cocktail Competition",
+        "url": "https://wizardsofelixirs.com/",
+        "venue": "Brewsters Beer Garden — Petaluma",
+        "evidence": "https://wizardsofelixirs.com/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "21",
+        "name": "Don Friesen — Crushers of Comedy",
+        "url": "https://www.crushersofcomedy.com/november212026.html",
+        "venue": "Balletto Vineyards — Santa Rosa",
+        "evidence": "https://www.crushersofcomedy.com/november212026.html",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "15",
+        "name": "Harvest Hoedown: Line Dancing",
+        "url": "https://www.dustinsaylor.com/event-details/harvest-hoedown-line-dancing-rusfarm-healdsburg",
+        "venue": "ru’s Farm — Healdsburg",
+        "evidence": "https://www.dustinsaylor.com/event-details/harvest-hoedown-line-dancing-rusfarm-healdsburg",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "7",
+        "name": "Sourdough from Scratch with Monica Flaherty",
+        "url": "https://www.exploretock.com/gold-ridge-organic-farms/event/626358/sourdough-from-scratch-with-monica-flaherty",
+        "venue": "Gold Ridge Organic Farms — Sebastopol",
+        "evidence": "https://www.exploretock.com/gold-ridge-organic-farms/event/626358/sourdough-from-scratch-with-monica-flaherty",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "25",
+        "name": "Burgers & Burgundy",
+        "url": "https://www.exploretock.com/martin-ray-winery/event/622294/burgers-burgundy",
+        "venue": "Martin Ray Winery — Santa Rosa",
+        "evidence": "https://www.exploretock.com/martin-ray-winery/event/622294/burgers-burgundy",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "11",
+        "name": "Temple of Expression: Winter Wonderland",
+        "url": "https://www.grovecirclehealing.com/temple-of-expression",
+        "venue": "Laguna Lab — Sebastopol",
+        "evidence": "https://www.grovecirclehealing.com/temple-of-expression",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "18",
+        "name": "Sunday Line Dancing",
+        "url": "https://www.halloftheabove.com/event-database/salsa-night-7wnl2-mj5tj-dpr9p-syla8-zat6f-4n4hc-tb2dj-655gc-cewzw-hjcl4",
+        "venue": "Hall of the Above — Petaluma",
+        "evidence": "https://www.halloftheabove.com/event-database/salsa-night-7wnl2-mj5tj-dpr9p-syla8-zat6f-4n4hc-tb2dj-655gc-cewzw-hjcl4",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "30",
+        "name": "A Haunted Victorian Halloween",
+        "url": "https://www.songbirdparlour.com/special-events/a-haunted-victorian-halloween-at-songbird-parlour-hybzj",
+        "venue": "Songbird Parlour — Glen Ellen",
+        "evidence": "https://www.songbirdparlour.com/special-events/a-haunted-victorian-halloween-at-songbird-parlour-hybzj",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "7",
+        "name": "Dinner & The Dark Sky",
+        "url": "https://www.stfranciswinery.com/event_post/dinner-the-dark-sky/",
+        "venue": "St. Francis Winery & Vineyards — Santa Rosa",
+        "evidence": "https://www.stfranciswinery.com/event_post/dinner-the-dark-sky/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "23",
+        "name": "Sip & Solve Trivia Night: Halloween Edition",
+        "url": "https://www.stfranciswinery.com/event_post/harvest-happy-hour/",
+        "venue": "St. Francis Winery & Vineyards — Santa Rosa",
+        "evidence": "https://www.stfranciswinery.com/event_post/harvest-happy-hour/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "23",
+        "name": "Pairings After Dark",
+        "url": "https://www.stfranciswinery.com/event_post/pairings-after-dark/",
+        "venue": "St. Francis Winery & Vineyards — Santa Rosa",
+        "evidence": "https://www.stfranciswinery.com/event_post/pairings-after-dark/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "25",
+        "name": "Vines, Views & Vibes — Harvest",
+        "url": "https://www.thematheson.com/upcoming-events/vines-views-vibes-harvest",
+        "venue": "The Matheson — Healdsburg",
+        "evidence": "https://www.thematheson.com/upcoming-events/vines-views-vibes-harvest",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "16–17",
+        "name": "Hitchcock Film Festival",
+        "url": "https://www.visitbodegabayca.com/hitchcock-film-fest",
+        "venue": "Bodega Bay Grange Hall — Bodega Bay",
+        "evidence": "https://www.visitbodegabayca.com/hitchcock-film-fest",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "7",
+        "name": "We Players: Mountain Goddess Ceremony",
+        "url": "https://www.westernhillsgarden.com/programs/we-players-mountain-goddess-2026",
+        "venue": "Western Hills Garden — Occidental",
+        "evidence": "https://www.westernhillsgarden.com/programs/we-players-mountain-goddess-2026",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "12–13",
+        "name": "Healdsburg Bazaar",
+        "url": "https://healdsburgbazaar.com",
+        "venue": "55 W. Grant Street — Healdsburg",
+        "evidence": "https://healdsburgbazaar.com",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "19–20",
+        "name": "Healdsburg Bazaar",
+        "url": "https://healdsburgbazaar.com",
+        "venue": "55 W. Grant Street — Healdsburg",
+        "evidence": "https://healdsburgbazaar.com",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "14",
+        "name": "Petaluma Film Alliance: Brother Verses Brother — filmmaker conversation",
+        "url": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "venue": "Carole L. Ellis Auditorium, SRJC Petaluma Campus — Petaluma",
+        "evidence": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "21",
+        "name": "Petaluma Film Alliance: Tuner",
+        "url": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "venue": "Carole L. Ellis Auditorium, SRJC Petaluma Campus — Petaluma",
+        "evidence": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "28",
+        "name": "Petaluma Film Alliance: The Bride!",
+        "url": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "venue": "Carole L. Ellis Auditorium, SRJC Petaluma Campus — Petaluma",
+        "evidence": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "4",
+        "name": "Petaluma Film Alliance: Exit 8",
+        "url": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "venue": "Carole L. Ellis Auditorium, SRJC Petaluma Campus — Petaluma",
+        "evidence": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "18",
+        "name": "Petaluma Film Alliance: The Rocky Horror Picture Show — live shadow cast",
+        "url": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "venue": "Carole L. Ellis Auditorium, SRJC Petaluma Campus — Petaluma",
+        "evidence": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "2",
+        "name": "Petaluma Film Alliance: The Odyssey",
+        "url": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "venue": "Carole L. Ellis Auditorium, SRJC Petaluma Campus — Petaluma",
+        "evidence": "https://petalumafilmalliance.org/2026-fall-schedule/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "16",
+        "name": "Happy Hour Series – Fridays in October",
+        "url": "https://quivirawine.com/event/happy-hour-series-fridays-in-september-october-7/",
+        "venue": "Quivira Vineyards — Healdsburg",
+        "evidence": "https://quivirawine.com/events/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "17",
+        "name": "Quivira Garden Workshop Series | Fall Harvest & Seed",
+        "url": "https://quivirawine.com/event/garden-classes-fall-harvest-seed/",
+        "venue": "Quivira Vineyards — Healdsburg",
+        "evidence": "https://quivirawine.com/events/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "18",
+        "name": "Cooking Class with Our Estate Chef | Global Dumplings – Gyoza, Wontons & Yakitori",
+        "url": "https://quivirawine.com/event/cooking-class-with-our-estate-chef-global-dumplings-gyoza-wontons-yakitori/",
+        "venue": "Quivira Vineyards — Healdsburg",
+        "evidence": "https://quivirawine.com/events/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "23",
+        "name": "Happy Hour Series – Fridays in October",
+        "url": "https://quivirawine.com/event/happy-hour-series-fridays-in-september-october-4/",
+        "venue": "Quivira Vineyards — Healdsburg",
+        "evidence": "https://quivirawine.com/events/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "30",
+        "name": "Final Happy Hour Series – Fridays in October",
+        "url": "https://quivirawine.com/event/final-happy-hour-series-fridays-in-september-october/",
+        "venue": "Quivira Vineyards — Healdsburg",
+        "evidence": "https://quivirawine.com/events/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "14",
+        "name": "Quivira Garden Workshop Series | Holiday Wreath Making",
+        "url": "https://quivirawine.com/event/garden-classes-holiday-wreath-making/",
+        "venue": "Quivira Vineyards — Healdsburg",
+        "evidence": "https://quivirawine.com/events/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "15",
+        "name": "(SOLD OUT) Cooking Class with Our Estate Chef | Seasonal Pie Baking Class",
+        "url": "https://quivirawine.com/event/cooking-class-with-our-estate-chef-seasonal-pie-baking-class/",
+        "venue": "Quivira Vineyards — Healdsburg",
+        "evidence": "https://quivirawine.com/events/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "4",
+        "name": "Garden Table Dinner Series | Holiday Dinner",
+        "url": "https://quivirawine.com/event/garden-table-dinner-series-holiday-dinner/",
+        "venue": "Quivira Vineyards — Healdsburg",
+        "evidence": "https://quivirawine.com/events/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "12",
+        "name": "Holiday Market @ Quivira",
+        "url": "https://quivirawine.com/event/holiday-market-quivira/",
+        "venue": "Quivira Vineyards — Healdsburg",
+        "evidence": "https://quivirawine.com/events/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "17",
+        "name": "Park Rx — Yoga Hike",
+        "url": "https://sec.regfox.com/2026yoga-hikes",
+        "venue": "Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://sec.regfox.com/2026yoga-hikes",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "21",
+        "name": "Park Rx — Yoga Hike",
+        "url": "https://sec.regfox.com/2026yoga-hikes",
+        "venue": "Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://sec.regfox.com/2026yoga-hikes",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "19",
+        "name": "Park Rx — Yoga Hike",
+        "url": "https://sec.regfox.com/2026yoga-hikes",
+        "venue": "Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://sec.regfox.com/2026yoga-hikes",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "16–17",
+        "name": "Graton Community Club Fall Flower Show & Plant Sale",
+        "url": "http://www.gratoncommunityclub.org",
+        "venue": "Graton Community Club — Graton",
+        "evidence": "http://www.gratoncommunityclub.org",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "14",
+        "name": "Sebastopol Carbon Conversation: Reducing Food Waste",
+        "url": "https://rahus.org/scc/",
+        "venue": "Sebastopol Grange — Sebastopol",
+        "evidence": "https://rahus.org/scc/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "15",
+        "name": "Laguna Lab Supper Club — waitlist",
+        "url": "https://www.tickettailor.com/events/lagunalab/2433350",
+        "venue": "Laguna Lab — Sebastopol",
+        "evidence": "https://www.tickettailor.com/events/lagunalab/2433350",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "17",
+        "name": "AIA Redwood Empire Design Awards Ceremony & Gala",
+        "url": "https://aiare.org/events/aiare-2026-design-awards-ceremony-gala/",
+        "venue": "Paradise Ridge Winery — Santa Rosa",
+        "evidence": "https://aiare.org/events/aiare-2026-design-awards-ceremony-gala/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "17",
+        "name": "Cruisin’ North Car Show for a Cause",
+        "url": "http://cruisinnorth.com/index.php/cruisin-norths-alzheimers-car-show",
+        "venue": "Petaluma Plaza North — Petaluma",
+        "evidence": "http://cruisinnorth.com/index.php/cruisin-norths-alzheimers-car-show",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "17",
+        "name": "Trail Crew Saturday",
+        "url": "https://sec.regfox.com/octrailsat26",
+        "venue": "Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://sec.regfox.com/octrailsat26",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "22",
+        "name": "The Art of Lavender Workshop — Make + Take",
+        "url": "https://mynorthbaytickets.com/e/the-art-of-lavender-workshop-make-take",
+        "venue": "Petaluma Arts Center — Petaluma",
+        "evidence": "https://mynorthbaytickets.com/e/the-art-of-lavender-workshop-make-take",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "19–20",
+        "name": "Roustabout Theater: White Christmas, the Musical",
+        "url": "https://lutherburbankcenter.org/event/roustabout-white-christmas26/2026-12-19/2/",
+        "venue": "Luther Burbank Center for the Arts — Santa Rosa",
+        "evidence": "https://lutherburbankcenter.org/event/roustabout-white-christmas26/2026-12-19/2/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "28",
+        "name": "’Tis the Season... Starring Snoopy! — 4:30 & 6 PM",
+        "url": "https://mynorthbaytickets.com/e/2026-winter-show-home",
+        "venue": "Snoopy’s Home Ice — Santa Rosa",
+        "evidence": "https://mynorthbaytickets.com/e/2026-winter-show-home",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "13",
+        "name": "SSU Community Concert Band & Blue Devils Winds",
+        "url": "https://music.sonoma.edu/events/ssu-community-concert-band-bd-winds?utm_source=sonoma_calendars&utm_medium=event_calendar&utm_campaign=fall_2026_community_concert_band_bd_winds",
+        "venue": "Weill Hall, Green Music Center — Rohnert Park",
+        "evidence": "https://music.sonoma.edu/events/ssu-community-concert-band-bd-winds?utm_source=sonoma_calendars&utm_medium=event_calendar&utm_campaign=fall_2026_community_concert_band_bd_winds",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "1",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/",
+        "venue": "Weeks Way — Sebastopol",
+        "evidence": "https://www.sebastopolfarmersmarket.org/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "8",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/",
+        "venue": "Weeks Way — Sebastopol",
+        "evidence": "https://www.sebastopolfarmersmarket.org/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "15",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/",
+        "venue": "Weeks Way — Sebastopol",
+        "evidence": "https://www.sebastopolfarmersmarket.org/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "22",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/",
+        "venue": "Weeks Way — Sebastopol",
+        "evidence": "https://www.sebastopolfarmersmarket.org/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "29",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/",
+        "venue": "Weeks Way — Sebastopol",
+        "evidence": "https://www.sebastopolfarmersmarket.org/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "6",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/",
+        "venue": "Weeks Way — Sebastopol",
+        "evidence": "https://www.sebastopolfarmersmarket.org/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "13",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/",
+        "venue": "Weeks Way — Sebastopol",
+        "evidence": "https://www.sebastopolfarmersmarket.org/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "20",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/",
+        "venue": "Weeks Way — Sebastopol",
+        "evidence": "https://www.sebastopolfarmersmarket.org/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "27",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/",
+        "venue": "Weeks Way — Sebastopol",
+        "evidence": "https://www.sebastopolfarmersmarket.org/",
+        "category": "verified recurrence"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "17",
+        "name": "Healdsburg Farmers’ Market",
+        "url": "https://healdsburgfarmersmarket.org/visit/",
+        "venue": "Foley Family Community Pavilion — Healdsburg",
+        "evidence": "https://healdsburgfarmersmarket.org/visit/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "24",
+        "name": "Healdsburg Farmers’ Market",
+        "url": "https://healdsburgfarmersmarket.org/visit/",
+        "venue": "Foley Family Community Pavilion — Healdsburg",
+        "evidence": "https://healdsburgfarmersmarket.org/visit/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "7",
+        "name": "Healdsburg Farmers’ Market",
+        "url": "https://healdsburgfarmersmarket.org/visit/",
+        "venue": "Foley Family Community Pavilion — Healdsburg",
+        "evidence": "https://healdsburgfarmersmarket.org/visit/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "14",
+        "name": "Healdsburg Farmers’ Market",
+        "url": "https://healdsburgfarmersmarket.org/visit/",
+        "venue": "Foley Family Community Pavilion — Healdsburg",
+        "evidence": "https://healdsburgfarmersmarket.org/visit/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "21",
+        "name": "Healdsburg Farmers’ Market",
+        "url": "https://healdsburgfarmersmarket.org/visit/",
+        "venue": "Foley Family Community Pavilion — Healdsburg",
+        "evidence": "https://healdsburgfarmersmarket.org/visit/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "28",
+        "name": "Healdsburg Farmers’ Market",
+        "url": "https://healdsburgfarmersmarket.org/visit/",
+        "venue": "Foley Family Community Pavilion — Healdsburg",
+        "evidence": "https://healdsburgfarmersmarket.org/visit/",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "5",
+        "name": "Healdsburg Farmers’ Market",
+        "url": "https://healdsburgfarmersmarket.org/visit/",
+        "venue": "Foley Family Community Pavilion — Healdsburg",
+        "evidence": "https://healdsburgfarmersmarket.org/visit/",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "November",
+        "date": "19",
+        "name": "Bring Your Own Binoculars & Chair 2027",
+        "url": "https://www.simpletix.com/e/bring-your-own-binoculars-chair-2027-tickets-290779",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/bring-your-own-binoculars-chair-2027-tickets-290779",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "January",
+        "date": "15",
+        "name": "Bring Your Own Telescope 2027",
+        "url": "https://www.simpletix.com/e/bring-your-own-telescope-2027-tickets-289807",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/bring-your-own-telescope-2027-tickets-289807",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "July",
+        "date": "9",
+        "name": "Bring Your Own Telescope 2027",
+        "url": "https://www.simpletix.com/e/bring-your-own-telescope-2027-tickets-289807",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/bring-your-own-telescope-2027-tickets-289807",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "March",
+        "date": "19",
+        "name": "Build Your Own Telescope Workshop",
+        "url": "https://www.simpletix.com/e/build-your-own-telescope-workshop-tickets-290730",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/build-your-own-telescope-workshop-tickets-290730",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "February",
+        "date": "13",
+        "name": "Cosmos & Cocoa 2027",
+        "url": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "April",
+        "date": "24",
+        "name": "Cosmos & Cocoa 2027",
+        "url": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "June",
+        "date": "26",
+        "name": "Cosmos & Cocoa 2027",
+        "url": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "September",
+        "date": "4",
+        "name": "Cosmos & Cocoa 2027",
+        "url": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "October",
+        "date": "2",
+        "name": "Cosmos & Cocoa 2027",
+        "url": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "December",
+        "date": "18",
+        "name": "Cosmos & Cocoa 2027",
+        "url": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/cosmos-cocoa-2027-tickets-290256",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "5",
+        "name": "Focus Night: Saturn 2026",
+        "url": "https://www.simpletix.com/e/focus-night-saturn-2026-tickets-241544",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/focus-night-saturn-2026-tickets-241544",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "October",
+        "date": "30",
+        "name": "Focus Night: Saturn 2027",
+        "url": "https://www.simpletix.com/e/focus-night-saturn-2027-tickets-290894",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/focus-night-saturn-2027-tickets-290894",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "September",
+        "date": "10",
+        "name": "Focus Night: The Moon 2027",
+        "url": "https://www.simpletix.com/e/focus-night-the-moon-2027-tickets-290903",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/focus-night-the-moon-2027-tickets-290903",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "March",
+        "date": "6",
+        "name": "Jupiter Focus Night 2027",
+        "url": "https://www.simpletix.com/e/jupiter-focus-night-2027-tickets-290898",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/jupiter-focus-night-2027-tickets-290898",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "February",
+        "date": "6",
+        "name": "Mars Focus Night 2027",
+        "url": "https://www.simpletix.com/e/mars-focus-night-2027-tickets-291266",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/mars-focus-night-2027-tickets-291266",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "7",
+        "name": "Public Star Parties 2026",
+        "url": "https://www.simpletix.com/e/public-star-parties-2026-tickets-240100",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2026-tickets-240100",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "27",
+        "name": "Public Star Parties 2026",
+        "url": "https://www.simpletix.com/e/public-star-parties-2026-tickets-240100",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2026-tickets-240100",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "January",
+        "date": "30",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "February",
+        "date": "27",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "April",
+        "date": "3",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "May",
+        "date": "1",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "May",
+        "date": "29",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "June",
+        "date": "5",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "July",
+        "date": "3",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "July",
+        "date": "31",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "August",
+        "date": "28",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "September",
+        "date": "25",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "October",
+        "date": "23",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "November",
+        "date": "26",
+        "name": "Public Star Parties 2027",
+        "url": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/public-star-parties-2027-tickets-290118",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "June",
+        "date": "11",
+        "name": "S'mores & Scopes!",
+        "url": "https://www.simpletix.com/e/s-mores-scopes-tickets-292683",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/s-mores-scopes-tickets-292683",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "September",
+        "date": "11",
+        "name": "Senderos & RFO: Observación de Estrellas 2027",
+        "url": "https://www.simpletix.com/e/senderos-rfo-observacion-de-estrellas-2027-tickets-290728",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/senderos-rfo-observacion-de-estrellas-2027-tickets-290728",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "19",
+        "name": "Sips and Stars 2026 - Burtech Family Vineyard",
+        "url": "https://www.simpletix.com/e/sips-and-stars-2026-burtech-family-vineyar-tickets-272328",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/sips-and-stars-2026-burtech-family-vineyar-tickets-272328",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "January",
+        "date": "9",
+        "name": "Sips and Stars 2027",
+        "url": "https://www.simpletix.com/e/sips-and-stars-2027-tickets-292113",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/sips-and-stars-2027-tickets-292113",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "May",
+        "date": "8",
+        "name": "Sips and Stars 2027",
+        "url": "https://www.simpletix.com/e/sips-and-stars-2027-tickets-292113",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/sips-and-stars-2027-tickets-292113",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "August",
+        "date": "21",
+        "name": "Sips and Stars 2027",
+        "url": "https://www.simpletix.com/e/sips-and-stars-2027-tickets-292113",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/sips-and-stars-2027-tickets-292113",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "November",
+        "date": "6",
+        "name": "Sips and Stars 2027",
+        "url": "https://www.simpletix.com/e/sips-and-stars-2027-tickets-292113",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/sips-and-stars-2027-tickets-292113",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "November",
+        "date": "7",
+        "name": "Solar Observing 2026",
+        "url": "https://www.simpletix.com/e/solar-observing-2026-tickets-252932",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/solar-observing-2026-tickets-252932",
+        "category": null
+      },
+      {
+        "year": 2027,
+        "month": "June",
+        "date": "19",
+        "name": "Summer Solstice Soirée 2027",
+        "url": "https://www.simpletix.com/e/summer-solstice-soiree-2027-tickets-291432",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/summer-solstice-soiree-2027-tickets-291432",
+        "category": null
+      },
+      {
+        "year": 2026,
+        "month": "December",
+        "date": "11",
+        "name": "Young Astronomers In Person Meeting",
+        "url": "https://www.simpletix.com/e/young-astronomers-in-person-meeting-tickets-283453",
+        "venue": "Robert Ferguson Observatory, Sugarloaf Ridge State Park — Kenwood",
+        "evidence": "https://www.simpletix.com/e/young-astronomers-in-person-meeting-tickets-283453",
+        "category": null
       }
-    ]
+    ],
+    "updated": [
+      {
+        "before": {
+          "year": 2026,
+          "month": "October",
+          "date": "17",
+          "name": "LumaFest & Día de los Muertos Celebration",
+          "url": "https://www.visitpetaluma.com/event/lumafest-petalumas-educational-fair-and-el-dia-de-los-muertos-celebration/",
+          "venue": "Petaluma"
+        },
+        "after": {
+          "year": 2026,
+          "month": "October",
+          "date": "24",
+          "name": "LumaFest & Día de los Muertos Celebration",
+          "url": "https://lumafest.santarosa.edu/",
+          "venue": "Petaluma"
+        },
+        "evidence": "https://lumafest.santarosa.edu/"
+      },
+      {
+        "before": {
+          "year": 2026,
+          "month": "November",
+          "date": "7",
+          "name": "The Illegals",
+          "url": "https://www.caltheatre.com/event-details/the-illegals",
+          "venue": "The California Theatre — Santa Rosa"
+        },
+        "after": {
+          "year": 2026,
+          "month": "November",
+          "date": "7",
+          "name": "The Illeagles — The Premiere Tribute to the Music of the Eagles",
+          "url": "https://www.caltheatre.com/event-details/the-illeagles-the-premiere-tribute-to-the-music-of-the-eagles",
+          "venue": "The California Theatre — Santa Rosa"
+        },
+        "evidence": "https://www.caltheatre.com/event-details/the-illeagles-the-premiere-tribute-to-the-music-of-the-eagles"
+      },
+      {
+        "before": {
+          "year": 2026,
+          "month": "October",
+          "date": "4–31",
+          "name": "Pumpkin Patch & Fall Festival",
+          "url": "https://www.sonoma.com/event/pumpkin-patch-fall-festival-at-beltane-ranch/",
+          "venue": "Beltane Ranch — Glen Ellen"
+        },
+        "after": {
+          "year": 2026,
+          "month": "October",
+          "date": "4–31",
+          "name": "Pumpkin Patch & Fall Festival",
+          "url": "https://beltaneranchevents.com/vineyard-pumpkin-patch/",
+          "venue": "Beltane Ranch — Glen Ellen"
+        },
+        "evidence": "https://beltaneranchevents.com/vineyard-pumpkin-patch/"
+      },
+      {
+        "before": {
+          "year": 2027,
+          "month": "April",
+          "date": "4",
+          "name": "Symphony Pops: The Music of Billy Joel Starring Michael Cavanaugh",
+          "url": "https://www.srsymphony.org/event/the-music-of-billy-joel-starring-michael-cavanaugh/",
+          "venue": "Luther Burbank Center for the Arts — Santa Rosa"
+        },
+        "after": {
+          "year": 2027,
+          "month": "April",
+          "date": "4",
+          "name": "Symphony Pops: The Music of Billy Joel Starring Michael Cavanaugh",
+          "url": "https://lutherburbankcenter.org/event/popsbillyjoeltribute/",
+          "venue": "Luther Burbank Center for the Arts — Santa Rosa"
+        },
+        "evidence": "https://lutherburbankcenter.org/event/popsbillyjoeltribute/"
+      },
+      {
+        "before": {
+          "year": 2027,
+          "month": "April",
+          "date": "20",
+          "name": "Alice in Wonderland — International Ballet Stars",
+          "url": "https://internationalballetstars.com/events/santa-rosa-ca?event_limit=8",
+          "venue": "Luther Burbank Center for the Arts — Santa Rosa"
+        },
+        "after": {
+          "year": 2027,
+          "month": "April",
+          "date": "20",
+          "name": "Alice in Wonderland — International Ballet Stars",
+          "url": "https://lutherburbankcenter.org/event/alice-in-wonderland27/",
+          "venue": "Luther Burbank Center for the Arts — Santa Rosa"
+        },
+        "evidence": "https://lutherburbankcenter.org/event/alice-in-wonderland27/"
+      },
+      {
+        "before": {
+          "year": 2027,
+          "month": "March",
+          "date": "8",
+          "name": "Treasure Island Reimagined: Jane Hawkins and the Pirate’s Gold",
+          "url": "https://lutherburbankcenter.org/education/for-schools-and-teachers/school-shows/treasure-island-reimagined/",
+          "venue": "Luther Burbank Center for the Arts — Santa Rosa"
+        },
+        "after": {
+          "year": 2027,
+          "month": "March",
+          "date": "8",
+          "name": "Treasure Island Reimagined: Jane Hawkins and the Pirate’s Gold",
+          "url": "https://lutherburbankcenter.org/event/fam-treasure-island-reimagined/",
+          "venue": "Luther Burbank Center for the Arts — Santa Rosa"
+        },
+        "evidence": "https://lutherburbankcenter.org/event/fam-treasure-island-reimagined/"
+      },
+      {
+        "before": {
+          "year": 2027,
+          "month": "March",
+          "date": "19",
+          "name": "Santa Rosa Growlers vs. New York Fire Department",
+          "url": "https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-nyfd-270312",
+          "venue": "Snoopy's Home Ice — Santa Rosa"
+        },
+        "after": {
+          "year": 2027,
+          "month": "March",
+          "date": "12",
+          "name": "Santa Rosa Growlers vs. New York Fire Department",
+          "url": "https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-nyfd-270312",
+          "venue": "Snoopy's Home Ice — Santa Rosa"
+        },
+        "evidence": "https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-nyfd-270312"
+      },
+      {
+        "before": {
+          "year": 2027,
+          "month": "March",
+          "date": "20",
+          "name": "Santa Rosa Growlers vs. New York Fire Department",
+          "url": "https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-nyfd-270313",
+          "venue": "Snoopy's Home Ice — Santa Rosa"
+        },
+        "after": {
+          "year": 2027,
+          "month": "March",
+          "date": "13",
+          "name": "Santa Rosa Growlers vs. New York Fire Department",
+          "url": "https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-nyfd-270313",
+          "venue": "Snoopy's Home Ice — Santa Rosa"
+        },
+        "evidence": "https://mynorthbaytickets.com/e/santa-rosa-growlers-vs-nyfd-270313"
+      },
+      {
+        "before": {
+          "year": 2026,
+          "month": "November",
+          "date": "9",
+          "name": "In Conversation with Scott Pelley",
+          "url": "https://sonomaspeakerseries.com/event/scottpelley/",
+          "venue": "Hanna Center — Sonoma"
+        },
+        "after": {
+          "year": 2026,
+          "month": "November",
+          "date": "9",
+          "name": "In Conversation with Scott Pelley",
+          "url": "https://sonomaspeakerseries.com/event/in-conversation-with-scott-pelley-2/",
+          "venue": "Hanna Center — Sonoma"
+        },
+        "evidence": "https://sonomaspeakerseries.com/event/in-conversation-with-scott-pelley-2/"
+      }
+    ],
+    "expired": [
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "3–11",
+        "name": "Brewsters Annual Oktoberfest",
+        "url": "https://brewstersbeergarden.com/calendar1/2026/9/26/annual-oktoberfest-launches",
+        "venue": "Brewsters Beer Garden — Petaluma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "2026 Santa Rosa Municipal Community Information Meeting",
+        "url": "https://mynorthbaytickets.com/e/santa-rosa-2026-municipal-election",
+        "venue": "Finley Community Center — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "Celestial Sips: Stargazing in the Vineyard",
+        "url": "https://stayhealdsburg.com/event/celestial-sips-stargazing-in-the-vineyard/",
+        "venue": "Dry Creek Vineyard — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9–11",
+        "name": "CSRG Sears Point Challenge",
+        "url": "https://www.sonomacounty.com/events/csrg-sears-point-challenge/",
+        "venue": "Sonoma Raceway — Sonoma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "Live Music Fridays",
+        "url": "https://sebastopolcalendar.com/event/live-music-fridays/2026-10-09/",
+        "venue": "Pax Wines — Sebastopol"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "P.U.R.R. Presents: A Punk Clown Takeover",
+        "url": "https://www.downtownsantarosa.org/do/purr-presents-a-punk-clown-takeover--mutual-aid-benefit",
+        "venue": "Barrel Proof Lounge — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "Ross Street Sessions: TBD",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-sessions-tbd",
+        "venue": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "venue": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "Senior Dance at Finley Center",
+        "url": "https://www.srcity.org/3673/Classes-and-Events",
+        "venue": "Finley Complex — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "Slave Play",
+        "url": "https://www.caltheatre.com/event-details/slave-play-6",
+        "venue": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "Sunset Trivia Night",
+        "url": "https://www.exploretock.com/rodneystrong/event/621477/sunset-trivia-night",
+        "venue": "Rodney Strong Vineyards"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "9",
+        "name": "Wine Blending Workshop",
+        "url": "https://stayhealdsburg.com/event/wine-blending-workshop-3/",
+        "venue": "Hazel Hill at Montage Healdsburg — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10–11",
+        "name": "5th Annual Sonoma County Americana Music Festival",
+        "url": "https://www.caltheatre.com/event-details/5th-annual-americana-festival",
+        "venue": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10–11",
+        "name": "ART TRAILS 2026 at the Art & Music Gallery in Petaluma",
+        "url": "https://artandmusicgallery.com/events/art-trails/",
+        "venue": "Art and Music Gallery — Petaluma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Downtown Sound: Muster the Gusto opens for The Restless Sons",
+        "url": "https://www.downtownsantarosa.org/do/downtown-sound",
+        "venue": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Funky Florals — Cut Paper Collage Workshop with Sally-Ann Langley",
+        "url": "https://mynorthbaytickets.com/e/funky-florals-cut-paper-collage-workshop-with-sall",
+        "venue": "Petaluma Arts Center — Petaluma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Golden Harvest Senior Resource & Wellness Faire 2026",
+        "url": "https://mynorthbaytickets.com/e/golden-harvest-2026",
+        "venue": "Sonoma Community Center — Sonoma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Harvest and Stomp",
+        "url": "https://tasteroute116.com/event/annual-grape-stomp-at-battaglini-estate-winery/",
+        "venue": "Battaglini Wines — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Headline Comedy — Joey Bragg",
+        "url": "https://www.downtownsantarosa.org/do/headline-comedy-joey-bragg--live-in-downtown-santa-rosa",
+        "venue": "Barrel Proof Lounge — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "John Prine Birthday Celebration",
+        "url": "https://www.cloverdaleartsalliance.org/caa-events/john-prine-birthday-celebration",
+        "venue": "La Familia Sana — Cloverdale"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Kayak: Coastal Exploration",
+        "url": "https://secure.sonomacountyparks.org/registration/kayak-coastal-exploration26.10.10",
+        "venue": "Westside Regional Park"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Live Music by Adam Lieb",
+        "url": "https://stayhealdsburg.com/event/live-music-by-adam-lieb-2/",
+        "venue": "Spicy Vines Tasting Room — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Masters of Hawaiian Music: George Kahumoku Jr., Led Kaapana & Jeff Peterson",
+        "url": "https://sebastopolcalendar.com/event/masters-of-hawaiian-music-george-kahumoku-jr-led-kaapana-jeff-peterson/",
+        "venue": "Sebastopol Community Cultural Center — Sebastopol"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Museum of Sonoma County’s Block Party",
+        "url": "https://happeningsonomacounty.com/event/museum-of-sonoma-countys-block-party/",
+        "venue": "Museum of Sonoma County — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Oktoberfest at Stuhlmuller Vineyards",
+        "url": "https://stayhealdsburg.com/event/oktoberfest/",
+        "venue": "Stuhlmuller Vineyards — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Petaluma Pride Festival",
+        "url": "https://www.visitpetaluma.com/event/2026-petaluma-pride-festival/",
+        "venue": "Petaluma Fairgrounds — Petaluma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Petaluma Walnut Park Farmers Market",
+        "url": "https://www.ilovefarmersmarkets.org/markets",
+        "venue": "Walnut Park, Fourth and D Streets — Petaluma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Public Star Party",
+        "url": "https://www.simpletix.com/e/public-star-parties-2026-tickets-240100",
+        "venue": "Robert Ferguson Observatory — Kenwood"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "River Park Weekend Walk",
+        "url": "https://www.petalumariverpark.org/calendar/river-park-walk-ars2x-djslw-7jznw-6bahf-fykf4-s9r98-f2zh3-mf3jc-326pj-a7exg-6t29g-3jhct-wa6h2-wg2mc-rt45g-f3f64-wf9fk-2rhal-j5bp7-dkhk7-n266n-6sem8-7k2dt-ytys4-22awr-lz5e2-bx55m-h2wz9",
+        "venue": "Petaluma River Park, Steamer Landing — Petaluma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Santa Rosa Original Certified Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/",
+        "venue": "Luther Burbank Center parking lot, 50 Mark West Springs Road — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Saturday Walking Tours of Historic Downtown Petaluma",
+        "url": "https://petalumansofyesteryear.org/historical-tours",
+        "venue": "Petaluma Historical Library & Museum — Petaluma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Science Saturdays: Slime Time 1-2pm",
+        "url": "https://secure.sonomacountyparks.org/registration/science-saturdays-slime-time-12pm26.10.10",
+        "venue": "Environmental Discovery Center Spring Lake Regional Park"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "See Art in Action at T Barny’s Sculpture Studio",
+        "url": "https://happeningsonomacounty.com/event/see-art-in-action-at-t-barnys-sculpture-studio-2/",
+        "venue": "T Barny Gallery & Sculpture Gardens — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Solar Observing",
+        "url": "https://www.simpletix.com/e/solar-observing-2026-tickets-252932",
+        "venue": "Robert Ferguson Observatory — Kenwood"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "Sonoma County Harvest Fair Awards Gala",
+        "url": "https://www.sonomacounty.com/events/sonoma-county-harvest-fair-awards-gala-2/",
+        "venue": "Sonoma County Fairgrounds — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10",
+        "name": "SRJC Shone Farm Fall Festival",
+        "url": "https://shonefarm.santarosa.edu/shone-farm-fall-festival",
+        "venue": "SRJC Shone Farm — Forestville"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10–11",
+        "name": "Turn of the Century — High Energy Party Rock",
+        "url": "https://www.downtownsantarosa.org/do/turn-of-the-century--high-energy-party-rock-in-downtown-santa-rosa",
+        "venue": "Barrel Proof Lounge — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "10–12",
+        "name": "Twist of Fate — Santa Rosa Symphony",
+        "url": "https://gmc.sonoma.edu/twist-of-fate/",
+        "venue": "Weill Hall, Green Music Center — Rohnert Park"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "8th Annual Harvest Party",
+        "url": "https://www.sonoma.com/event/8th-annual-harvest-party-at-bricoleur-vineyards/",
+        "venue": "Bricoleur Vineyards — Windsor"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Bodega Bay Farmers Market",
+        "url": "https://www.ourfarmersmarkets.org/locations-bodega-bay/",
+        "venue": "Bodega Bay Community Center — Bodega Bay"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Cloverdale Farmers Market",
+        "url": "https://thesantarosafarmersmarket.com/our-vendors/cloverdale-sunday/",
+        "venue": "West Second Street — Cloverdale"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Cyrus Chestnut Trio",
+        "url": "https://www.ksro.com/event/cyrus-chestnut-trio/",
+        "venue": "Paul Mahder Gallery — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Fall Harvest Festival",
+        "url": "https://www.boissetwineclub.com/events/deloach-vineyards-fall-harvest-festival",
+        "venue": "DeLoach Vineyards — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Guided Walks — Armstrong Redwoods State Natural Reserve",
+        "url": "https://stewardscr.org/events/2026-free-guided-weekend-walks/",
+        "venue": "Armstrong Redwoods State Natural Reserve — Guerneville"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Healdsburg Crush",
+        "url": "https://www.bgcsonoma-marin.org/healdsburgcrush",
+        "venue": "Bacchus Landing — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "La Ultima y Nos Vamos — Clave Especial, Banda Machos & Más",
+        "url": "https://ticketon.com/events/clave-especial-banda-machos--mas-petaluma-ca-2026-10-11-f7oqb8n5rtum",
+        "venue": "Petaluma Fairgrounds — Petaluma"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Lasseter Lounge",
+        "url": "https://www.sonomacounty.com/events/lasseter-lounge/",
+        "venue": "Lasseter Family Winery — Glen Ellen"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Restorative Group Reiki Experience",
+        "url": "https://sebastopolcalendar.com/event/restorative-group-reiki-experience/2026-10-11/",
+        "venue": "Energy Wave Center — Sebastopol"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Russian River Ramblers",
+        "url": "https://stayhealdsburg.com/event/russian-river-ramblers/",
+        "venue": "Raven Performing Arts Theater — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Sebastopol Farmers Market",
+        "url": "https://www.sebastopolfarmersmarket.org/",
+        "venue": "Weeks Way — Sebastopol"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Slave Play",
+        "url": "https://www.caltheatre.com/event-details/slave-play-7",
+        "venue": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "11",
+        "name": "Soul Motion: Body Prayer",
+        "url": "https://sebastopolcalendar.com/event/soul-motion-body-prayer-every-sunday-in-person/2026-10-11/",
+        "venue": "Wischemann Hall — Sebastopol"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "12",
+        "name": "Pro Jam with Special Guest Baxter Robinson",
+        "url": "https://www.caltheatre.com/event-details/pro-jam-with-special-guest-baxter-robinson",
+        "venue": "The California Theatre — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "12",
+        "name": "Ross Street Weekday Food Trucks",
+        "url": "https://www.downtownsantarosa.org/do/ross-street-weekday-food-trucks",
+        "venue": "Ross Street — Santa Rosa"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "12",
+        "name": "The Greek by Dino Moniodis",
+        "url": "https://stayhealdsburg.com/event/the-greek-by-dino-moniodis-3/",
+        "venue": "Appellation Kitchen — Healdsburg"
+      },
+      {
+        "year": 2026,
+        "month": "October",
+        "date": "12",
+        "name": "Volunteer: Shoreline Sweep",
+        "url": "https://secure.sonomacountyparks.org/registration/volunteer-shoreline-sweep26.10.12",
+        "venue": "Steelhead Beach Regional Park"
+      }
+    ],
+    "duplicates_suppressed": []
   },
-  "kjzy_entries_reconciled": 33,
-  "kjzy_reconciliation": [
+  "retained_event_links_with_access_errors": [
     {
-      "title": "Windsor Senior Recreation Center",
-      "status": "Description unchanged since October 4; prior disposition: Facility/program directory, not a dated event."
+      "event": "Maple Magic & Winter Wonder",
+      "date": "2026-10-01",
+      "url": "https://sonomabg.org/visit/maple-magic-winter-wonder/",
+      "error": "HTTP Error 403: Forbidden"
     },
     {
-      "title": "Guided Walks - Armstrong Redwoods State Natural Reserve",
-      "status": "Description unchanged since October 4; prior disposition: Added verified October weekend occurrences."
+      "event": "Volunteer: Ice Plant Removal",
+      "date": "2026-10-14",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-26.10.14",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Saturday Walking Tours of Historic Downtown Petaluma",
-      "status": "Description unchanged since October 4; prior disposition: Added verified October Saturdays."
+      "event": "Art in the Parks: Craft and Sip",
+      "date": "2026-10-15",
+      "url": "https://secure.sonomacountyparks.org/registration/art-in-the-parks-craft-and-sip",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Santa Rosa Original Certified Farmers Market",
-      "status": "Description unchanged since October 4; prior disposition: Added verified October Wednesdays and Saturdays."
+      "event": "Don’t Tell Santa Rosa at Vintage Space",
+      "date": "2026-10-15",
+      "url": "https://happeningsonomacounty.com/event/dont-tell-santa-rosa-at-vintage-space-7/2026-10-15/",
+      "error": "HTTP Error 500: Internal Server Error"
     },
     {
-      "title": "Petaluma Walnut Park Farmers Market",
-      "status": "Description unchanged since October 4; prior disposition: Added verified October Saturdays."
+      "event": "Kayak 101: Introductory Skills",
+      "date": "2026-10-15",
+      "url": "https://secure.sonomacountyparks.org/registration/kayak-101-introductory-skills26.10.15",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Bodega Bay Farmers Market",
-      "status": "Description unchanged since October 4; prior disposition: Added verified October Sundays."
+      "event": "Sonoma County Sketchbook Club",
+      "date": "2026-10-15",
+      "url": "https://arlenefranciscenter.org/sketchbook-club/",
+      "error": "HTTP Error 406: Not Acceptable"
     },
     {
-      "title": "Sebastopol Farmers Market",
-      "status": "Description unchanged since October 4; prior disposition: Added verified October Sundays."
+      "event": "Kayak: Settle Down at Sundown Paddle",
+      "date": "2026-10-16",
+      "url": "https://secure.sonomacountyparks.org/registration/kayak-settle-down-at-sundown-paddle26.10.16",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Cloverdale Farmers Market",
-      "status": "Description unchanged since October 4; prior disposition: Added verified October Sundays."
+      "event": "Rainbow Hike",
+      "date": "2026-10-16",
+      "url": "https://secure.sonomacountyparks.org/registration/rainbow-hike26.10.16",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Jazz in the Plaza, Petaluma",
-      "status": "Description unchanged since October 4; prior disposition: Added October 4; longer recurrence not independently established."
+      "event": "StoryWalk Celebration: Moon Rope/Un Lazo a la Luna",
+      "date": "2026-10-16",
+      "url": "https://secure.sonomacountyparks.org/registration/storytrail-community-celebration-26.10.16",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Tuesday Morning River Walk",
-      "status": "Description unchanged since October 4; prior disposition: Added four official October Tuesday dates."
+      "event": "Park Preview: Wright Hill (10:00 am session)",
+      "date": "2026-10-17",
+      "url": "https://secure.sonomacountyparks.org/registration/park-preview-wright-hill-1000-am-session-26.10.17",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Petaluma Farmers Market",
-      "status": "Description unchanged since October 4; prior disposition: Added four October Tuesdays."
+      "event": "Petaluma Gap Wind to Wine Festival",
+      "date": "2026-10-17",
+      "url": "https://petalumagap.com/wind-to-wine-festival/",
+      "error": "HTTP Error 403: Forbidden"
     },
     {
-      "title": "Big Band Jazz at The Big Easy",
-      "status": "Description unchanged since October 4; prior disposition: Added October 7 only; later dates not independently verified."
+      "event": "Volunteer: Shoreline Sweep",
+      "date": "2026-10-17",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-shoreline-sweep26.10.17",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Senior Dance at Finley Center",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Volunteer Grab Bag: Litter Pick-up….and More",
+      "date": "2026-10-21",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-grab-bag-litter-pickupand-more26.10.21",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "6th Street Playhouse presents Misalliance",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Volunteer: Ice Plant Removal",
+      "date": "2026-10-21",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-26.10.21",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Women Veterans of Sonoma County Meetup",
-      "status": "Description unchanged since October 4; prior disposition: Not imported: 2026 unsupported by linked 2025 page."
+      "event": "Don’t Tell Santa Rosa at Vintage Space",
+      "date": "2026-10-22",
+      "url": "https://happeningsonomacounty.com/event/dont-tell-santa-rosa-at-vintage-space-7/2026-10-22/",
+      "error": "HTTP Error 500: Internal Server Error"
     },
     {
-      "title": "Open Door Mobile Services Program",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Kayak: Senior Paddle",
+      "date": "2026-10-22",
+      "url": "https://secure.sonomacountyparks.org/registration/kayak-senior-paddle26.10.22",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Brazilian Cooking Class Benefiting Sonoma Family Meal",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Volunteer: Ice Plant Removal",
+      "date": "2026-10-28",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-Su15",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Sunset Trivia Night",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Winging it Wednesday",
+      "date": "2026-10-28",
+      "url": "https://secure.sonomacountyparks.org/registration/winging-it-wednesday-F26-2",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "ART TRAILS 2026 at the Art & Music Gallery in Petaluma",
-      "status": "Description unchanged since October 4; prior disposition: Split into two explicitly listed weekends."
+      "event": "Don’t Tell Santa Rosa at Vintage Space",
+      "date": "2026-10-29",
+      "url": "https://happeningsonomacounty.com/event/dont-tell-santa-rosa-at-vintage-space-7/2026-10-29/",
+      "error": "HTTP Error 500: Internal Server Error"
     },
     {
-      "title": "CYRUS CHESTNUT TRIO",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Slay O'Ween",
+      "date": "2026-10-29",
+      "url": "https://www.sonomavalleyevents.com/10/29/2026/wake-up-sonoma-presents-slay-o-ween/",
+      "error": "HTTP Error 502: Bad Gateway"
     },
     {
-      "title": "Jewish Film Festival: The Last Twins",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Volunteer: Invasive Plant Removal",
+      "date": "2026-10-29",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-invasive-plant-removal26.10.29",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Sonoma County Sketchbook Club",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Kayak: Spooky Paddle!",
+      "date": "2026-10-31",
+      "url": "https://secure.sonomacountyparks.org/registration/kayak-spooky-paddle",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Live Band Karaoke",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Senior Saunter",
+      "date": "2026-11-03",
+      "url": "https://secure.sonomacountyparks.org/registration/senior-saunter-26.11.03",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Song of Sonoma Autumn Tea",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Volunteer: Ice Plant Removal",
+      "date": "2026-11-04",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-Su16",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Murder Mystery at The Gables Inn",
-      "status": "Description unchanged since October 4; prior disposition: Conflict unresolved: retained existing October 24; KJZY says October 23."
+      "event": "Don’t Tell Santa Rosa at Vintage Space",
+      "date": "2026-11-05",
+      "url": "https://happeningsonomacounty.com/event/dont-tell-santa-rosa-at-vintage-space-7/2026-11-05/",
+      "error": "HTTP Error 500: Internal Server Error"
     },
     {
-      "title": "Guerneville Library Halloween Open House",
-      "status": "Description unchanged since October 4; prior disposition: Added October 31, 3–5:30 PM from official library page."
+      "event": "Rainbow Hike: Tidepools",
+      "date": "2026-11-06",
+      "url": "https://secure.sonomacountyparks.org/registration/rainbow-hike-tidepools26.11.06",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "In Conversation with Scott Pelley",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Fishing in the City – Pesca en la ciudad (#1 ages 5-8)",
+      "date": "2026-11-07",
+      "url": "https://secure.sonomacountyparks.org/registration/fishing-in-the-city-26.11.07.1",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "6th Street Playhouse presents Meet Me In St. Louis",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Little Parkies",
+      "date": "2026-11-07",
+      "url": "https://secure.sonomacountyparks.org/registration/little-parkies26.11.07",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "Bored Teachers",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Petaluma Veterans Day Parade",
+      "date": "2026-11-11",
+      "url": "https://www.petalumaveteransparade.com/",
+      "error": "HTTP Error 406: Not Acceptable"
     },
     {
-      "title": "In Conversation with Evan Thomas",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Volunteer: Ice Plant Removal",
+      "date": "2026-11-11",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-Su17",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "6th Street Playhouse presents A Night With Janis Joplin",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Nuestros Parques: Let’s Climb a Mountain",
+      "date": "2026-11-14",
+      "url": "https://secure.sonomacountyparks.org/registration/nuestros-parques-lets-climb-a-mountain26.11.14",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "6th Street Playhouse presents Who's Afraid of Virginia Woolf",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Parks After Dark: Glow in the Dark",
+      "date": "2026-11-14",
+      "url": "https://secure.sonomacountyparks.org/registration/parks-after-dark-glow-in-the-dark26.11.14",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "6th Street Playhouse presents Seagull",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Science Saturdays: Leaf Rubbings 1-2pm",
+      "date": "2026-11-14",
+      "url": "https://secure.sonomacountyparks.org/registration/science-saturdays-leaf-rubbings-12pm",
+      "error": "HTTP Error 405: Not Allowed"
     },
     {
-      "title": "6th Street Playhouse presents The Pajama Game",
-      "status": "Description unchanged since October 4; prior disposition: Already represented; retained approved master information."
+      "event": "Volunteer: Ice Plant Removal",
+      "date": "2026-11-18",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-Su18",
+      "error": "HTTP Error 405: Not Allowed"
+    },
+    {
+      "event": "Volunteer: Native Planting Project",
+      "date": "2026-11-19",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-native-planting-project26.11.19",
+      "error": "HTTP Error 405: Not Allowed"
+    },
+    {
+      "event": "Feelin' Crabby",
+      "date": "2026-11-20",
+      "url": "https://secure.sonomacountyparks.org/registration/feelin-crabby-26.11.20",
+      "error": "HTTP Error 405: Not Allowed"
+    },
+    {
+      "event": "Feelin' Crabby",
+      "date": "2026-11-21",
+      "url": "https://secure.sonomacountyparks.org/registration/feelin-crabby-bilingual-26.11.21",
+      "error": "HTTP Error 405: Not Allowed"
+    },
+    {
+      "event": "Tide Pool Creatures Meet and Greet",
+      "date": "2026-11-22",
+      "url": "https://secure.sonomacountyparks.org/registration/tide-pool-creatures-meet-and-greet26.11.22",
+      "error": "HTTP Error 405: Not Allowed"
+    },
+    {
+      "event": "Thanksgiving Week 2-Day Camp",
+      "date": "2026-11-23",
+      "url": "https://secure.sonomacountyparks.org/registration/thanksgiving-week-2day-camp26.11",
+      "error": "HTTP Error 405: Not Allowed"
+    },
+    {
+      "event": "Volunteer: Creek Cleanup",
+      "date": "2026-11-23",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-shoreline-sweep26.11.23",
+      "error": "HTTP Error 405: Not Allowed"
+    },
+    {
+      "event": "Volunteer: Ice Plant Removal",
+      "date": "2026-11-25",
+      "url": "https://secure.sonomacountyparks.org/registration/volunteer-ice-plant-removal-Su19",
+      "error": "HTTP Error 405: Not Allowed"
+    },
+    {
+      "event": "Winging it Wednesday",
+      "date": "2026-11-25",
+      "url": "https://secure.sonomacountyparks.org/registration/winging-it-wednesday-F26-3",
+      "error": "HTTP Error 405: Not Allowed"
+    },
+    {
+      "event": "Butter & Egg Days Parade & Festival",
+      "date": "2027-04-17",
+      "url": "https://www.petalumadowntown.com/butter-eggs-parade.html",
+      "error": "HTTP Error 502: Bad Gateway"
+    },
+    {
+      "event": "Petaluma Spring Antique Faire",
+      "date": "2027-04-25",
+      "url": "https://www.petalumadowntown.com/antique-show",
+      "error": "HTTP Error 502: Bad Gateway"
     }
   ]
 }
