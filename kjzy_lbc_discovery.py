@@ -113,6 +113,10 @@ def main():
             if isinstance(location, list): location = location[0] if location else None
             location_name = location.get("name", "") if isinstance(location, dict) else str(location or "")
             results.append({"title": name, "start_date": start, "url": url, "location": location_name, "status": status})
+    if not results:
+        print('ERROR: No structured events were extracted from Luther Burbank Center.')
+        print('Calendar unchanged; investigate source before trusting this run.')
+        raise RuntimeError('LBC event extraction returned zero results')
     counts = {}
     for e in results: counts[e["status"]] = counts.get(e["status"], 0) + 1
     report = {"source": URL, "as_of_pacific": today.isoformat(), "read_only": True,
