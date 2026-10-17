@@ -29,6 +29,8 @@ jobs:
         run: python kjzy_page_structure_probe.py
       - name: Inspect Symphony calendar backend clues
         run: python kjzy_symphony_calendar_probe.py
+      - name: Test Symphony events API
+        run: python kjzy_symphony_api_probe.py
       - name: Summarize source results
         if: always()
         run: |
@@ -45,5 +47,6 @@ jobs:
             kjzy_additional_sources_report.json
             kjzy_page_structure_report.json
             kjzy_symphony_calendar_report.json
+            kjzy_symphony_api_report.json
           if-no-files-found: warn
           retention-days: 14
