@@ -21,6 +21,8 @@ jobs:
         run: python kjzy_read_only_probe.py
       - name: Discover and compare Luther Burbank Center events
         run: python kjzy_lbc_discovery.py
+      - name: Inspect Santa Rosa Symphony and Green Music Center event links
+        run: python kjzy_additional_sources_probe.py
       - name: Upload test report
         if: always()
         uses: actions/upload-artifact@v4
@@ -29,5 +31,6 @@ jobs:
           path: |
             kjzy_read_only_report.json
             kjzy_lbc_discovery_report.json
+            kjzy_additional_sources_report.json
           if-no-files-found: warn
           retention-days: 14
