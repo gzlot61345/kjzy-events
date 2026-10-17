@@ -41,6 +41,16 @@ def norm_url(s):
     p = urlsplit(s)
     return urlunsplit((p.scheme.lower(), p.netloc.lower().removeprefix("www."), p.path.rstrip("/").lower(), "", ""))
 
+def event_family_url(s):
+    """Group LBC performance-specific links, but only for manual review."""
+    normalized = norm_url(s)
+    parts = urlsplit(normalized)
+    if "lutherburbankcenter.org" not in parts.netloc or not parts.path.startswith("/event/"):
+        return ""
+    slug = parts.path.rsplit("/", 1)[-1]
+    slug = re.sub(r"-(?:[0-9]+|[0-9]+pm)$", "", slug)
+    return slug
+
 def norm_title(s):
     return re.sub(r"[^a-z0-9]+", " ", str(s or "").lower()).strip()
 
@@ -81,6 +91,7 @@ def main():
     if len(calendar.items) < 1: raise RuntimeError("Could not parse calendar")
     known_urls = {norm_url(e["url"]) for e in calendar.items if e["url"]}
     known_titles = {norm_title(e["title"]) for e in calendar.items if e["title"]}
+    known_families = {event_family_url(e["url"]) for e in calendar.items if event_family_url(e["url"])}
     req = Request(URL, headers={"User-Agent": "KJZY-Calendar-ReadOnly-Checker/0.2", "Accept": "text/html"})
     with urlopen(req, timeout=30) as response:
         if "html" not in response.headers.get("Content-Type", "").lower(): raise RuntimeError("Non-HTML response")
@@ -107,6 +118,8 @@ def main():
                 status = "needs_review_missing_fields"
             elif day < today: status = "past_event"
             elif norm_url(url) in known_urls: status = "already_listed_url"
+            elif event_family_url(url) and event_family_url(url) in known_families:
+                status = "possible_match_event_family_review"
             elif norm_title(name) in known_titles: status = "possible_match_title_review"
             else: status = "candidate_review"
             location = obj.get("location")
@@ -127,7 +140,7 @@ def main():
     print("Calendar entries:", len(calendar.items), "LBC structured events:", len(results))
     for status, count in sorted(counts.items()): print(status + ":", count)
     for e in results:
-        if e["status"] in ("candidate_review", "possible_match_title_review", "needs_review_missing_fields"):
+        if e["status"] in ("candidate_review", "possible_match_title_review", "possible_match_event_family_review", "needs_review_missing_fields"):
             print("REVIEW CANDIDATE:", json.dumps(e, ensure_ascii=False))
     print("Read-only report saved. No calendar files modified.")
 
