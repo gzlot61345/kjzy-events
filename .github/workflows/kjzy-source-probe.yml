@@ -20,9 +20,16 @@ jobs:
       - name: Check calendar and source websites
         run: python kjzy_read_only_probe.py
       - name: Discover and compare Luther Burbank Center events
+        id: lbc
+        continue-on-error: true
         run: python kjzy_lbc_discovery.py
       - name: Inspect Santa Rosa Symphony and Green Music Center event links
         run: python kjzy_additional_sources_probe.py
+      - name: Summarize source results
+        if: always()
+        run: |
+          echo "Luther Burbank Center: ${{ steps.lbc.outcome }}"
+          echo "A failed LBC extraction needs investigation; other diagnostics still run."
       - name: Upload test report
         if: always()
         uses: actions/upload-artifact@v4
