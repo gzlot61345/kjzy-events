@@ -1,0 +1,29 @@
+name: KJZY source connectivity test (read only)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check calendar and source websites
+        run: python kjzy_read_only_probe.py
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kjzy-read-only-test-results
+          path: kjzy_read_only_report.json
+          if-no-files-found: warn
+          retention-days: 14
