@@ -11,6 +11,9 @@ from pathlib import Path
 SOURCES = {
     "Santa Rosa Symphony": "https://www.srsymphony.org/event-calendar/",
     "Green Music Center": "https://gmc.sonoma.edu/events/",
+    "Green Music Center October": "https://gmc.sonoma.edu/category/events/october/",
+    "Green Music Center November": "https://gmc.sonoma.edu/category/events/november/",
+    "Santa Rosa Symphony Season Tickets": "https://www.srsymphony.org/event-calendar/season-tickets/",
 }
 class Links(HTMLParser):
     def __init__(self):
@@ -61,7 +64,7 @@ def check(label, url):
                 continue
             seen.add(absolute)
             record["sample_links"].append({"title": title[:160], "url": absolute})
-            if len(record["sample_links"]) >= 35:
+            if len(record["sample_links"]) >= 60:
                 break
         record["structured_script_tags"] = parser.structured_scripts
         record["html_bytes"] = len(raw)
@@ -79,7 +82,7 @@ def main():
         print(result["source"], "|", result["status"], "|", "candidate links:", len(result["sample_links"]), "|", "structured script tags:", result.get("structured_script_tags", 0))
         if result.get("error"):
             print("  ERROR:", result["error"])
-        for item in result["sample_links"][:8]:
+        for item in result["sample_links"][:12]:
             print("  SAMPLE:", item["title"], "|", item["url"])
     print("Diagnostic only. No calendar files modified.")
 
