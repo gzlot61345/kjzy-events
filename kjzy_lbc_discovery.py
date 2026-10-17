@@ -122,6 +122,9 @@ def main():
     Path("kjzy_lbc_discovery_report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("Calendar entries:", len(calendar.items), "LBC structured events:", len(results))
     for status, count in sorted(counts.items()): print(status + ":", count)
+    for e in results:
+        if e["status"] in ("candidate_review", "possible_match_title_review", "needs_review_missing_fields"):
+            print("REVIEW CANDIDATE:", json.dumps(e, ensure_ascii=False))
     print("Read-only report saved. No calendar files modified.")
 
 if __name__ == "__main__": main()
