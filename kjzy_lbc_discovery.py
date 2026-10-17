@@ -92,6 +92,12 @@ def main():
     known_urls = {norm_url(e["url"]) for e in calendar.items if e["url"]}
     known_titles = {norm_title(e["title"]) for e in calendar.items if e["title"]}
     known_families = {event_family_url(e["url"]) for e in calendar.items if event_family_url(e["url"])}
+    # Regression check: alternate performance URLs must be recognized as one family.
+    expected_family = event_family_url("https://lutherburbankcenter.org/event/jerry-seinfeld26-5/")
+    existing_family = event_family_url("https://lutherburbankcenter.org/event/jerry-seinfeld26/")
+    if expected_family != existing_family or existing_family not in known_families:
+        raise RuntimeError("Duplicate detection regression: Jerry Seinfeld family not found in calendar")
+    print("Duplicate regression check passed:", existing_family)
     req = Request(URL, headers={"User-Agent": "KJZY-Calendar-ReadOnly-Checker/0.2", "Accept": "text/html"})
     with urlopen(req, timeout=30) as response:
         if "html" not in response.headers.get("Content-Type", "").lower(): raise RuntimeError("Non-HTML response")
