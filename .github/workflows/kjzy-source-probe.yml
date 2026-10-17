@@ -19,11 +19,11 @@ jobs:
           python-version: '3.12'
       - name: Check calendar and source websites
         run: python kjzy_read_only_probe.py
-      - name: Upload test report
+      - name: Discover and compare Luther Burbank Center events\n        run: python kjzy_lbc_discovery.py\n      - name: Upload test report
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: kjzy-read-only-test-results
-          path: kjzy_read_only_report.json
+          path: |\n            kjzy_read_only_report.json\n            kjzy_lbc_discovery_report.json
           if-no-files-found: warn
           retention-days: 14
