@@ -1,0 +1,29 @@
+name: KJZY all 31 sources diagnostic (read only)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  all-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect all 31 source websites
+        run: python kjzy_all_sources_probe.py
+      - name: Upload complete source report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kjzy-all-31-sources-report
+          path: kjzy_all_sources_report.json
+          if-no-files-found: warn
+          retention-days: 14
