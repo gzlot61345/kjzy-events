@@ -1,0 +1,6 @@
+# Only publish when website files change. Python probes and GitHub workflows
+# do not affect the live static calendar, so they should not cost a deploy.
+# Netlify ignore commands: exit 0 skips deployment; nonzero deploys.
+# Missing Git references conservatively trigger a deployment.
+[build]
+  ignore = "sh -c 'test -n \"$CACHED_COMMIT_REF\" && test -n \"$COMMIT_REF\" && git diff --quiet \"$CACHED_COMMIT_REF\" \"$COMMIT_REF\" -- \"*.html\" \"*.css\" \"*.js\" \"*.json\" \"*.png\" \"*.jpg\" \"*.jpeg\" \"*.webp\" \"*.svg\" \"*.ico\" \"*.woff\" \"*.woff2\" netlify.toml'"
