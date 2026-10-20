@@ -1,0 +1,3 @@
+KJZY deployment-filter verification.
+This file is not published calendar content.
+Created to verify that test-only GitHub changes do not cause Netlify production deployments.
