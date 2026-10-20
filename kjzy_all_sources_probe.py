@@ -97,7 +97,7 @@ def check(item):
                         "url": str(event.get("url", ""))[:300],
                     })
         result["structured_event_count"] = len(events)
-        result["sample_events"] = events[:4]
+        result["sample_events"] = events[:100]
         result["jsonld_scripts"] = parser.jsonld_count
         result["iframes"] = parser.iframe_count
         result["calendar_clues"] = sorted(parser.calendar_clues)
