@@ -59,7 +59,7 @@ def canonical_url(url):
 def date_status(value, today):
     try:
         raw = str(value)
-        if not re.match(r"^\\d{4}-\\d{2}-\\d{2}", raw):
+        if not re.match(r"^\d{4}-\d{2}-\d{2}", raw):
             return "date_unverified"
         day = datetime.fromisoformat(raw[:10]).date()
         return "past" if day < today else "future"
