@@ -61,6 +61,15 @@ class CalendarParser(HTMLParser):
 
 def final_day(label, year, month):
     label = re.sub(r"\s+", " ", label.strip()).replace("-", "–")
+    month_range = re.fullmatch(r"([A-Za-z]{3,9})–([A-Za-z]{3,9})", label)
+    if month_range:
+        start_month = ABBR.get(month_range.group(1)[:3].lower())
+        end_month = ABBR.get(month_range.group(2)[:3].lower())
+        if start_month != month or end_month is None:
+            return None
+        import calendar
+        end_year = year + (end_month < start_month)
+        return date(end_year, end_month, calendar.monthrange(end_year, end_month)[1])
     m = re.fullmatch(r"(\d{1,2})(?:–(\d{1,2}))?", label)
     if m:
         day = int(m.group(2) or m.group(1))
