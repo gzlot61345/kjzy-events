@@ -76,7 +76,7 @@ def same_date(existing, candidate_date):
     end = final_day(label, year, month)
     if end is None:
         return True
-    start_match = re.match(r"^(\\d{1,2})", label)
+    start_match = re.match(r"^(\d{1,2})", label)
     start = date(year, month, int(start_match.group(1))) if start_match else date(year, month, 1)
     return start <= target <= end
 
@@ -105,7 +105,7 @@ def main():
     counts = dict(Counter(r["final_status"] for r in rows))
     result = {"read_only": True, "calendar_events_checked": len(calendar.events), "status_counts": counts, "events": rows,
               "note": "No geographic exclusion for Novato or San Francisco. Ready for manual review is NOT authorization for automatic publishing."}
-    Path("kjzy_final_addition_review.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+    Path("kjzy_final_addition_review.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("KJZY DATE-AWARE ADDITION SAFETY REVIEW")
     print("Calendar listings compared:", len(calendar.events))
     print("Results:", json.dumps(counts, sort_keys=True))
