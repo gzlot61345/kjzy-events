@@ -60,15 +60,15 @@ class CalendarParser(HTMLParser):
             self.depth -= 1
 
 def final_day(label, year, month):
-    label = re.sub(r"\\s+", " ", label.strip()).replace("-", "–")
-    m = re.fullmatch(r"(\\d{1,2})(?:–(\\d{1,2}))?", label)
+    label = re.sub(r"\s+", " ", label.strip()).replace("-", "–")
+    m = re.fullmatch(r"(\d{1,2})(?:–(\d{1,2}))?", label)
     if m:
         day = int(m.group(2) or m.group(1))
         try:
             return date(year, month, day)
         except ValueError:
             return None
-    m = re.fullmatch(r"(\\d{1,2})–([A-Za-z]{3,9})\\s+(\\d{1,2})", label)
+    m = re.fullmatch(r"(\d{1,2})–([A-Za-z]{3,9})\s+(\d{1,2})", label)
     if m:
         end_month = ABBR.get(m.group(2)[:3].lower())
         if not end_month:
@@ -87,7 +87,7 @@ def preview(content, today):
     for start, end, year, month in parser.events:
         block = content[start:end]
         label_match = re.search(r'<div class="date">([^<]+)</div>', block)
-        title_match = re.search(r'<div class="event-name">\\s*<a[^>]*>(.*?)</a>', block, re.S)
+        title_match = re.search(r'<div class="event-name">\s*<a[^>]*>(.*?)</a>', block, re.S)
         label = label_match.group(1) if label_match else ""
         title = re.sub(r"<[^>]+>", "", title_match.group(1)).strip() if title_match else "(unknown)"
         end_date = final_day(label, year, month) if year and month else None
@@ -102,7 +102,7 @@ def preview(content, today):
         updated = updated[:start] + updated[end:]
     original_count = len(parser.events)
     remaining = original_count - len(removed)
-    if len(re.findall(r'<div class="event"(?:\\s|>)', updated)) != remaining:
+    if len(re.findall(r'<div class="event"(?:\s|>)', updated)) != remaining:
         raise RuntimeError("Event count mismatch; refusing to publish")
     return updated, {"date_checked_pacific": today.isoformat(), "original_count": original_count, "expired_count": len(removed), "remaining_count": remaining, "unresolved_date_labels": unknown, "expired_events": removed}
 
@@ -115,13 +115,13 @@ def main():
     path = Path("SC_Events.html")
     content = path.read_text(encoding="utf-8")
     updated, report = preview(content, today)
-    Path("kjzy_expiration_preview.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+    Path("kjzy_expiration_preview.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("KJZY EXPIRATION PREVIEW:", json.dumps({k: v for k, v in report.items() if k not in ("expired_events", "unresolved_date_labels")}))
     print("Unresolved date labels:", len(report["unresolved_date_labels"]))
     if opts.apply:
         if report["unresolved_date_labels"]:
             raise RuntimeError("Unresolved date labels exist; refusing automatic publication")
-        updated = re.sub(r'(<div class="calendar-count">)\\d+[^<]*(</div>)', lambda m: m.group(1) + str(report["remaining_count"]) + " event listings • Updated " + today.strftime("%B %d, %Y").replace(" 0", " ") + m.group(2), updated, count=1)
+        updated = re.sub(r'(<div class="calendar-count">)\d+[^<]*(</div>)', lambda m: m.group(1) + str(report["remaining_count"]) + " event listings • Updated " + today.strftime("%B %d, %Y").replace(" 0", " ") + m.group(2), updated, count=1)
         path.write_text(updated, encoding="utf-8")
         print("UPDATED MASTER FILE; publication requires separate approval.")
     else:
