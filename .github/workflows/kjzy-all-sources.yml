@@ -23,6 +23,8 @@ jobs:
         run: python kjzy_candidate_review.py
       - name: Prepare safe event addition preview
         run: python kjzy_addition_preview.py
+      - name: Verify individual event pages
+        run: python kjzy_event_page_verification.py
       - name: Upload complete source report
         if: always()
         uses: actions/upload-artifact@v4
@@ -33,5 +35,6 @@ jobs:
             kjzy_candidate_review_report.json
             kjzy_candidate_review.md
             kjzy_addition_preview.json
+            kjzy_event_page_verification.json
           if-no-files-found: warn
           retention-days: 14
