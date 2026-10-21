@@ -1,4 +1,4 @@
-name: KJZY daily expiration safety preview
+name: KJZY daily expiration cleanup
 
 on:
   workflow_dispatch:
@@ -6,19 +6,52 @@ on:
     - cron: '0 9 * * *'
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: kjzy-calendar-expiration
+  cancel-in-progress: false
 
 jobs:
-  expiration-preview:
+  expiration-cleanup:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Calculate expired and unresolved events (read only)
+      - name: Preview expired events
         run: python kjzy_expiration_preview.py
+      - name: Apply guarded expiration cleanup
+        run: python kjzy_expiration_preview.py --apply
+      - name: Validate and publish changed calendar only
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- SC_Events.html; then
+            echo "No expired events. No commit and no Netlify deployment."
+            exit 0
+          fi
+          python - <<'PY'
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          from kjzy_expiration_preview import preview
+          content = Path("SC_Events.html").read_text(encoding="utf-8")
+          _, report = preview(content, datetime.now(ZoneInfo("America/Los_Angeles")).date())
+          assert not report["expired_events"], "Expired events remain"
+          assert not report["unresolved_date_labels"], "Unresolved dates remain"
+          assert report["remaining_count"] >= 100, "Too few events"
+          print("Validated:", report["remaining_count"], "remaining listings")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add SC_Events.html
+          git commit -m "Remove expired KJZY events automatically"
+          git push
       - name: Upload expiration review
         if: always()
         uses: actions/upload-artifact@v4
