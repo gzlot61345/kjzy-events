@@ -95,6 +95,10 @@ def check_once(item):
                         "title": str(event.get("name", ""))[:180],
                         "start_date": str(event.get("startDate", ""))[:100],
                         "url": str(event.get("url", ""))[:300],
+                        "end_date": str(event.get("endDate", ""))[:100],
+                        "location": (str(event.get("location", {}).get("name", ""))
+                            if isinstance(event.get("location"), dict)
+                            else str(event.get("location", "")))[:200],
                     })
         result["structured_event_count"] = len(events)
         result["sample_events"] = events[:100]
