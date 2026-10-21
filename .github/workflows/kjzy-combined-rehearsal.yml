@@ -1,0 +1,58 @@
+name: KJZY combined nightly refresh rehearsal
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kjzy-calendar-combined-rehearsal
+  cancel-in-progress: false
+
+jobs:
+  rehearsal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Preview expiration cleanup
+        run: python kjzy_expiration_preview.py
+      - name: Simulate expiration cleanup on local copy
+        run: python kjzy_expiration_preview.py --apply
+      - name: Inspect all source websites
+        run: python kjzy_all_sources_probe.py
+      - name: Compare candidates
+        run: python kjzy_candidate_review.py
+      - name: Prepare addition candidates
+        run: python kjzy_addition_preview.py
+      - name: Verify event detail pages
+        run: python kjzy_event_page_verification.py
+      - name: Check date-aware duplicates
+        run: python kjzy_final_addition_review.py
+      - name: Build chronological insertion preview
+        run: python kjzy_insertion_preview.py
+      - name: Audit original preservation
+        run: python kjzy_insertion_audit.py
+      - name: Check addition publishing safeguards
+        run: python kjzy_addition_publish.py
+      - name: Confirm nothing is committed or published
+        shell: bash
+        run: |
+          echo "REHEARSAL ONLY. Changes, if any, remain on the temporary GitHub runner."
+          git status --short
+      - name: Upload combined reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kjzy-combined-refresh-rehearsal
+          path: |
+            kjzy_expiration_preview.json
+            kjzy_insertion_preview.json
+            kjzy_insertion_audit.json
+            kjzy_event_page_verification.json
+          if-no-files-found: warn
+          retention-days: 14
