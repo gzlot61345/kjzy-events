@@ -65,7 +65,7 @@ class Markup(HTMLParser):
             self._jsonld = False
             self._parts = []
 
-def check(item):
+def check_once(item):
     result = {"source": item["source"], "url": item["url"], "prior_status": item.get("status", "unknown")}
     try:
         request = Request(item["url"], headers={
@@ -114,6 +114,16 @@ def check(item):
     except Exception as error:
         result["status"] = "inspection_failed"
         result["note"] = (type(error).__name__ + ": " + str(error))[:200]
+    return result
+
+def check(item):
+    attempts = []
+    for attempt in range(2):
+        result = check_once(item)
+        attempts.append(result.get('status'))
+        if result.get('structured_event_count', 0) or result.get('status') not in ('request_failed', 'http_error', 'reachable_inventory_unverified'):
+            break
+    result['attempts'] = attempts
     return result
 
 def main():
