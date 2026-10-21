@@ -130,7 +130,19 @@ def main():
     if opts.apply:
         if report["unresolved_date_labels"]:
             raise RuntimeError("Unresolved date labels exist; refusing automatic publication")
-        updated = re.sub(r'(<div class="calendar-count">)\d+[^<]*(</div>)', lambda m: m.group(1) + str(report["remaining_count"]) + " event listings • Updated " + today.strftime("%B %d, %Y").replace(" 0", " ") + m.group(2), updated, count=1)
+        if report["original_count"] < 100 or report["remaining_count"] < 100:
+            raise RuntimeError("Unexpectedly small calendar; refusing automatic publication")
+        if report["expired_count"] > max(25, report["original_count"] // 4):
+            raise RuntimeError("Unusually large removal batch; refusing automatic publication")
+        if report["expired_count"] == 0:
+            print("NO EXPIRED EVENTS. MASTER UNCHANGED.")
+            return
+        check_content, check_report = preview(updated, today)
+        if check_report["expired_count"] or check_report["unresolved_date_labels"] or check_content != updated:
+            raise RuntimeError("Post-cleanup validation failed; refusing automatic publication")
+        updated, header_updates = re.subn(r'(<div class="calendar-count">)\d+[^<]*(</div>)', lambda m: m.group(1) + str(report["remaining_count"]) + " event listings • Updated " + today.strftime("%B %d, %Y").replace(" 0", " ") + m.group(2), updated, count=1)
+        if header_updates != 1:
+            raise RuntimeError("Calendar header not found; refusing automatic publication")
         path.write_text(updated, encoding="utf-8")
         print("UPDATED MASTER FILE; publication requires separate approval.")
     else:
