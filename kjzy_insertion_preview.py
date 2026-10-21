@@ -3,7 +3,7 @@ import html
 import json
 import re
 from collections import Counter
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 from urllib.parse import urlsplit
 
@@ -36,7 +36,7 @@ def event_block(row, day):
 def insert_preview(master, candidates):
     updated = master
     inserted = []
-    for row in sorted(candidates, key=lambda x: (x["date"], x["time_pacific"], x["title"])):
+    for row in sorted(candidates, key=lambda x: (x["date"], datetime.strptime(x["time_pacific"], "%I:%M %p").time(), x["title"])):
         event_date = date.fromisoformat(row["date"])
         month_label = MONTH_NAMES[event_date.month]
         year_heading = '<h2 class="year">' + str(event_date.year) + '</h2>'
