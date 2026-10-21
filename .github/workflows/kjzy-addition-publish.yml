@@ -1,0 +1,74 @@
+name: KJZY addition publication safety test
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish verified additions (leave unchecked for safe dry run)'
+        type: boolean
+        default: false
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kjzy-calendar-publication
+  cancel-in-progress: false
+
+jobs:
+  verify-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Inspect all sources
+        run: python kjzy_all_sources_probe.py
+      - name: Compare candidates
+        run: python kjzy_candidate_review.py
+      - name: Prepare addition candidates
+        run: python kjzy_addition_preview.py
+      - name: Verify event detail pages
+        run: python kjzy_event_page_verification.py
+      - name: Check date-aware duplicates
+        run: python kjzy_final_addition_review.py
+      - name: Build chronological insertion preview
+        run: python kjzy_insertion_preview.py
+      - name: Audit preview against original
+        run: python kjzy_insertion_audit.py
+      - name: Check publication safeguards
+        run: python kjzy_addition_publish.py
+      - name: Apply additions when explicitly approved
+        if: ${{ inputs.publish }}
+        run: python kjzy_addition_publish.py --publish
+      - name: Commit verified calendar changes only
+        if: ${{ inputs.publish }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- SC_Events.html; then
+            echo "No calendar changes to publish"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add SC_Events.html
+          git commit -m "Publish verified KJZY calendar additions"
+          git push
+      - name: Upload safety reports and preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kjzy-addition-publication-safety
+          path: |
+            kjzy_insertion_preview.json
+            kjzy_insertion_audit.json
+            kjzy_insertion_preview.html
+            kjzy_event_page_verification.json
+          if-no-files-found: warn
+          retention-days: 14
