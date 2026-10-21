@@ -6,6 +6,7 @@ import html
 import json
 import re
 from collections import Counter
+from difflib import SequenceMatcher
 from datetime import datetime, timezone
 from html.parser import HTMLParser
 from pathlib import Path
@@ -17,6 +18,7 @@ class CalendarLinks(HTMLParser):
         super().__init__()
         self.urls = set()
         self.titles = set()
+        self.url_paths = set()
         self.in_event = 0
         self.depth = 0
         self.active_anchor = False
@@ -33,6 +35,7 @@ class CalendarLinks(HTMLParser):
             href = a.get("href")
             if href:
                 self.urls.add(canonical_url(href))
+                self.url_paths.add(urlsplit(html.unescape(href)).path.rstrip('/').lower())
                 self.active_anchor = True
                 self.text_parts = []
     def handle_data(self, data):
@@ -55,6 +58,24 @@ def normalize(s):
 def canonical_url(url):
     p = urlsplit(html.unescape(str(url)))
     return (p.netloc.lower().removeprefix("www.") + unquote(p.path).rstrip("/").lower())
+
+def similarity(a, b):
+    return SequenceMatcher(None, normalize(a), normalize(b)).ratio()
+
+def review_match(title, url, parser):
+    path = urlsplit(html.unescape(url)).path.rstrip('/').lower()
+    if canonical_url(url) in parser.urls:
+        return "existing_url", "Exact event URL already listed"
+    if path and len(path) > 8 and path in parser.url_paths:
+        return "possible_existing_link_review", "Same URL path listed on another domain"
+    cleaned = normalize(title)
+    if cleaned in parser.titles:
+        return "possible_existing_title_review", "Exact normalized title already listed"
+    if cleaned and len(cleaned) >= 12:
+        best = max(((similarity(cleaned, t), t) for t in parser.titles), default=(0, ""))
+        if best[0] >= 0.88:
+            return "possible_existing_title_review", "Similar title already listed: " + best[1][:110]
+    return "potential_addition_requires_verification", "No strong matching title or link found; still unverified"
 
 def date_status(value, today):
     try:
@@ -87,13 +108,13 @@ def main():
                 status = "past_not_candidate"
             elif not title or not url or ds == "date_unverified":
                 status = "incomplete_review"
-            elif canonical_url(url) in parser.urls:
-                status = "existing_url"
-            elif normalize(title) in parser.titles:
-                status = "possible_existing_title_review"
             else:
-                status = "potential_addition_requires_verification"
-            rows.append({"source": source["source"], "title": title, "start_date": date, "url": url, "status": status})
+                status, reason = review_match(title, url, parser)
+            if ds == "past":
+                reason = "Event date is before today"
+            elif not title or not url or ds == "date_unverified":
+                reason = "Title, direct URL, or parseable date missing"
+            rows.append({"source": source["source"], "title": html.unescape(title), "start_date": date, "url": url, "status": status, "review_reason": reason})
     counts = Counter(row["status"] for row in rows)
     result = {
         "read_only": True,
@@ -106,12 +127,24 @@ def main():
         "candidates": rows,
     }
     Path("kjzy_candidate_review_report.json").write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    lines = ["# KJZY Candidate Review (Read Only)", "", "Checked: " + today.isoformat(),
+             "", "No events have been verified or published.", "",
+             "## Review candidates", ""]
+    for row in rows:
+        if row["status"] in ("potential_addition_requires_verification", "possible_existing_title_review", "possible_existing_link_review", "incomplete_review"):
+            lines.extend(["### " + row["title"].replace("\\n", " ")[:150],
+                          "- Source: " + row["source"],
+                          "- Date: " + row["start_date"],
+                          "- Status: " + row["status"],
+                          "- Reason: " + row["review_reason"],
+                          "- Event link: " + row["url"], ""])
+    Path("kjzy_candidate_review.md").write_text("\\n".join(lines) + "\\n", encoding="utf-8")
     print("KJZY READ-ONLY EVENT CANDIDATE COMPARISON")
     print("Calendar event blocks:", parser.event_count)
     print("Structured records compared:", len(rows))
     print("Status totals:", json.dumps(dict(counts), sort_keys=True))
     for row in rows:
-        if row["status"] in ("potential_addition_requires_verification", "possible_existing_title_review", "incomplete_review"):
+        if row["status"] in ("potential_addition_requires_verification", "possible_existing_title_review", "possible_existing_link_review", "incomplete_review"):
             print("REVIEW:", json.dumps(row, ensure_ascii=False))
     print("NO EVENTS ADDED. NO CALENDAR MODIFICATIONS.")
 
