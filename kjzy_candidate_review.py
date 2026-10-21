@@ -132,13 +132,13 @@ def main():
              "## Review candidates", ""]
     for row in rows:
         if row["status"] in ("potential_addition_requires_verification", "possible_existing_title_review", "possible_existing_link_review", "incomplete_review"):
-            lines.extend(["### " + row["title"].replace("\\n", " ")[:150],
+            lines.extend(["### " + row["title"].replace("\n", " ")[:150],
                           "- Source: " + row["source"],
                           "- Date: " + row["start_date"],
                           "- Status: " + row["status"],
                           "- Reason: " + row["review_reason"],
                           "- Event link: " + row["url"], ""])
-    Path("kjzy_candidate_review.md").write_text("\\n".join(lines) + "\\n", encoding="utf-8")
+    Path("kjzy_candidate_review.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("KJZY READ-ONLY EVENT CANDIDATE COMPARISON")
     print("Calendar event blocks:", parser.event_count)
     print("Structured records compared:", len(rows))
