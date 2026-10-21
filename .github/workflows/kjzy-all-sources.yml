@@ -29,5 +29,6 @@ jobs:
           path: |
             kjzy_all_sources_report.json
             kjzy_candidate_review_report.json
+            kjzy_candidate_review.md
           if-no-files-found: warn
           retention-days: 14
