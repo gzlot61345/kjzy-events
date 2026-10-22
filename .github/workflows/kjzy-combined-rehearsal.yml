@@ -39,6 +39,20 @@ jobs:
         run: python kjzy_priority_source_discovery.py
       - name: Compare Tourism and Visit Santa Rosa discoveries
         run: python kjzy_priority_candidate_review.py
+      - name: Summarize priority-source results
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          from pathlib import Path
+          data=json.loads(Path('kjzy_priority_candidate_review.json').read_text())
+          print('## KJZY priority-source discovery (read-only)')
+          print('Calendar listings:',data['calendar_listings'])
+          print('Discovered records compared:',data['candidates_compared'])
+          for key,count in sorted(data['status_counts'].items()):
+              print(f'- {key.replace("_", " ")}: {count}')
+          print('No event is automatically approved by this review.')
+          PY
       - name: Compare candidates
         run: python kjzy_candidate_review.py
       - name: Prepare addition candidates
@@ -68,5 +82,9 @@ jobs:
             kjzy_insertion_preview.json
             kjzy_insertion_audit.json
             kjzy_event_page_verification.json
+            kjzy_all_sources_report.json
+            kjzy_source_diagnostics.json
+            kjzy_priority_source_discovery.json
+            kjzy_priority_candidate_review.json
           if-no-files-found: warn
           retention-days: 14
