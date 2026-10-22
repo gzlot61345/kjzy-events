@@ -2,6 +2,12 @@ name: KJZY combined nightly refresh rehearsal
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'kjzy_*.py'
+      - '.github/workflows/kjzy-combined-rehearsal.yml'
   schedule:
     - cron: '17 10 * * *'
 
