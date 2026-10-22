@@ -31,6 +31,8 @@ jobs:
           python-version: '3.12'
       - name: Inspect all sources
         run: python kjzy_all_sources_probe.py
+      - name: Diagnose incomplete source extraction
+        run: python kjzy_source_diagnostics.py
       - name: Compare candidates
         run: python kjzy_candidate_review.py
       - name: Prepare addition candidates
@@ -72,5 +74,6 @@ jobs:
             kjzy_insertion_audit.json
             kjzy_insertion_preview.html
             kjzy_event_page_verification.json
+            kjzy_source_diagnostics.json
           if-no-files-found: warn
           retention-days: 14
