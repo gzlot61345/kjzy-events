@@ -1,6 +1,8 @@
-name: KJZY addition publication safety test
+name: KJZY nightly verified event additions
 
 on:
+  schedule:
+    - cron: '37 10 * * *'
   workflow_dispatch:
     inputs:
       publish:
@@ -44,7 +46,7 @@ jobs:
       - name: Check publication safeguards
         run: python kjzy_addition_publish.py
       - name: Apply additions when explicitly approved
-        if: ${{ inputs.publish }}
+        if: ${{ github.event_name == 'schedule' || inputs.publish }}
         run: python kjzy_addition_publish.py --publish
       - name: Commit verified calendar changes only
         if: ${{ inputs.publish }}
