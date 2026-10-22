@@ -31,6 +31,8 @@ jobs:
         run: python kjzy_source_diagnostics.py
       - name: Discover priority source event details (read only)
         run: python kjzy_priority_source_discovery.py
+      - name: Compare Tourism and Visit Santa Rosa discoveries
+        run: python kjzy_priority_candidate_review.py
       - name: Compare candidates
         run: python kjzy_candidate_review.py
       - name: Prepare addition candidates
