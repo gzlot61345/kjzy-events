@@ -16,10 +16,42 @@ from kjzy_event_page_verification import check as verify_page
 PACIFIC = ZoneInfo("America/Los_Angeles")
 FOCUS = {"Sonoma County Tourism Events", "Visit Santa Rosa Events"}
 
+
+def exact_day_calendar_matches(html_text, title, day, url):
+    """Only a single-day listing with the same title or URL counts as confirmed."""
+    import re
+    from html import unescape
+    from kjzy_candidate_review import canonical_url
+    month = None
+    year = None
+    target = str(day)
+    for token in re.finditer(r'<h2 class="year">([^<]+)</h2>|<h3 class="month">([^<]+)</h3>|<div class="event"\\b[^>]*>.*?</div>\\s*</div>\\s*</div>', html_text, re.S):
+        raw = token.group(0)
+        if token.group(1):
+            year = token.group(1).strip()
+        elif token.group(2):
+            try:
+                month = datetime.strptime(token.group(2).strip(), "%B").month
+            except ValueError:
+                month = None
+        elif month and year:
+            date_match = re.search(r'<div class="date">\\s*(\\d{1,2})\\s*</div>', raw)
+            link_match = re.search(r'<a\\s+href="([^"]+)"[^>]*>(.*?)</a>', raw, re.S)
+            if not date_match or not link_match:
+                continue
+            try:
+                listed_day = datetime(int(year), month, int(date_match.group(1))).date().isoformat()
+            except ValueError:
+                continue
+            if listed_day == target and (normalize(unescape(re.sub(r'<[^>]*>', '', link_match.group(2)))) == normalize(title) or canonical_url(unescape(link_match.group(1))) == canonical_url(url)):
+                return True
+    return False
+
 def main():
     discovery = json.loads(Path("kjzy_priority_source_discovery.json").read_text(encoding="utf-8"))
     parser = CalendarLinks()
-    parser.feed(Path("SC_Events.html").read_text(encoding="utf-8"))
+    html_text = Path("SC_Events.html").read_text(encoding="utf-8")
+    parser.feed(html_text)
     today = datetime.now(PACIFIC).date()
     results = []
     seen = set()
@@ -50,7 +82,11 @@ def main():
                 match, reason = review_match(title, url, parser)
                 row["calendar_comparison"] = match
                 row["comparison_reason"] = reason
-                if match != "potential_addition_requires_verification":
+                same_day = exact_day_calendar_matches(html_text, title, date, url)
+                row["same_day_existing"] = same_day
+                if same_day:
+                    row["status"] = "confirmed_same_date_existing"
+                elif match != "potential_addition_requires_verification":
                     row["status"] = "possible_existing_needs_date_review"
                 else:
                     verification = verify_page({"source": source["source"], "title": title,
@@ -64,7 +100,7 @@ def main():
     output = {"read_only": True, "date_checked_pacific": today.isoformat(),
               "calendar_listings": parser.event_count, "candidates_compared": len(results),
               "status_counts": counts, "events": results,
-              "warning": "This is a preliminary comparison. Title matches are not date-specific; neither a match nor matching event-page metadata authorizes publication."}
+              "warning": "This is a preliminary comparison. Only explicit single-day calendar matches are date-confirmed; ranges and title-only matches still require review. No publication is authorized."}
     Path("kjzy_priority_candidate_review.json").write_text(json.dumps(output, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("KJZY PRIORITY SOURCE CANDIDATE REVIEW (READ ONLY)")
     print("Calendar listings:", parser.event_count)
