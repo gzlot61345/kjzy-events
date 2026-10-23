@@ -91,6 +91,25 @@ def main():
     print("KJZY SOURCE ADAPTER DIAGNOSTICS")
     for i, row in enumerate(rows, 1):
         print(f'{i:02d} | {row["source"]} | {row["status"]} | links={len(row["candidate_links"])} | {row["next_step"]}')
+    priority = ("Green Music Center", "Luther Burbank Center", "Santa Rosa Symphony", "Sonoma County Tourism Events", "Visit Santa Rosa Events")
+    priority_rows = [row for row in rows if row["source"].startswith(priority)]
+    priority_report = {
+        "read_only": True,
+        "checked_at_pacific": output["checked_at_pacific"],
+        "note": "Discovery links are not verified events. Missing links do not mean no events.",
+        "priority_sources": [
+            {"source": row["source"], "status": row["status"],
+             "candidate_link_count": row.get("candidate_link_count", 0),
+             "next_step": row["next_step"],
+             "candidate_links": row["candidate_links"]}
+            for row in priority_rows
+        ],
+    }
+    Path("kjzy_priority_source_review.json").write_text(
+        json.dumps(priority_report, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+    print("PRIORITY SOURCE DISCOVERY SUMMARY")
+    for row in priority_rows:
+        print(f'{row["source"]}: {row.get("candidate_link_count", 0)} possible links; {row["next_step"]}')
     print("READ ONLY. NO EVENTS ADDED OR PUBLISHED.")
 
 if __name__ == "__main__":
