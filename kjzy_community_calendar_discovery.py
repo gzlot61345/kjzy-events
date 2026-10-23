@@ -11,8 +11,8 @@ from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 URL = "https://kjzy.com/events/community-calendar"
-DATE = re.compile(r"^(?:(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\\s+)?(?:January|February|March|April|May|June|July|August|September|October|November|December)\\s+\\d{1,2}(?:st|nd|rd|th)?$", re.I)
-TIME = re.compile(r"^\\d{1,2}:\\d{2}\\s*(?:AM|PM)(?:\\s*-\\s*\\d{1,2}:\\d{2}\\s*(?:AM|PM))?$", re.I)
+DATE = re.compile(r"^(?:(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s+)?(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:st|nd|rd|th)?$", re.I)
+TIME = re.compile(r"^\d{1,2}:\d{2}\s*(?:AM|PM)(?:\s*-\s*\d{1,2}:\d{2}\s*(?:AM|PM))?$", re.I)
 
 class CalendarParser(HTMLParser):
     def __init__(self):
