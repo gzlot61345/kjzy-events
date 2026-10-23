@@ -14,6 +14,8 @@ from zoneinfo import ZoneInfo
 
 LIMIT = 1100000
 FEEDS_PER_SOURCE = 3
+DETAIL_PAGES_PER_SOURCE = 4
+EVENT_LINK = re.compile(r"(event|concert|show|performance|festival|ticket|calendar)", re.I)
 WORKERS = 6
 FEED_HINT = re.compile(r"(?:\.ics(?:$|\?)|/feed/?(?:$|\?)|ical|webcal)", re.I)
 
@@ -114,6 +116,27 @@ def inspect(item):
                 link = urljoin(base, href)
                 if urlsplit(link).hostname == host and FEED_HINT.search(link) and link not in feeds:
                     feeds.append(link)
+            # Discover structured event records on linked detail pages, not only index pages.
+            detail_links = []
+            for href in page.links:
+                link = urljoin(base, href)
+                if (urlsplit(link).hostname == host and EVENT_LINK.search(urlsplit(link).path)
+                        and link != base and link not in feeds and link not in detail_links):
+                    detail_links.append(link)
+            row["detail_urls_checked"] = []
+            for link in detail_links[:DETAIL_PAGES_PER_SOURCE]:
+                row["detail_urls_checked"].append(link)
+                try:
+                    final, ctype, detail = fetch(link)
+                    subpage = Page()
+                    subpage.feed(detail)
+                    for script in subpage.scripts:
+                        try:
+                            row["events"].extend(json_events(json.loads(script)))
+                        except (ValueError, TypeError):
+                            continue
+                except Exception as exc:
+                    row["errors"].append("detail: " + str(exc)[:120])
             for link in feeds[:FEEDS_PER_SOURCE]:
                 row["feed_urls_checked"].append(link)
                 try:
@@ -160,8 +183,8 @@ def main():
     print("KJZY SHARED COLLECTOR: %d/31 sources with candidates; %d unverified records" %
           (out["sources_with_candidates"], out["total_candidates"]))
     for r in rows:
-        print("%-58s | %-23s | %3d records | %d feeds" %
-              (r["source"][:58], r["status"], r["candidate_count"], len(r["feed_urls_checked"])))
+        print("%-58s | %-23s | %3d records | %d feeds | %d details" %
+              (r["source"][:58], r["status"], r["candidate_count"], len(r["feed_urls_checked"]), len(r.get("detail_urls_checked", []))))
     print("READ ONLY. NO CALENDAR CHANGES.")
 
 if __name__ == "__main__":
