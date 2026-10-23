@@ -1,0 +1,11 @@
+# KJZY primary calendar sources — approved priority list
+# These eight sources are the development and coverage target.
+# The remaining 23 legacy sources are retained in refresh_summary.json for reference.
+https://happeningsonomacounty.com/
+https://lutherburbankcenter.org/events/
+https://gmc.sonoma.edu/all-events/
+https://kjzy.com/events/community-calendar
+https://www.pressdemocrat.com/events/#!/
+https://www.sonomamediagroup.com/events/
+https://norcalpublicmedia.org/arts-culture/event-calendar#!/
+https://kjzy.com/local-events
