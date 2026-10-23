@@ -3,10 +3,10 @@ Displayed date ranges are NOT individual recurring performance dates.
 """
 import json
 import re
-from datetime import datetime
+from datetime import datetime, date
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlsplit
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
@@ -74,27 +74,79 @@ def extract(tokens):
         })
     return rows
 
+
+def classify(rows):
+    """Conservative review only: date ranges never imply every date is an event."""
+    from kjzy_candidate_review import CalendarLinks, normalize, review_match
+    calendar = CalendarLinks()
+    calendar.feed(Path("SC_Events.html").read_text(encoding="utf-8"))
+    today = datetime.now(ZoneInfo("America/Los_Angeles")).date()
+    for row in rows:
+        dates = row["displayed_dates"]
+        parsed = []
+        for label in dates:
+            m = re.search(r"(January|February|March|April|May|June|July|August|September|October|November|December)\\s+(\\d{1,2})", label, re.I)
+            if not m:
+                continue
+            month = datetime.strptime(m.group(1).title(), "%B").month
+            day = int(m.group(2))
+            year = today.year
+            # Calendar listing spans may cross New Year.
+            if parsed and (month, day) < (parsed[-1].month, parsed[-1].day):
+                year = parsed[-1].year + 1
+            try:
+                parsed.append(date(year, month, day))
+            except ValueError:
+                pass
+        row["interpreted_bounds"] = [d.isoformat() for d in parsed]
+        row["review_flags"] = []
+        if len(parsed) == 2 and parsed[1] < parsed[0]:
+            row["review_flags"].append("reversed_range")
+        if parsed and parsed[-1] < today:
+            row["review_flags"].append("displayed_range_expired")
+        if len(parsed) > 1:
+            row["review_flags"].append("range_or_recurring_dates_not_verified")
+        if not row["organizer_website"]:
+            row["review_flags"].append("missing_organizer_link")
+        if row["organizer_website"] and re.search(r"/202[0-5](?:/|\\b)", urlsplit(row["organizer_website"]).path):
+            row["review_flags"].append("organizer_link_may_be_stale")
+        title = normalize(row["title"])
+        row["existing_title_match"] = title in calendar.titles
+        if row["existing_title_match"]:
+            row["review_flags"].append("title_already_on_calendar_check_date")
+        elif title and len(title) >= 12:
+            from difflib import SequenceMatcher
+            if any(SequenceMatcher(None, title, existing).ratio() >= .88 for existing in calendar.titles):
+                row["review_flags"].append("similar_title_on_calendar_check_date")
+        row["status"] = "manual_verification_required"
+    return rows
+
 def main():
     req = Request(URL, headers={"User-Agent": "Mozilla/5.0 (compatible; KJZYCalendarAudit/1.1)"})
     with urlopen(req, timeout=25) as response:
         raw = response.read(2000000)
     parser = CalendarParser()
     parser.feed(raw.decode("utf-8", errors="replace"))
-    rows = extract(parser.tokens)
+    rows = classify(extract(parser.tokens))
     result = {
         "source": URL, "read_only": True,
         "checked_at_pacific": datetime.now(ZoneInfo("America/Los_Angeles")).isoformat(),
         "candidate_count": len(rows),
         "with_displayed_date": sum(bool(r["displayed_dates"]) for r in rows),
         "with_organizer_website": sum(bool(r["organizer_website"]) for r in rows),
+        "matching_calendar_titles": sum(r["existing_title_match"] for r in rows),
+        "range_or_recurring": sum("range_or_recurring_dates_not_verified" in r["review_flags"] for r in rows),
+        "warning": "All rows require verification of each actual occurrence, year, weekday, venue and direct event page.",
         "candidates": rows,
-        "warning": "Displayed ranges may describe recurrence or seasons, not individual dates. Verify before publishing.",
+
     }
     Path("kjzy_community_calendar_candidates.json").write_text(
         json.dumps(result, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("KJZY COMMUNITY CALENDAR:", len(rows), "unverified candidates")
     print("With displayed dates:", result["with_displayed_date"])
     print("With organizer websites:", result["with_organizer_website"])
+    print("Exact calendar title matches:", result["matching_calendar_titles"])
+    print("Ranges requiring occurrence checks:", result["range_or_recurring"])
     for row in rows:
         print(row["title"], "|", " to ".join(row["displayed_dates"]), "|", row["organizer_website"] or "no organizer link")
     print("READ ONLY. NOTHING PUBLISHED.")
