@@ -77,7 +77,7 @@ def extract(tokens):
 
 def classify(rows):
     """Conservative review only: date ranges never imply every date is an event."""
-    from kjzy_candidate_review import CalendarLinks, normalize, review_match
+    from kjzy_candidate_review import CalendarLinks, normalize
     calendar = CalendarLinks()
     calendar.feed(Path("SC_Events.html").read_text(encoding="utf-8"))
     today = datetime.now(ZoneInfo("America/Los_Angeles")).date()
@@ -85,7 +85,7 @@ def classify(rows):
         dates = row["displayed_dates"]
         parsed = []
         for label in dates:
-            m = re.search(r"(January|February|March|April|May|June|July|August|September|October|November|December)\\s+(\\d{1,2})", label, re.I)
+            m = re.search(r"(January|February|March|April|May|June|July|August|September|October|November|December)\s+(\d{1,2})", label, re.I)
             if not m:
                 continue
             month = datetime.strptime(m.group(1).title(), "%B").month
@@ -102,13 +102,16 @@ def classify(rows):
         row["review_flags"] = []
         if len(parsed) == 2 and parsed[1] < parsed[0]:
             row["review_flags"].append("reversed_range")
+        if len(dates) == 2 and len(parsed) != 2:
+            row["review_flags"].append("date_range_parse_failed")
+        if len(dates) == 2 and parsed:
+            # A displayed span is not evidence that every day is an occurrence.
+            row["review_flags"].append("range_or_recurring_dates_not_verified")
         if parsed and parsed[-1] < today:
             row["review_flags"].append("displayed_range_expired")
-        if len(parsed) > 1:
-            row["review_flags"].append("range_or_recurring_dates_not_verified")
         if not row["organizer_website"]:
             row["review_flags"].append("missing_organizer_link")
-        if row["organizer_website"] and re.search(r"/202[0-5](?:/|\\b)", urlsplit(row["organizer_website"]).path):
+        if row["organizer_website"] and re.search(r"/202[0-5](?:/|\b)", urlsplit(row["organizer_website"]).path):
             row["review_flags"].append("organizer_link_may_be_stale")
         title = normalize(row["title"])
         row["existing_title_match"] = title in calendar.titles
@@ -135,6 +138,8 @@ def main():
         "with_displayed_date": sum(bool(r["displayed_dates"]) for r in rows),
         "with_organizer_website": sum(bool(r["organizer_website"]) for r in rows),
         "matching_calendar_titles": sum(r["existing_title_match"] for r in rows),
+        "unmatched_titles": sum(not r["existing_title_match"] for r in rows),
+        "date_parse_failures": sum("date_range_parse_failed" in r["review_flags"] for r in rows),
         "range_or_recurring": sum("range_or_recurring_dates_not_verified" in r["review_flags"] for r in rows),
         "warning": "All rows require verification of each actual occurrence, year, weekday, venue and direct event page.",
         "candidates": rows,
@@ -147,6 +152,8 @@ def main():
     print("With organizer websites:", result["with_organizer_website"])
     print("Exact calendar title matches:", result["matching_calendar_titles"])
     print("Ranges requiring occurrence checks:", result["range_or_recurring"])
+    print("Date parse failures:", result["date_parse_failures"])
+    print("Unmatched titles needing individual verification:", result["unmatched_titles"])
     for row in rows:
         print(row["title"], "|", " to ".join(row["displayed_dates"]), "|", row["organizer_website"] or "no organizer link")
     print("READ ONLY. NOTHING PUBLISHED.")
