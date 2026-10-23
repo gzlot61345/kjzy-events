@@ -106,7 +106,7 @@ def main():
         ],
     }
     Path("kjzy_priority_source_review.json").write_text(
-        json.dumps(priority_report, indent=2, ensure_ascii=False) + "\\n", encoding="utf-8")
+        json.dumps(priority_report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print("PRIORITY SOURCE DISCOVERY SUMMARY")
     for row in priority_rows:
         print(f'{row["source"]}: {row.get("candidate_link_count", 0)} possible links; {row["next_step"]}')
