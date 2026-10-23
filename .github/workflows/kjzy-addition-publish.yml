@@ -51,7 +51,7 @@ jobs:
         if: ${{ github.event_name == 'schedule' || inputs.publish }}
         run: python kjzy_addition_publish.py --publish
       - name: Commit verified calendar changes only
-        if: ${{ inputs.publish }}
+        if: ${{ github.event_name == 'schedule' || inputs.publish }}
         shell: bash
         run: |
           set -euo pipefail
