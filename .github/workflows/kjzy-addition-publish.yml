@@ -33,6 +33,8 @@ jobs:
         run: python kjzy_all_sources_probe.py
       - name: Diagnose incomplete source extraction
         run: python kjzy_source_diagnostics.py
+      - name: Review priority sources in a group
+        run: python kjzy_grouped_source_review.py
       - name: Discover KJZY Community Calendar candidates
         run: python kjzy_community_calendar_discovery.py
       - name: Compare candidates
@@ -77,6 +79,7 @@ jobs:
             kjzy_insertion_preview.html
             kjzy_event_page_verification.json
             kjzy_source_diagnostics.json
+            kjzy_grouped_source_review.json
             kjzy_community_calendar_candidates.json
           if-no-files-found: warn
           retention-days: 14
