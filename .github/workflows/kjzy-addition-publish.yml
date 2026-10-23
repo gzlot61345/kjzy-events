@@ -31,6 +31,8 @@ jobs:
           python-version: '3.12'
       - name: Inspect all sources
         run: python kjzy_all_sources_probe.py
+      - name: Collect event candidates across all 31 sources
+        run: python kjzy_shared_collector.py
       - name: Diagnose incomplete source extraction
         run: python kjzy_source_diagnostics.py
       - name: Review priority sources in a group
@@ -79,6 +81,7 @@ jobs:
             kjzy_insertion_preview.html
             kjzy_event_page_verification.json
             kjzy_source_diagnostics.json
+            kjzy_shared_collector_report.json
             kjzy_grouped_source_review.json
             kjzy_community_calendar_candidates.json
           if-no-files-found: warn
