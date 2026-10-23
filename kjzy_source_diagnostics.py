@@ -91,7 +91,7 @@ def main():
     print("KJZY SOURCE ADAPTER DIAGNOSTICS")
     for i, row in enumerate(rows, 1):
         print(f'{i:02d} | {row["source"]} | {row["status"]} | links={len(row["candidate_links"])} | {row["next_step"]}')
-    priority = ("Green Music Center", "Luther Burbank Center", "Santa Rosa Symphony", "Sonoma County Tourism Events", "Visit Santa Rosa Events")
+    priority = ("Green Music Center", "Luther Burbank Center", "Santa Rosa Symphony", "Sonoma County Tourism Events", "Visit Santa Rosa Events", "KJZY Community Calendar")
     priority_rows = [row for row in rows if row["source"].startswith(priority)]
     priority_report = {
         "read_only": True,
