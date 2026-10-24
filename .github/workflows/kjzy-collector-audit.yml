@@ -157,8 +157,6 @@ jobs:
                       status = 'date_needs_review'
                   elif day < today:
                       status = 'expired'
-                  elif day == today:
-                      status = 'same_day_needs_time_review'
                   elif (normalized_title(title), day) in published_events.entries:
                       status = 'existing_title_date_candidate'
                   elif (p.netloc.lower().removeprefix('www.'), p.path.rstrip('/').lower()) in published.urls:
