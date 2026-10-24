@@ -56,7 +56,20 @@ jobs:
           published.feed(Path('SC_Events.html').read_text(encoding='utf-8'))
           data = json.loads(Path('kjzy_shared_collector_report.json').read_text(encoding='utf-8'))
           today = datetime.now(ZoneInfo('America/Los_Angeles')).date()
+          def parse_day(value):
+              raw = str(value or '').strip()
+              if len(raw) == 8 and raw.isdigit():
+                  try:
+                      return datetime.strptime(raw, '%Y%m%d').date()
+                  except ValueError:
+                      return None
+              try:
+                  return date.fromisoformat(raw[:10])
+              except ValueError:
+                  return None
+
           counts = Counter()
+          seen = set()
           examples = []
           for source in data['sources']:
               for event in source['events']:
@@ -66,12 +79,12 @@ jobs:
                   if isinstance(url, dict):
                       url = url.get('@id') or url.get('url')
                   url = url if isinstance(url, str) else ''
-                  try:
-                      day = date.fromisoformat(str(raw_date)[:10])
-                  except ValueError:
-                      day = None
+                  day = parse_day(raw_date)
                   p = urlsplit(url)
-                  if not title or not url or not p.netloc:
+                  identity = (p.netloc.lower().removeprefix('www.'), p.path.rstrip('/').lower(), day)
+                  if title and day and p.netloc and identity in seen:
+                      status = 'duplicate_candidate_record'
+                  elif not title or not url or not p.netloc:
                       status = 'incomplete'
                   elif day is None:
                       status = 'date_needs_review'
@@ -81,11 +94,13 @@ jobs:
                       status = 'existing_link_candidate'
                   else:
                       status = 'potential_addition_unverified'
+                  if title and day and p.netloc:
+                      seen.add(identity)
                   counts[status] += 1
                   examples.append({'source':source['source'],'title':title,'date':raw_date,'url':url,'status':status})
           output = {'read_only':True,'checked_pacific':str(today),'counts':dict(counts),'candidates':examples,
                     'warning':'Potential additions are not verified for title, venue, date, URL reachability or cross-source duplicates.'}
-          Path('kjzy_priority_screen_report.json').write_text(json.dumps(output,indent=2,ensure_ascii=False)+'\\n',encoding='utf-8')
+          Path('kjzy_priority_screen_report.json').write_text(json.dumps(output,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
           print('PRIORITY SCREEN:',dict(counts))
           print('READ ONLY; NO EVENTS PUBLISHED')
           PY
