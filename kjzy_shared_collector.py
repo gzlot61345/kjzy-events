@@ -159,9 +159,11 @@ def inspect(item):
         row["candidate_count"] = len(clean)
         row["status"] = "candidates_found" if clean else "adapter_needed"
         row["coverage_note"] = ("Machine-readable candidates found; not proof of full source coverage" if clean else "No machine-readable candidates found; source-specific adapter required")
+        row["adapter_hint"] = ("Inspect structured calendar APIs, embedded widgets, or official feeds; never infer zero upcoming events from zero parsed records" if not clean else "Cross-check candidates against organizer details and calendar before publication")
     except Exception as exc:
         row["status"] = "access_or_parse_failure"
         row["coverage_note"] = "Source could not be accessed or parsed; do not count as verified"
+        row["adapter_hint"] = "Investigate access failure or use an official alternative feed"
         row["errors"].append(str(exc)[:200])
         row["candidate_count"] = 0
     return row
