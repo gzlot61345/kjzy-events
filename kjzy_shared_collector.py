@@ -119,9 +119,9 @@ def gmc_detail_candidate(body, url):
     page.feed(body)
     text = " ".join(page.parts)
     # The official GMC detail page displays: Thu, Nov 5, 2026.
-    match = re.search(r"\\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\\s+"
+    match = re.search(r"\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\s+"
                       r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"
-                      r"\\s+(\\d{1,2}),?\\s+(20\\d{2})\\b", text)
+                      r"\s+(\d{1,2}),?\s+(20\d{2})\b", text)
     if not match or not page.heading:
         return None
     month = datetime.strptime(match.group(1), "%b").month
