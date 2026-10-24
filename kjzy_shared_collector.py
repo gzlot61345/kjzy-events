@@ -145,6 +145,21 @@ def inspect(item):
                         row["events"].extend(ics_events(content, final))
                 except Exception as exc:
                     row["errors"].append(str(exc)[:140])
+        # The Events Calendar (Luther Burbank Center) offers an iCalendar export.
+        # Probe it explicitly because its "Export Events" link may be JS-generated.
+        if "lutherburbankcenter.org" in urlsplit(base).hostname.lower():
+            for calendar_url in (urljoin(base, "/events/?ical=1"),):
+                if calendar_url not in row["feed_urls_checked"]:
+                    row["feed_urls_checked"].append(calendar_url)
+                    try:
+                        final, ctype, content = fetch(calendar_url)
+                        if "BEGIN:VCALENDAR" in content[:300]:
+                            row["events"].extend(ics_events(content, final))
+                            row["method"] = "official_ics_export"
+                        else:
+                            row["errors"].append("Official calendar export did not return ICS data")
+                    except Exception as exc:
+                        row["errors"].append("Official calendar export: " + str(exc)[:140])
         seen = set()
         clean = []
         for event in row["events"]:
