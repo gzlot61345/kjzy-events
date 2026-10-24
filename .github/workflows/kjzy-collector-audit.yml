@@ -124,9 +124,9 @@ jobs:
           today = datetime.now(ZoneInfo('America/Los_Angeles')).date()
           def parse_day(value):
               raw = str(value or '').strip()
-              if len(raw) == 8 and raw.isdigit():
+              if len(raw) >= 8 and raw[:8].isdigit() and (len(raw) == 8 or raw[8] == 'T'):
                   try:
-                      return datetime.strptime(raw, '%Y%m%d').date()
+                      return datetime.strptime(raw[:8], '%Y%m%d').date()
                   except ValueError:
                       return None
               try:
