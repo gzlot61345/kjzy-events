@@ -6,6 +6,7 @@ on:
     paths:
       - 'kjzy_shared_collector.py'
       - 'refresh_summary.json'
+      - 'kjzy_priority_sources.txt'
       - '.github/workflows/kjzy-collector-audit.yml'
   schedule:
     - cron: '15 11 * * *'
@@ -27,7 +28,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Collect candidates from all 31 sources
+      - name: Collect candidates from eight priority sources
         run: python kjzy_shared_collector.py
       - name: Show collection summary
         if: success()
@@ -36,7 +37,7 @@ jobs:
           import json
           from collections import Counter
           data = json.load(open('kjzy_shared_collector_report.json'))
-          assert data['sources_checked'] == 31, 'Source inventory incomplete'
+          assert data['sources_checked'] == 8, 'Priority source inventory incomplete'
           print('Sources with candidates:', data['sources_with_candidates'])
           print('Unverified event records:', data['total_candidates'])
           print('Source statuses:', dict(Counter(s['status'] for s in data['sources'])))
@@ -45,7 +46,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: kjzy-31-source-collector-audit
+          name: kjzy-eight-source-collector-audit
           path: kjzy_shared_collector_report.json
           if-no-files-found: warn
           retention-days: 14
