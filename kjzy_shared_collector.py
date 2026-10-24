@@ -13,8 +13,8 @@ from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
 LIMIT = 1100000
-FEEDS_PER_SOURCE = 3
-DETAIL_PAGES_PER_SOURCE = 4
+FEEDS_PER_SOURCE = 5
+DETAIL_PAGES_PER_SOURCE = 12
 EVENT_LINK = re.compile(r"(event|concert|show|performance|festival|ticket|calendar)", re.I)
 WORKERS = 6
 FEED_HINT = re.compile(r"(?:\.ics(?:$|\?)|/feed/?(?:$|\?)|ical|webcal)", re.I)
@@ -51,7 +51,7 @@ def json_events(node):
         typ = node.get("@type", [])
         if isinstance(typ, str):
             typ = [typ]
-        if any(str(t).lower().split("/")[-1] == "event" for t in typ):
+        if any(str(t).lower().split("/")[-1].endswith("event") for t in typ):
             loc = node.get("location")
             if isinstance(loc, list):
                 loc = loc[0] if loc else None
@@ -59,7 +59,7 @@ def json_events(node):
                    "end_date": node.get("endDate"), "event_url": node.get("url"),
                    "venue": loc.get("name") if isinstance(loc, dict) else None,
                    "format": "jsonld"}
-        for key in ("@graph", "mainEntity", "itemListElement"):
+        for key in ("@graph", "mainEntity", "itemListElement", "event", "events", "subEvent", "subjectOf"):
             if key in node:
                 yield from json_events(node[key])
 
@@ -158,8 +158,10 @@ def inspect(item):
         row["events"] = clean[:250]
         row["candidate_count"] = len(clean)
         row["status"] = "candidates_found" if clean else "adapter_needed"
+        row["coverage_note"] = ("Machine-readable candidates found; not proof of full source coverage" if clean else "No machine-readable candidates found; source-specific adapter required")
     except Exception as exc:
         row["status"] = "access_or_parse_failure"
+        row["coverage_note"] = "Source could not be accessed or parsed; do not count as verified"
         row["errors"].append(str(exc)[:200])
         row["candidate_count"] = 0
     return row
