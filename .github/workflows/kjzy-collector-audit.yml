@@ -38,6 +38,9 @@ jobs:
           from datetime import date, datetime
           from html.parser import HTMLParser
           from pathlib import Path
+          import re
+          import calendar
+          import unicodedata
           from urllib.parse import urlsplit
           from zoneinfo import ZoneInfo
 
@@ -52,6 +55,69 @@ jobs:
                           p = urlsplit(url)
                           self.urls.add((p.netloc.lower().removeprefix('www.'), p.path.rstrip('/').lower()))
 
+          def normalized_title(value):
+              value = unicodedata.normalize('NFKD', value or '').casefold()
+              value = ''.join(ch for ch in value if not unicodedata.combining(ch))
+              return re.sub(r'[^a-z0-9]+', ' ', value).strip()
+
+          class CalendarEvents(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.year = None
+                  self.month = None
+                  self.day_text = ''
+                  self.title = ''
+                  self.capture = None
+                  self.event_depth = 0
+                  self.entries = set()
+              def handle_starttag(self, tag, attrs):
+                  classes = dict(attrs).get('class', '').split()
+                  if tag == 'h2' and 'year' in classes:
+                      self.capture = 'year'
+                  elif tag == 'h3' and 'month' in classes:
+                      self.capture = 'month'
+                  elif tag == 'div' and 'event' in classes:
+                      self.event_depth = 1
+                      self.day_text = ''
+                      self.title = ''
+                  elif self.event_depth and tag == 'div':
+                      self.event_depth += 1
+                      if 'date' in classes:
+                          self.capture = 'day'
+                  elif self.event_depth and tag == 'a':
+                      self.capture = 'title'
+              def handle_data(self, value):
+                  if self.capture == 'year':
+                      match = re.search(r'20\\d{2}', value)
+                      if match:
+                          self.year = int(match.group())
+                  elif self.capture == 'month':
+                      for number, name in enumerate(calendar.month_name):
+                          if name and name.casefold() in value.casefold():
+                              self.month = number
+                              break
+                  elif self.capture == 'day':
+                      self.day_text += value
+                  elif self.capture == 'title':
+                      self.title += value
+              def handle_endtag(self, tag):
+                  if tag in ('h2', 'h3', 'a') and self.capture in ('year', 'month', 'title'):
+                      self.capture = None
+                  elif tag == 'div' and self.event_depth:
+                      if self.capture == 'day':
+                          self.capture = None
+                      self.event_depth -= 1
+                      if self.event_depth == 0 and self.year and self.month and self.title:
+                          match = re.match(r'\\s*(\\d{1,2})', self.day_text)
+                          if match:
+                              try:
+                                  day = date(self.year, self.month, int(match.group(1)))
+                                  self.entries.add((normalized_title(self.title), day))
+                              except ValueError:
+                                  pass
+
+          published_events = CalendarEvents()
+          published_events.feed(Path('SC_Events.html').read_text(encoding='utf-8'))
           published = Links()
           published.feed(Path('SC_Events.html').read_text(encoding='utf-8'))
           data = json.loads(Path('kjzy_shared_collector_report.json').read_text(encoding='utf-8'))
@@ -90,6 +156,8 @@ jobs:
                       status = 'date_needs_review'
                   elif day < today:
                       status = 'expired'
+                  elif (normalized_title(title), day) in published_events.entries:
+                      status = 'existing_title_date_candidate'
                   elif (p.netloc.lower().removeprefix('www.'), p.path.rstrip('/').lower()) in published.urls:
                       status = 'existing_link_candidate'
                   else:
