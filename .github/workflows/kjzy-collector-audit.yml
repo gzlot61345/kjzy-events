@@ -30,6 +30,65 @@ jobs:
           python-version: '3.12'
       - name: Collect candidates from eight priority sources
         run: python kjzy_shared_collector.py
+      - name: Screen candidate dates and existing calendar links
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from datetime import date, datetime
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import urlsplit
+          from zoneinfo import ZoneInfo
+
+          class Links(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.urls = set()
+              def handle_starttag(self, tag, attrs):
+                  if tag == 'a':
+                      url = dict(attrs).get('href', '')
+                      if url.startswith(('http://', 'https://')):
+                          p = urlsplit(url)
+                          self.urls.add((p.netloc.lower().removeprefix('www.'), p.path.rstrip('/').lower()))
+
+          published = Links()
+          published.feed(Path('SC_Events.html').read_text(encoding='utf-8'))
+          data = json.loads(Path('kjzy_shared_collector_report.json').read_text(encoding='utf-8'))
+          today = datetime.now(ZoneInfo('America/Los_Angeles')).date()
+          counts = Counter()
+          examples = []
+          for source in data['sources']:
+              for event in source['events']:
+                  title = event.get('title')
+                  raw_date = event.get('start_date')
+                  url = event.get('event_url')
+                  if isinstance(url, dict):
+                      url = url.get('@id') or url.get('url')
+                  url = url if isinstance(url, str) else ''
+                  try:
+                      day = date.fromisoformat(str(raw_date)[:10])
+                  except ValueError:
+                      day = None
+                  p = urlsplit(url)
+                  if not title or not url or not p.netloc:
+                      status = 'incomplete'
+                  elif day is None:
+                      status = 'date_needs_review'
+                  elif day < today:
+                      status = 'expired'
+                  elif (p.netloc.lower().removeprefix('www.'), p.path.rstrip('/').lower()) in published.urls:
+                      status = 'existing_link_candidate'
+                  else:
+                      status = 'potential_addition_unverified'
+                  counts[status] += 1
+                  examples.append({'source':source['source'],'title':title,'date':raw_date,'url':url,'status':status})
+          output = {'read_only':True,'checked_pacific':str(today),'counts':dict(counts),'candidates':examples,
+                    'warning':'Potential additions are not verified for title, venue, date, URL reachability or cross-source duplicates.'}
+          Path('kjzy_priority_screen_report.json').write_text(json.dumps(output,indent=2,ensure_ascii=False)+'\\n',encoding='utf-8')
+          print('PRIORITY SCREEN:',dict(counts))
+          print('READ ONLY; NO EVENTS PUBLISHED')
+          PY
       - name: Show collection summary
         if: success()
         run: |
@@ -47,6 +106,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: kjzy-eight-source-collector-audit
-          path: kjzy_shared_collector_report.json
+          path: |
+            kjzy_shared_collector_report.json
+            kjzy_priority_screen_report.json
           if-no-files-found: warn
           retention-days: 14
