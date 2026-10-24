@@ -93,6 +93,43 @@ def ics_events(body, source_url):
                 event[field] = val[:500]
     return result
 
+def gmc_detail_candidate(body, url):
+    """Extract one candidate from a GMC event detail page, not navigation."""
+    if "gmc.sonoma.edu" not in (urlsplit(url).hostname or ""):
+        return None
+    class Text(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.parts = []
+            self.heading = None
+            self.in_h3 = False
+        def handle_starttag(self, tag, attrs):
+            if tag == "h3":
+                self.in_h3 = True
+        def handle_data(self, data):
+            data = " ".join(data.split())
+            if data:
+                self.parts.append(data)
+                if self.in_h3 and self.heading is None:
+                    self.heading = data
+        def handle_endtag(self, tag):
+            if tag == "h3":
+                self.in_h3 = False
+    page = Text()
+    page.feed(body)
+    text = " ".join(page.parts)
+    # The official GMC detail page displays: Thu, Nov 5, 2026.
+    match = re.search(r"\\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun),?\\s+"
+                      r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"
+                      r"\\s+(\\d{1,2}),?\\s+(20\\d{2})\\b", text)
+    if not match or not page.heading:
+        return None
+    month = datetime.strptime(match.group(1), "%b").month
+    start = f"{match.group(3)}-{month:02d}-{int(match.group(2)):02d}"
+    return {"title": page.heading, "start_date": start,
+            "event_url": url, "venue": "Green Music Center",
+            "format": "gmc_official_detail_needs_time_review"}
+
 def inspect(item):
     row = {"source": item["source"], "url": item["url"], "events": [],
            "feed_urls_checked": [], "errors": [], "read_only": True}
@@ -130,6 +167,10 @@ def inspect(item):
                     final, ctype, detail = fetch(link)
                     subpage = Page()
                     subpage.feed(detail)
+                    if "gmc.sonoma.edu" in (urlsplit(base).hostname or ""):
+                        candidate = gmc_detail_candidate(detail, final)
+                        if candidate:
+                            row["events"].append(candidate)
                     for script in subpage.scripts:
                         try:
                             row["events"].extend(json_events(json.loads(script)))
@@ -148,7 +189,7 @@ def inspect(item):
         # The Events Calendar (Luther Burbank Center) offers an iCalendar export.
         # Probe it explicitly because its "Export Events" link may be JS-generated.
         if "lutherburbankcenter.org" in urlsplit(base).hostname.lower():
-            for calendar_url in (urljoin(base, "/events/?ical=1"),):
+            for calendar_url in (urljoin(base, "/events/list/?hide_subsequent_recurrences=1&ical=1"),):
                 if calendar_url not in row["feed_urls_checked"]:
                     row["feed_urls_checked"].append(calendar_url)
                     try:
