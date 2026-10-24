@@ -1,4 +1,4 @@
-"""Collect machine-readable event candidates from all 31 KJZY sources.
+"""Collect machine-readable event candidates from priority KJZY sources.
 
 Read-only. Never treat discovery as publication approval.
 """
@@ -166,8 +166,15 @@ def inspect(item):
 
 def main():
     registry = json.loads(Path("refresh_summary.json").read_text(encoding="utf-8"))["source_coverage"]
-    if len(registry) != 31:
-        raise RuntimeError("Expected 31 sources")
+    priority_path = Path("kjzy_priority_sources.txt")
+    if priority_path.exists():
+        priority_urls = [line.strip() for line in priority_path.read_text(encoding="utf-8").splitlines()
+                         if line.strip() and not line.lstrip().startswith("#")]
+        from urllib.parse import urldefrag
+        selected = {urldefrag(url)[0].rstrip("/") for url in priority_urls}
+        registry = [item for item in registry if urldefrag(item["url"])[0].rstrip("/") in selected]
+        if len(registry) != len(priority_urls):
+            raise RuntimeError("Priority source URLs do not all match the source registry")
     rows = [None] * len(registry)
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         futures = {pool.submit(inspect, item): i for i, item in enumerate(registry)}
@@ -180,8 +187,8 @@ def main():
            "warning": "Candidates are unverified; dates, links, recurrences and duplicates require verification.",
            "sources": rows}
     Path("kjzy_shared_collector_report.json").write_text(json.dumps(out, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
-    print("KJZY SHARED COLLECTOR: %d/31 sources with candidates; %d unverified records" %
-          (out["sources_with_candidates"], out["total_candidates"]))
+    print("KJZY SHARED COLLECTOR: %d/%d sources with candidates; %d unverified records" %
+          (out["sources_with_candidates"], out["sources_checked"], out["total_candidates"]))
     for r in rows:
         print("%-58s | %-23s | %3d records | %d feeds | %d details" %
               (r["source"][:58], r["status"], r["candidate_count"], len(r["feed_urls_checked"]), len(r.get("detail_urls_checked", []))))
