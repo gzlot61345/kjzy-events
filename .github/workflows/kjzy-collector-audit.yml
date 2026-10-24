@@ -41,6 +41,7 @@ jobs:
           import re
           import calendar
           import unicodedata
+          from html import unescape
           from urllib.parse import urlsplit
           from zoneinfo import ZoneInfo
 
@@ -56,7 +57,7 @@ jobs:
                           self.urls.add((p.netloc.lower().removeprefix('www.'), p.path.rstrip('/').lower()))
 
           def normalized_title(value):
-              value = unicodedata.normalize('NFKD', value or '').casefold()
+              value = unicodedata.normalize('NFKD', unescape(value or '')).casefold()
               value = ''.join(ch for ch in value if not unicodedata.combining(ch))
               return re.sub(r'[^a-z0-9]+', ' ', value).strip()
 
@@ -156,6 +157,8 @@ jobs:
                       status = 'date_needs_review'
                   elif day < today:
                       status = 'expired'
+                  elif day == today:
+                      status = 'same_day_needs_time_review'
                   elif (normalized_title(title), day) in published_events.entries:
                       status = 'existing_title_date_candidate'
                   elif (p.netloc.lower().removeprefix('www.'), p.path.rstrip('/').lower()) in published.urls:
