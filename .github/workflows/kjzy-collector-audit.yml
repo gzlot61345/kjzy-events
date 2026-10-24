@@ -88,7 +88,7 @@ jobs:
                       self.capture = 'title'
               def handle_data(self, value):
                   if self.capture == 'year':
-                      match = re.search(r'20\\d{2}', value)
+                      match = re.search(r'20\d{2}', value)
                       if match:
                           self.year = int(match.group())
                   elif self.capture == 'month':
@@ -108,7 +108,7 @@ jobs:
                           self.capture = None
                       self.event_depth -= 1
                       if self.event_depth == 0 and self.year and self.month and self.title:
-                          match = re.match(r'\\s*(\\d{1,2})', self.day_text)
+                          match = re.match(r'\s*(\d{1,2})', self.day_text)
                           if match:
                               try:
                                   day = date(self.year, self.month, int(match.group(1)))
