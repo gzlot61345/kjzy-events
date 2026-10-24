@@ -42,6 +42,7 @@ jobs:
           import calendar
           import unicodedata
           from html import unescape
+          from difflib import SequenceMatcher
           from urllib.parse import urlsplit
           from zoneinfo import ZoneInfo
 
@@ -117,6 +118,24 @@ jobs:
                               except ValueError:
                                   pass
 
+          def similar_title_same_day(title, day, entries):
+              candidate = normalized_title(title)
+              tokens = set(candidate.split())
+              if len(tokens) < 3:
+                  return False
+              for existing, existing_day in entries:
+                  if existing_day != day:
+                      continue
+                  other = set(existing.split())
+                  shared = tokens & other
+                  if len(shared) < 3:
+                      continue
+                  overlap = len(shared) / min(len(tokens), len(other))
+                  ratio = SequenceMatcher(None, candidate, existing).ratio()
+                  if overlap >= 0.8 or (ratio >= 0.82 and overlap >= 0.65):
+                      return True
+              return False
+
           published_events = CalendarEvents()
           published_events.feed(Path('SC_Events.html').read_text(encoding='utf-8'))
           published = Links()
@@ -159,6 +178,8 @@ jobs:
                       status = 'expired'
                   elif (normalized_title(title), day) in published_events.entries:
                       status = 'existing_title_date_candidate'
+                  elif similar_title_same_day(title, day, published_events.entries):
+                      status = 'possible_existing_similar_title_date_review'
                   elif (p.netloc.lower().removeprefix('www.'), p.path.rstrip('/').lower()) in published.urls:
                       status = 'existing_link_candidate'
                   else:
