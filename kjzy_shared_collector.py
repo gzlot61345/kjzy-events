@@ -160,8 +160,30 @@ def inspect(item):
                 if (urlsplit(link).hostname == host and EVENT_LINK.search(urlsplit(link).path)
                         and link != base and link not in feeds and link not in detail_links):
                     detail_links.append(link)
+            # GMC uses descriptive event slugs (e.g. /la-santa-cecilia/)
+            # rather than /event/... paths. Discover them from its official
+            # season page; avoid navigation and category links.
+            if "gmc.sonoma.edu" in (host or ""):
+                try:
+                    season_url = urljoin(base, "/2026-2027-season/")
+                    _, _, season_body = fetch(season_url)
+                    season_page = Page()
+                    season_page.feed(season_body)
+                    excluded = ("/category/", "/all-events/", "/about",
+                                "/tickets", "/visit", "/support", "/contact",
+                                "/2026-2027-season/", "/wp-content/", "/feed")
+                    for href in season_page.links:
+                        link = urljoin(season_url, href).split("#", 1)[0]
+                        path = urlsplit(link).path.lower()
+                        if (urlsplit(link).hostname == host and
+                            path.count("/") == 2 and
+                            not any(path.startswith(prefix) for prefix in excluded) and
+                            link not in detail_links and link != base):
+                            detail_links.append(link)
+                except Exception as exc:
+                    row["errors"].append("GMC season links: " + str(exc)[:140])
             row["detail_urls_checked"] = []
-            for link in detail_links[:DETAIL_PAGES_PER_SOURCE]:
+            for link in detail_links[:(36 if "gmc.sonoma.edu" in (host or "") else DETAIL_PAGES_PER_SOURCE)]:
                 row["detail_urls_checked"].append(link)
                 try:
                     final, ctype, detail = fetch(link)
