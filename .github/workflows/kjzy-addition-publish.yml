@@ -3,6 +3,8 @@ name: KJZY nightly verified event additions
 on:
   schedule:
     - cron: '37 10 * * *'
+    # Backup early-morning opportunity; publishing is guarded against no-op changes.
+    - cron: '47 13 * * *'
   workflow_dispatch:
     inputs:
       publish:
