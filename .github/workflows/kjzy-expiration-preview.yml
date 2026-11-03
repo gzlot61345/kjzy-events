@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 9 * * *'
+    # Backup early-morning opportunity if GitHub delays the first scheduled run.
+    - cron: '13 13 * * *'
 
 permissions:
   contents: write
