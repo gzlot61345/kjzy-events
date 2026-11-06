@@ -3,8 +3,12 @@ name: KJZY nightly verified event additions
 on:
   schedule:
     - cron: '37 10 * * *'
-    # Backup early-morning opportunity; publishing is guarded against no-op changes.
-    - cron: '47 13 * * *'
+  # Start additions immediately after successful cleanup, rather than waiting for a separate schedule.
+  workflow_run:
+    workflows:
+      - KJZY daily expiration cleanup
+    types:
+      - completed
   workflow_dispatch:
     inputs:
       publish:
@@ -22,6 +26,7 @@ concurrency:
 
 jobs:
   verify-and-publish:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -56,10 +61,10 @@ jobs:
       - name: Check publication safeguards
         run: python kjzy_addition_publish.py
       - name: Apply additions when explicitly approved
-        if: ${{ github.event_name == 'schedule' || inputs.publish }}
+        if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_run' || inputs.publish }}
         run: python kjzy_addition_publish.py --publish
       - name: Commit verified calendar changes only
-        if: ${{ github.event_name == 'schedule' || inputs.publish }}
+        if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_run' || inputs.publish }}
         shell: bash
         run: |
           set -euo pipefail
