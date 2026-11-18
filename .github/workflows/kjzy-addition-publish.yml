@@ -1,8 +1,6 @@
 name: KJZY nightly verified event additions
 
 on:
-  schedule:
-    - cron: '37 10 * * *'
   # Start additions immediately after successful cleanup, rather than waiting for a separate schedule.
   workflow_run:
     workflows:
