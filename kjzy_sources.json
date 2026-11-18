@@ -1,0 +1,160 @@
+{
+  "description": "Canonical KJZY calendar source registry; historical refresh_summary.json is not configuration",
+  "sources": [
+    {
+      "name": "Green Music Center — Official Events",
+      "url": "https://gmc.sonoma.edu/all-events/",
+      "priority": true
+    },
+    {
+      "name": "Luther Burbank Center for the Arts — Official Events",
+      "url": "https://lutherburbankcenter.org/events/",
+      "priority": true
+    },
+    {
+      "name": "KJZY Community Calendar",
+      "url": "https://kjzy.com/events/community-calendar",
+      "priority": true
+    },
+    {
+      "name": "KJZY Community Calendar 2 / Sonoma Media Group",
+      "url": "https://www.sonomamediagroup.com/events/",
+      "priority": true
+    },
+    {
+      "name": "KJZY Local Events / Evvnt",
+      "url": "https://kjzy.com/local-events",
+      "priority": true
+    },
+    {
+      "name": "The Press Democrat Events / CitySpark",
+      "url": "https://www.pressdemocrat.com/events/#!/",
+      "priority": true
+    },
+    {
+      "name": "Press Democrat News Group / MyNorthBayTickets",
+      "url": "https://mynorthbaytickets.com/",
+      "priority": false
+    },
+    {
+      "name": "Happening in Sonoma County",
+      "url": "https://happeningsonomacounty.com/",
+      "priority": true
+    },
+    {
+      "name": "Sonoma County Tourism Events",
+      "url": "https://www.sonomacounty.com/events/",
+      "priority": false
+    },
+    {
+      "name": "Sonoma County Tourism — Annual Festivals",
+      "url": "https://www.sonomacounty.com/events/biggest-and-best-annual-sonoma-county-festivals/",
+      "priority": false
+    },
+    {
+      "name": "Sonoma County Fair & Event Center",
+      "url": "https://sonomacountyfair.com/pages/copy-of-calendar-of-events",
+      "priority": false
+    },
+    {
+      "name": "Visit Santa Rosa Events",
+      "url": "https://www.visitsantarosa.com/events/",
+      "priority": false
+    },
+    {
+      "name": "Sonoma.com Events",
+      "url": "https://www.sonoma.com/events/",
+      "priority": false
+    },
+    {
+      "name": "Stay Healdsburg Events",
+      "url": "https://stayhealdsburg.com/healdsburg-events/",
+      "priority": false
+    },
+    {
+      "name": "Eventbrite — Sonoma County searches",
+      "url": "https://www.eventbrite.com/",
+      "priority": false
+    },
+    {
+      "name": "Sonoma Valley Events",
+      "url": "https://www.sonomavalleyevents.com/",
+      "priority": false
+    },
+    {
+      "name": "Downtown Santa Rosa Events",
+      "url": "https://www.downtownsantarosa.org/events/calendar",
+      "priority": false
+    },
+    {
+      "name": "Sonoma County Regional Parks Calendar",
+      "url": "https://parks.sonomacounty.ca.gov/play/calendar",
+      "priority": false
+    },
+    {
+      "name": "NorCal Public Media Event Calendar",
+      "url": "https://norcalpublicmedia.org/arts-culture/event-calendar#!/",
+      "priority": true
+    },
+    {
+      "name": "Grapeline / GoGrape Sonoma Things To Do",
+      "url": "https://gogrape.com/sonoma/things-to-do/",
+      "priority": false
+    },
+    {
+      "name": "Petaluma Voice Local Event Calendar",
+      "url": "https://www.petalumavoice.org/local-event-calendar/",
+      "priority": false
+    },
+    {
+      "name": "City of Sebastopol Community Calendar",
+      "url": "https://www.cityofsebastopol.gov/our-community/community-calendar/",
+      "priority": false
+    },
+    {
+      "name": "Sebastopol Community Calendar",
+      "url": "https://sebastopolcalendar.com/",
+      "priority": false
+    },
+    {
+      "name": "Transcendence Theatre Company",
+      "url": "https://transcendencetheatre.org/shows/",
+      "priority": false
+    },
+    {
+      "name": "Wine Road",
+      "url": "https://www.wineroad.com/events/",
+      "priority": false
+    },
+    {
+      "name": "Boys & Girls Clubs of Sonoma-Marin — Healdsburg Crush",
+      "url": "https://www.bgcsonoma-marin.org/healdsburgcrush",
+      "priority": false
+    },
+    {
+      "name": "Robert Ferguson Observatory Events",
+      "url": "https://rfo.org/",
+      "priority": false
+    },
+    {
+      "name": "The California Theatre — Santa Rosa",
+      "url": "https://www.caltheatre.com/",
+      "priority": false
+    },
+    {
+      "name": "Petaluma Fairgrounds Events",
+      "url": "https://petalumafairgrounds.com/events",
+      "priority": false
+    },
+    {
+      "name": "City of Cotati Recreation Calendar",
+      "url": "https://cotati.recdesk.com/Community/Calendar",
+      "priority": false
+    },
+    {
+      "name": "Santa Rosa Symphony",
+      "url": "https://www.srsymphony.org/event-calendar/",
+      "priority": false
+    }
+  ]
+}
