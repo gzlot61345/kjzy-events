@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   workflow_run:
     workflows:
-      - KJZY daily expiration cleanup
       - KJZY nightly verified event additions
     types:
       - completed
