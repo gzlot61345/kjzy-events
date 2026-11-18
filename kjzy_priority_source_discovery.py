@@ -118,7 +118,7 @@ def discover(source):
     return row
 
 def main():
-    registry = json.loads(Path("refresh_summary.json").read_text(encoding="utf-8"))["source_coverage"]
+    registry = [{"source": item["name"], "url": item["url"]} for item in json.loads(Path("kjzy_sources.json").read_text(encoding="utf-8"))["sources"]]
     sources = [item for item in registry if item["source"] in PRIORITY]
     if len(sources) != 5:
         raise RuntimeError("Priority source registry changed; review configuration")
