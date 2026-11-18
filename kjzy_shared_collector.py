@@ -247,16 +247,10 @@ def inspect(item):
     return row
 
 def main():
-    registry = json.loads(Path("refresh_summary.json").read_text(encoding="utf-8"))["source_coverage"]
-    priority_path = Path("kjzy_priority_sources.txt")
-    if priority_path.exists():
-        priority_urls = [line.strip() for line in priority_path.read_text(encoding="utf-8").splitlines()
-                         if line.strip() and not line.lstrip().startswith("#")]
-        from urllib.parse import urldefrag
-        selected = {urldefrag(url)[0].rstrip("/") for url in priority_urls}
-        registry = [item for item in registry if urldefrag(item["url"])[0].rstrip("/") in selected]
-        if len(registry) != len(priority_urls):
-            raise RuntimeError("Priority source URLs do not all match the source registry")
+    registry = json.loads(Path("kjzy_sources.json").read_text(encoding="utf-8"))["sources"]
+    registry = [{"source": item["name"], "url": item["url"]} for item in registry if item["priority"]]
+    if len(registry) != 8:
+        raise RuntimeError("Expected eight priority sources in kjzy_sources.json")
     rows = [None] * len(registry)
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         futures = {pool.submit(inspect, item): i for i, item in enumerate(registry)}
