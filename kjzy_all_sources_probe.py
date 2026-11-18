@@ -1,4 +1,4 @@
-"""Read-only inventory of all sources recorded in the KJZY refresh summary.
+"""Read-only inventory of all sources in the canonical KJZY source registry.
 
 A successful HTTP response is NOT proof that an event inventory was retrieved.
 This script never changes SC_Events.html or refresh_summary.json.
@@ -131,8 +131,8 @@ def check(item):
     return result
 
 def main():
-    master = json.loads(Path("refresh_summary.json").read_text(encoding="utf-8"))
-    sources = master.get("source_coverage", [])
+    registry = json.loads(Path("kjzy_sources.json").read_text(encoding="utf-8"))["sources"]
+    sources = [{"source": item["name"], "url": item["url"]} for item in registry]
     if len(sources) != 31:
         raise RuntimeError("Expected 31 recorded sources; got %s. Check source registry." % len(sources))
     results = [None] * len(sources)
