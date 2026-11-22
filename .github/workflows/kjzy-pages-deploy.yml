@@ -23,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy_first.outputs.page_url || steps.deploy_second.outputs.page_url || steps.deploy_third.outputs.page_url }}
     steps:
       - name: Checkout latest published calendar
         uses: actions/checkout@v4
@@ -45,6 +45,31 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
-      - name: Deploy Pages
-        id: deployment
+      # The Pages artifact API can briefly report zero artifacts just after upload.
+      - name: Allow artifact metadata to become available
+        run: sleep 20
+      - name: Deploy Pages (first attempt)
+        id: deploy_first
+        continue-on-error: true
         uses: actions/deploy-pages@v4
+      - name: Wait before second attempt
+        if: ${{ steps.deploy_first.outcome == 'failure' }}
+        run: sleep 30
+      - name: Deploy Pages (second attempt)
+        id: deploy_second
+        if: ${{ steps.deploy_first.outcome == 'failure' }}
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Wait before third attempt
+        if: ${{ steps.deploy_first.outcome == 'failure' && steps.deploy_second.outcome == 'failure' }}
+        run: sleep 60
+      - name: Deploy Pages (third attempt)
+        id: deploy_third
+        if: ${{ steps.deploy_first.outcome == 'failure' && steps.deploy_second.outcome == 'failure' }}
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+      - name: Fail if all Pages deployments failed
+        if: ${{ steps.deploy_first.outcome == 'failure' && steps.deploy_second.outcome == 'failure' && steps.deploy_third.outcome == 'failure' }}
+        run: |
+          echo "::error::All three GitHub Pages deployment attempts failed."
+          exit 1
