@@ -5,6 +5,7 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import urlsplit
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
@@ -44,7 +45,7 @@ def check(row):
                 except ValueError:
                     event_date = ""
                 if similarity(name, row["title"]) >= 0.88 and event_date == row["date"]:
-                    matches.append({"title": name, "date": event_date, "venue": venue})
+                    matches.append({"title": name, "date": event_date, "venue": venue, "city": normalize(location.get("address", {}).get("addressLocality", "")) if isinstance(location, dict) and isinstance(location.get("address"), dict) else "", "time_pacific": dt.astimezone(PACIFIC).strftime("%I:%M %p").lstrip("0") if dt.tzinfo else ""})
         if len(matches) == 1:
             venue = normalize(matches[0]["venue"])
             expected = normalize(row["location"])
@@ -65,12 +66,70 @@ def check(row):
         result["error"] = str(error)[:150]
     return result
 
+def corroborate(row, result, sources):
+    """Find independent structured records and verify their direct event pages."""
+    original_host = (urlsplit(row["url"]).hostname or "").removeprefix("www.")
+    try:
+        expected = datetime.fromisoformat(row["start_date"].replace("Z", "+00:00"))
+    except (ValueError, KeyError):
+        return result
+    # Do not expand the geographic scope through fallback verification.
+    local_cities = {"santa rosa", "sebastopol", "petaluma", "rohnert park",
+                    "cotati", "windsor", "healdsburg", "cloverdale", "sonoma",
+                    "guerneville", "forestville", "occidental", "graton",
+                    "kenwood", "glen ellen", "bodega bay", "bodega",
+                    "penngrove", "monte rio", "rio nido", "cazadero",
+                    "jenner", "geyserville", "freestone",
+                    "valley ford", "vineburg", "boyes hot springs", "el verano",
+                    "fulton", "roseland", "larkfield", "mark west"}
+    checked = set()
+    for source in sources:
+        for event in source.get("sample_events", []):
+            url = str(event.get("url") or "")
+            host = (urlsplit(url).hostname or "").removeprefix("www.")
+            if not url.startswith("https://") or not host or host == original_host or url in checked:
+                continue
+            if similarity(event.get("title", ""), row["title"]) < 0.92:
+                continue
+            venue = normalize(event.get("location", ""))
+            target = normalize(row["location"])
+            if not venue or not target or similarity(venue, target) < 0.85:
+                continue
+            try:
+                start = datetime.fromisoformat(str(event.get("start_date", "")).replace("Z", "+00:00"))
+                if start.tzinfo is None or expected.tzinfo is None or start != expected:
+                    continue
+            except ValueError:
+                continue
+            checked.add(url)
+            if len(checked) > 5:
+                return result
+            alternate = check({**row, "url": url})
+            if alternate["status"] != "page_metadata_matches":
+                continue
+            page = alternate.get("page_event", {})
+            if page.get("city") not in local_cities or page.get("time_pacific") != row["time_pacific"]:
+                continue
+            result.update({"status": "cross_source_verified_pending_link_review",
+                           "verification_method": "independent_source",
+                           "alternate_url": alternate["final_url"],
+                           "alternate_source": source["source"],
+                           "page_event": page})
+            return result
+    return result
+
 def main():
     source = json.loads(Path("kjzy_addition_preview.json").read_text(encoding="utf-8"))
     candidates = [row for row in source["events"] if row["status"] == "needs_event_page_verification"]
     results = [None] * len(candidates)
     with ThreadPoolExecutor(max_workers=4) as pool:
         futures = {pool.submit(check, row): i for i, row in enumerate(candidates)}
+        for future in as_completed(futures):
+            results[futures[future]] = future.result()
+    sources = json.loads(Path("kjzy_all_sources_report.json").read_text(encoding="utf-8"))["sources"]
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        futures = {pool.submit(corroborate, candidates[i], row, sources): i
+                   for i, row in enumerate(results) if row["status"] != "page_metadata_matches"}
         for future in as_completed(futures):
             results[futures[future]] = future.result()
     counts = dict(Counter(row["status"] for row in results))
