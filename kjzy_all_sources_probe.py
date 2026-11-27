@@ -120,6 +120,59 @@ def check_once(item):
         result["note"] = (type(error).__name__ + ": " + str(error))[:200]
     return result
 
+# Read-only pilot: try the calendar-specific endpoints independently of
+# the generic homepage probe. Do not feed these records into publication yet.
+PILOT_ENDPOINTS = {
+    "Happening in Sonoma County": (
+        "https://happeningsonomacounty.com/wp-json/tribe/events/v1/events",
+        "https://happeningsonomacounty.com/calendar/",
+    ),
+    "Luther Burbank Center for the Arts — Official Events": (
+        "https://lutherburbankcenter.org/wp-json/tribe/events/v1/events",
+        "https://lutherburbankcenter.org/events/",
+        "https://tickets.lutherburbankcenter.org/events",
+    ),
+}
+
+def pilot(item):
+    from urllib.parse import urlencode
+    results = []
+    for endpoint in PILOT_ENDPOINTS.get(item["source"], ()):
+        record = {"endpoint": endpoint, "events": [], "read_only": True}
+        try:
+            api = "/wp-json/" in endpoint
+            url = endpoint
+            if api:
+                url += "?" + urlencode({"start_date": datetime.now(ZoneInfo("America/Los_Angeles")).strftime("%Y-%m-%d 00:00:00"), "per_page": 50})
+            req = Request(url, headers={"User-Agent": "Mozilla/5.0", "Accept": "application/json" if api else "text/html"})
+            with urlopen(req, timeout=12) as response:
+                record["http_status"] = response.status
+                raw = response.read(MAX_BYTES + 1)
+            if len(raw) > MAX_BYTES:
+                raise ValueError("Response exceeds inspection limit")
+            if api:
+                payload = json.loads(raw)
+                record["total_reported"] = payload.get("total")
+                record["total_pages"] = payload.get("total_pages")
+                for event in payload.get("events", []):
+                    venue = event.get("venue") or {}
+                    if not isinstance(venue, dict):
+                        venue = {}
+                    record["events"].append({"title": event.get("title"), "start_date": event.get("start_date"), "timezone": event.get("timezone"), "url": event.get("url"), "venue": venue.get("venue"), "city": venue.get("city")})
+            else:
+                parser = Markup()
+                parser.feed(raw.decode("utf-8", errors="replace"))
+                for doc in parser.documents:
+                    for event in events_in(doc):
+                        record["events"].append({"title": event.get("name"), "start_date": event.get("startDate"), "url": event.get("url"), "location": event.get("location")})
+            record["count"] = len(record["events"])
+            record["status"] = "pilot_candidates_found" if record["count"] else "pilot_no_structured_records"
+        except Exception as exc:
+            record["status"] = "pilot_failed"
+            record["error"] = str(exc)[:200]
+        results.append(record)
+    return results
+
 def check(item):
     attempts = []
     for attempt in range(2):
@@ -128,6 +181,10 @@ def check(item):
         if result.get('structured_event_count', 0) or result.get('status') not in ('request_failed', 'http_error', 'reachable_inventory_unverified'):
             break
     result['attempts'] = attempts
+    if item['source'] in PILOT_ENDPOINTS:
+        result['pilot_endpoints'] = pilot(item)
+        for record in result['pilot_endpoints']:
+            print('SOURCE PILOT:', item['source'], record['endpoint'], record['status'], 'records:', record.get('count', 0), 'error:', record.get('error', ''))
     return result
 
 def main():
